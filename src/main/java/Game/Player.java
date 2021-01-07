@@ -11,7 +11,7 @@ public class Player {
 
     private String name;
     private Account account;
-    private GUIPlayer GUIPlayer;
+    private GUI_Player GUIPlayer;
     private int getOutOfJailCard;
     private boolean isInJail;
     private int jailCounter;
@@ -19,14 +19,14 @@ public class Player {
     private int doubleCounter;
     private int playerPosition;
 
-    public Player(String name, GUIPlayer GUIPlayer, int playerPosition){
+    public Player(String name, int playerPosition){
         this.name = name;
         account = 30000;
-        this.GUIPlayer = GUIPlayer;
+        this.GUIPlayer = new GUI_Player(name, 30000);
         getOutOfJailCard = 0;
         isInJail = false;
         jailCounter = 0;
-        ownedFields.length = 0;
+        ownedFields;
         doubleCounter = 0;
         this.playerPosition = playerPosition;
     }
@@ -47,11 +47,11 @@ public class Player {
         this.account = account;
     }
 
-    public GUIPlayer getGUIPlayer() {
+    public GUI_Player getGUIPlayer() {
         return GUIPlayer;
     }
 
-    public void setGUIPlayer(GUIPlayer GUIPlayer) {
+    public void setGUIPlayer(GUI_Player GUIPlayer) {
         this.GUIPlayer = GUIPlayer;
     }
 
