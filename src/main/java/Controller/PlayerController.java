@@ -11,8 +11,8 @@ import gui_fields.GUI_Player;
 
 public class PlayerController {
 
-    private Player[] players;
-    private Player currentPlayer;
+    private static Player[] players;
+    private static Player currentPlayer;
     private int currentPlayerCounter = 0;
 
     public void nextPlayer(){
