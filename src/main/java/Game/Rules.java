@@ -2,6 +2,9 @@ package Game;
 
 import gui_fields.GUI_Player;
 
+/**
+ * @author Isak Risager
+ */
 public class Rules
 {
 
@@ -59,9 +62,14 @@ public class Rules
         }
     }
 
-    public void win(Player currentPlayer)
+    public boolean win(Player currentPlayer, PlayerController playerController)
     {
-
+        if(playerController.getPlayerArray().length == 1)
+        {
+            return true;
+        }
+        else
+            return false;
     }
 
 }
