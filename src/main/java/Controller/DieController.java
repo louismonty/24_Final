@@ -11,8 +11,8 @@ public class DieController {
     public DieController() {
     }
 
-    public static Die die1 = new Die();
-    public static Die die2 = new Die();
+    private Die die1 = new Die();
+    private Die die2 = new Die();
 
     public void diceRoll() {
         die1.roll();
@@ -24,9 +24,7 @@ public class DieController {
 
     }
 
-    public static boolean isDouble() {
+    public boolean isDouble() {
         return die1.getFaceValue() == die2.getFaceValue();
     }
-
-
 }
