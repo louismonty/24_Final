@@ -45,9 +45,18 @@ public class Rules
         }
     }
 
-    public void bankrupt(Player currentPlayer, GUIController guiController)
+    public void bankrupt(Player currentPlayer, PlayerController playerController, GUIController guiController)
     {
-
+        if(currentPlayer.getAccount() < 0)
+        {
+            for(int i = 0; i>= playerController.getPlayerArray().length; i++ )
+            {
+                if(playerController.getPlayerArray[i] != currentPlayer)
+                {
+                    playerController.setPlayerArray[i] = playerController.getPlayerArray[i];
+                }
+            }
+        }
     }
 
     public void win(Player currentPlayer)
