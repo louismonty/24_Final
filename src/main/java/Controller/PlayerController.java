@@ -27,7 +27,7 @@ public class PlayerController {
     public void createPlayer(Language language, GUIController guiController){
         int numberOfPlayers = guiController.integerInput(language.getText(0,0), 2, 6);
         players = new Player[numberOfPlayers];
-        for(int i = 0;i>numberOfPlayers;i++) {
+        for(int i = 0;i<numberOfPlayers;i++) {
             String playerName = guiController.stringInput(language.getText(0,0));
             players[i]= new Player(playerName);
         }
