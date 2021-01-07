@@ -9,87 +9,87 @@ import gui_fields.GUI_Player;
 
 public class Player {
 
-    private static String name;
-    private static Account account;
-    private static GUIPlayer GUIPlayer;
-    private static int getOutOfJailCard;
-    private static boolean isInJail;
-    private static int jailCounter;
-    private static Fields[] ownedFields;
-    private static int doubleCounter;
+    private String name;
+    private Account account;
+    private GUI_Player GUIPlayer;
+    private int getOutOfJailCard;
+    private boolean isInJail;
+    private int jailCounter;
+    private Fields[] ownedFields;
+    private int doubleCounter;
 
-    public Player(String name, Account account, GUIPlayer GUIPlayer){
-        Player.name = name;
-        Player.account = account;
-        Player.GUIPlayer = GUIPlayer;
+    public Player(String name, Account account, GUI_Player GUIPlayer){
+        this.name = name;
+        this.account = account;
+        this.GUIPlayer = GUIPlayer;
         getOutOfJailCard = 0;
         isInJail = false;
         jailCounter = 0;
-        ownedFields.length = 0;
+        ownedFields;
         doubleCounter = 0;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
-    public static void setName(String name) {
-        Player.name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static Account getAccount() {
+    public Account getAccount() {
         return account;
     }
 
-    public static void setAccount(Account account) {
-        Player.account = account;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 
-    public static GUIPlayer getGUIPlayer() {
+    public GUI_Player getGUIPlayer() {
         return GUIPlayer;
     }
 
-    public static void setGUIPlayer(GUIPlayer GUIPlayer) {
-        Player.GUIPlayer = GUIPlayer;
+    public void setGUIPlayer(GUI_Player GUIPlayer) {
+        this.GUIPlayer = GUIPlayer;
     }
 
-    public static int getGetOutOfJailCard() {
+    public int getGetOutOfJailCard() {
         return getOutOfJailCard;
     }
 
-    public static void setGetOutOfJailCard(int getOutOfJailCard) {
-        Player.getOutOfJailCard = getOutOfJailCard;
+    public void setGetOutOfJailCard(int getOutOfJailCard) {
+        this.getOutOfJailCard = getOutOfJailCard;
     }
 
-    public static boolean isIsInJail() {
+    public boolean isInJail() {
         return isInJail;
     }
 
-    public static void setIsInJail(boolean isInJail) {
-        Player.isInJail = isInJail;
+    public void setInJail(boolean inJail) {
+        isInJail = inJail;
     }
 
-    public static int getJailCounter() {
+    public int getJailCounter() {
         return jailCounter;
     }
 
-    public static void setJailCounter(int jailCounter) {
-        Player.jailCounter = jailCounter;
+    public void setJailCounter(int jailCounter) {
+        this.jailCounter = jailCounter;
     }
 
-    public static Fields[] getOwnedFields() {
+    public Fields[] getOwnedFields() {
         return ownedFields;
     }
 
-    public static void setOwnedFields(Fields[] ownedFields) {
-        Player.ownedFields = ownedFields;
+    public void setOwnedFields(Fields[] ownedFields) {
+        this.ownedFields = ownedFields;
     }
 
-    public static int getDoubleCounter() {
+    public int getDoubleCounter() {
         return doubleCounter;
     }
 
-    public static void setDoubleCounter(int doubleCounter) {
-        Player.doubleCounter = doubleCounter;
+    public void setDoubleCounter(int doubleCounter) {
+        this.doubleCounter = doubleCounter;
     }
 }
