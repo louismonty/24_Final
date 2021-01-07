@@ -27,4 +27,8 @@ public class DieController {
     public boolean isDouble() {
         return die1.getFaceValue() == die2.getFaceValue();
     }
+
+    public String toString(){
+
+    }
 }
