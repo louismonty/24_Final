@@ -17,6 +17,7 @@ public class Player {
     private int jailCounter;
     private Fields[] ownedFields;
     private int doubleCounter;
+
     private int playerPosition;
 
     public Player(String name, GUIPlayer GUIPlayer, int playerPosition){
@@ -93,5 +94,13 @@ public class Player {
 
     public void setDoubleCounter(int doubleCounter) {
         this.doubleCounter = doubleCounter;
+    }
+
+    public int getPlayerPosition() {
+        return playerPosition;
+    }
+
+    public void setPlayerPosition(int playerPosition) {
+        this.playerPosition = playerPosition;
     }
 }
