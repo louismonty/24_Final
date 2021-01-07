@@ -1,6 +1,7 @@
 package Controller;
 
 import Game.Player;
+import gui_fields.GUI_Player;
 
 /**
  * @author “Daniel”
@@ -9,29 +10,35 @@ import Game.Player;
 
 public class PlayerController {
 
-    private static Player[] players;
-    private static Player currentPlayer;
+    private Player[] players;
+    private Player currentPlayer;
 
-    public static void nextPlayer(){
+    public void nextPlayer(){
     }
 
-    public static void createPlayer(){
+    public void createPlayer(){
+        int numberOfPlayers;
+        for (int i = 6; i < numberOfPlayers ; i++) {
+            String playerName;
+            GUI_Player GUIPlayer;
+            Player addPlayer = new Player(playerName, GUIPlayer);
 
+        }
     }
 
-    public static Player getCurrentPlayer() {
+    public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
-    public static void setCurrentPlayer(Player currentPlayer) {
+    public void setCurrentPlayer(Player currentPlayer) {
         PlayerController.currentPlayer = currentPlayer;
     }
 
-    public static Player[] getPlayerArray() {
+    public Player[] getPlayerArray() {
         return players;
     }
 
-    public static void setPlayerArray(Player[] players) {
+    public void setPlayerArray(Player[] players) {
         PlayerController.players = players;
     }
 
