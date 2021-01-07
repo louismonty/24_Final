@@ -5,41 +5,58 @@ import Game.Player;
 import gui_fields.GUI_Player;
 
 /**
- * @author “Daniel”
+ * @author “Daniel Sutton”
  *
  */
 
 public class PlayerController {
 
-    private static Player[] players;
-    private static Player currentPlayer;
+    private Player[] players;
+    private Player currentPlayer;
     private int currentPlayerCounter = 0;
 
     public void nextPlayer(){
         currentPlayerCounter = (currentPlayerCounter + 1) % players.length;
     }
 
+    /**
+     * @author Louis
+     * @param language
+     * @param guiController
+     */
     public void createPlayer(Language language, GUIController guiController){
-        int numberOfPlayers = guiController.integerInput("Antal spiller?", 2, 6);
-        String playerName = guiController.stringInput("Hvad hedder du?");
-        Player player = new Player(playerName);
+        int numberOfPlayers = guiController.integerInput(language.getText(0,0), 2, 6);
+        players = new Player[numberOfPlayers];
+        for(int i = 0;i>numberOfPlayers;i++) {
+            String playerName = guiController.stringInput(language.getText(0,0));
+            players[i]= new Player(playerName);
+        }
 
     }
 
+    /**
+     * @author Louis
+     */
     public Player getCurrentPlayer() {
-        return currentPlayer;
+        return players[currentPlayerCounter];
     }
 
+    /**
+     * @author Louis
+     */
     public void setCurrentPlayer(Player currentPlayer) {
-        PlayerController.currentPlayer = currentPlayer;
+        this.currentPlayer = currentPlayer;
     }
 
     public Player[] getPlayerArray() {
         return players;
     }
 
+    /**
+     * @author Louis
+     */
     public void setPlayerArray(Player[] players) {
-        PlayerController.players = players;
+        this.players = players;
     }
 
 
