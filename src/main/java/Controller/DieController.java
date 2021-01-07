@@ -1,5 +1,6 @@
 package Controller;
 import Game.Die;
+import Game.Language;
 
 
 /**
@@ -24,11 +25,15 @@ public class DieController {
 
     }
 
+    /**
+     * @return boolean
+     * isDouble() method returns true if the two dices roll the same faceValue.
+     */
     public boolean isDouble() {
         return die1.getFaceValue() == die2.getFaceValue();
     }
 
-    public String toString(){
-
+    public String toString(Language language){
+        return language.getText(0,0);
     }
 }
