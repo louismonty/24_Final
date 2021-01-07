@@ -12,7 +12,7 @@ public class GUIController {
     public String buttons(String msg,String... buttons){
         return gui.getUserButtonPressed(msg,buttons);
     }
-    public void showMessege(String message){
+    public void showMessage(String message){
         gui.showMessage(message);
     }
     public void showDice(int dice){
