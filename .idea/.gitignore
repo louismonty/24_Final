@@ -1,7 +1,8 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-
+uiDesigner.xml
+vcs.xml
 # Compiled class file
 *.class
 
