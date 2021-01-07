@@ -1,5 +1,6 @@
 package Controller;
 
+import Game.Language;
 import Game.Player;
 import gui_fields.GUI_Player;
 
@@ -12,17 +13,17 @@ public class PlayerController {
 
     private Player[] players;
     private Player currentPlayer;
+    private int currentPlayerCounter = 0;
 
     public void nextPlayer(){
+        currentPlayerCounter = (currentPlayerCounter + 1) % players.length;
     }
 
-    public void createPlayer(){
-        int numberOfPlayers;
-        for (int i = 6; i < numberOfPlayers ; i++) {
-            String playerName;
-            Player addPlayer = new Player(playerName);
+    public void createPlayer(Language language, GUIController guiController){
+        int numberOfPlayers = guiController.integerInput("Antal spiller?", 2, 6);
+        String playerName = guiController.stringInput("Hvad hedder du?");
+        Player player = new Player(playerName);
 
-        }
     }
 
     public Player getCurrentPlayer() {
