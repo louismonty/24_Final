@@ -20,8 +20,7 @@ public class PlayerController {
         int numberOfPlayers;
         for (int i = 6; i < numberOfPlayers ; i++) {
             String playerName;
-            GUI_Player GUIPlayer;
-            Player addPlayer = new Player(playerName, GUIPlayer);
+            Player addPlayer = new Player(playerName);
 
         }
     }
