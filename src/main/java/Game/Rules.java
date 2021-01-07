@@ -1,5 +1,6 @@
 package Game;
 
+import Controller.*;
 import gui_fields.GUI_Player;
 
 /**
@@ -19,13 +20,14 @@ public class Rules
         return extraTurn;
     }
 
-    public void overStartRule(Player currentPlayer,GUIController guiController)
+    public void overStartRule(Player currentPlayer,GUIController guiController, Language language)
     {
         if(currentPlayer.getPlayerPosition()>=40)
         {
-            currentPlayer.getPlayerAccount().setBalance(currentPlayer.getPlayerAccount().getBalance()+4000);
+            currentPlayer.getAccount().setBalance(currentPlayer.getAccount().getBalance()+4000);
             currentPlayer.setPlayerPosition(currentPlayer.getPlayerPosition()-40);
-            //guiController.showMessege("du får 2 m for at komme over start");
+
+            guiController.showMessage(language.getText(0,0));
         }
     }
 
@@ -40,7 +42,7 @@ public class Rules
 
     public void threeDoubleGoToJail(Player currentPlayer)
     {
-        if(currentPlayer.getDoubleCounter == 3)
+        if(currentPlayer.getDoubleCounter() == 3)
         {
             currentPlayer.setPlayerPosition(10);
             currentPlayer.setDoubleCounter(0);
@@ -50,15 +52,17 @@ public class Rules
 
     public void bankrupt(Player currentPlayer, PlayerController playerController, GUIController guiController)
     {
-        if(currentPlayer.getAccount() < 0)
+        Player[] tempPlayerArray = new Player[playerController.getPlayerArray().length-2];
+        if(currentPlayer.getAccount().getBalance() < 0)
         {
             for(int i = 0; i>= playerController.getPlayerArray().length; i++ )
             {
-                if(playerController.getPlayerArray[i] != currentPlayer)
+                if(playerController.getPlayerArray()[i] != currentPlayer)
                 {
-                    playerController.setPlayerArray[i] = playerController.getPlayerArray[i];
+                    tempPlayerArray[i] = playerController.getPlayerArray()[i];
                 }
             }
+            playerController.setPlayerArray(tempPlayerArray);
         }
     }
 
