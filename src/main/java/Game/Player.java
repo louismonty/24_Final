@@ -19,7 +19,7 @@ public class Player {
     private int doubleCounter;
     private int playerPosition;
 
-    public Player(String name, int playerPosition){
+    public Player(String name){
         this.name = name;
         account = 30000;
         this.GUIPlayer = new GUI_Player(name, 30000);
@@ -28,7 +28,7 @@ public class Player {
         jailCounter = 0;
         ownedFields;
         doubleCounter = 0;
-        this.playerPosition = playerPosition;
+        playerPosition = 0;
     }
 
     public String getName() {
