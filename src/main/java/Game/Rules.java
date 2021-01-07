@@ -59,9 +59,12 @@ public class Rules
         }
     }
 
-    public void win(Player currentPlayer)
+    public boolean win(Player currentPlayer, PlayerController playerController)
     {
-
+        if(playerController.getPlayerArray().length == 1)
+            return true;
+        else
+            return false;
     }
 
 }
