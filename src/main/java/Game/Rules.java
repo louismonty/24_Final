@@ -16,7 +16,12 @@ public class Rules
 
     public void threeDoubleGoToJail(Player currentPlayer)
     {
-
+        if(currentPlayer.getDoubleCounter == 3)
+        {
+            currentPlayer.setPlayerPosition(10);
+            currentPlayer.setDoubleCounter(0);
+            currentPlayer.setInJail(true);
+        }
     }
 
     public void bankrupt(Player currentPlayer, GUIController guiController)
