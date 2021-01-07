@@ -17,16 +17,18 @@ public class Player {
     private int jailCounter;
     private Fields[] ownedFields;
     private int doubleCounter;
+    private int playerPosition;
 
-    public Player(String name, Account account, GUIPlayer GUIPlayer){
+    public Player(String name, GUIPlayer GUIPlayer, int playerPosition){
         this.name = name;
-        this.account = account;
+        account = 30000;
         this.GUIPlayer = GUIPlayer;
         getOutOfJailCard = 0;
         isInJail = false;
         jailCounter = 0;
         ownedFields.length = 0;
         doubleCounter = 0;
+        this.playerPosition = playerPosition;
     }
 
     public String getName() {
