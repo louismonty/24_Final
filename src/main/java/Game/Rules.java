@@ -14,5 +14,19 @@ public class Rules
         }
     }
 
+    public void threeDoubleGoToJail(Player currentPlayer)
+    {
+
+    }
+
+    public void bankrupt(Player currentPlayer, GUIController guiController)
+    {
+
+    }
+
+    public void win(Player currentPlayer)
+    {
+
+    }
 
 }
