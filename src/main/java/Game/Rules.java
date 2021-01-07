@@ -19,13 +19,13 @@ public class Rules
         return extraTurn;
     }
 
-    public void overStartRules(Player currentPlayer,GUIController guiController)
+    public void overStartRule(Player currentPlayer,GUIController guiController)
     {
         if(currentPlayer.getPlayerPosition()>=40)
         {
             currentPlayer.getPlayerAccount().setBalance(currentPlayer.getPlayerAccount().getBalance()+4000);
             currentPlayer.setPlayerPosition(currentPlayer.getPlayerPosition()-40);
-            guiController.showMessege("du får 2 m for at komme over start");
+            //guiController.showMessege("du får 2 m for at komme over start");
         }
     }
 
