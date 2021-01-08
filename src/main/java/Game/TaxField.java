@@ -16,7 +16,7 @@ public class TaxField extends Field {
     }
 
     public void payUnexpectedTax(Player currentPlayer, GUIController guiController){
-
+        currentPlayer.getAccount().subtractBalance(unexpectedTax);
     }
 
 }
