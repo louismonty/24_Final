@@ -1,7 +1,9 @@
 package Game;
 
 import Controller.GUIController;
+import Controller.PlayerController;
 import gui_fields.GUI_Field;
+import Controller.GUIController;
 
 import java.awt.*;
 
@@ -31,7 +33,42 @@ public abstract class BuyableField extends Field {
         this.pawnValue = pawnValue;
         this.group = group;
     }
+    public void buyOrAuctionMenu(GUIController guiController, Language language, PlayerController playerController){
+        if(guiController.buttons(language.getText(0,0), language.getLine(0)) == language.getText(0,0)){
+            buy(playerController.getCurrentPlayer());
+        }
+        else{
+            auction(language,guiController,playerController.getPlayerArray());
+        }
+    }
 
-    public abstract void buy(Player player);
-    public abstract void auction(GUIController guiController, Player[] players);
+    public void buy(Player player) {
+        owner = player.getPlayerID;
+        player.subtractBalance(price);
+    }
+
+    public void auction(Language language,GUIController guiController, Player[] players) {
+        int min = 0;
+        int i = 0;
+        boolean onGoingAuction = true;
+        int amountOfPlayer = players.length;
+
+            while(onGoingAuction ==true){
+                i = i + 1 % amountOfPlayer;
+                if(players[i]==null) {
+                    String  playerChose = guiController.buttons(language.getText(0,0),language.getLine(1));
+                    if (playerChose == language.getText(0, 0)) {
+                        if (players[i] == null) {
+                            min = guiController.integerInput(language.getText(0, 0) + players[i].getName(), min, 100000);
+                            Player lastPlayer = players[i];
+                            if(lastPlayer == players[i]){
+                                break;
+                            }
+                        }
+                    } else {
+                        players[i] = null;
+                    }
+                }
+            }
+    }
 }
