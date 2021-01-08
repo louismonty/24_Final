@@ -43,7 +43,7 @@ public abstract class BuyableField extends Field {
     }
 
     public void buy(Player player) {
-        owner = player.getPlayerID;
+        owner = player.getPlayerID();
         player.subtractBalance(price);
     }
 
