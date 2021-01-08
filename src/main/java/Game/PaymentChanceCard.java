@@ -27,55 +27,55 @@ public class PaymentChanceCard extends ChanceCard
     public void redLightCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().subtractBalance(1000);
+        currentPlayer.subtractBalance(1000);
     }
 
     public void carWashCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().subtractBalance(300);
+        currentPlayer.subtractBalance(300);
     }
 
     public void beerCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().subtractBalance(200);
+        currentPlayer.subtractBalance(200);
     }
 
     public void carRepairCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().subtractBalance(3000);
+        currentPlayer.subtractBalance(3000);
     }
 
     public void newTiresCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().subtractBalance(1000);
+        currentPlayer.subtractBalance(1000);
     }
 
     public void parkingTicketCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().subtractBalance(200);
+        currentPlayer.subtractBalance(200);
     }
 
     public void carInsuranceCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().subtractBalance(1000);
+        currentPlayer.subtractBalance(1000);
     }
 
     public void cigaretteCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().subtractBalance(200);
+        currentPlayer.subtractBalance(200);
     }
 
     public void dentistCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().subtractBalance(2000);
+        currentPlayer.subtractBalance(2000);
     }
 
 }
