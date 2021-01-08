@@ -18,8 +18,8 @@ public abstract class Field {
     protected int positionID;
     protected Color colorID;
     protected String name;
-
     protected GUI_Field guiField;
+
     public Field(int positionID, Color colorID, String name, GUI_Field guiField){
         this.positionID = positionID;
         this.colorID = colorID;
