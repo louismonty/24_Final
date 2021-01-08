@@ -31,4 +31,12 @@ public class IncomeChanceCard extends ChanceCard
         guiController.showChanceCard(language.getText(0,0));
         currentPlayer.getAccount().addBalance(3000);
     }
+
+    public void gamblingCard(Player currentPlayer, GUIController guiController, Language language)
+    {
+        guiController.showChanceCard(language.getText(0,0));
+        currentPlayer.getAccount().addBalance(1000);
+    }
+
+
 }
