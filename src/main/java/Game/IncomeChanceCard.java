@@ -61,4 +61,10 @@ public class IncomeChanceCard extends ChanceCard
         guiController.showChanceCard(language.getText(0,0));
         currentPlayer.getAccount().addBalance(200);
     }
+
+    public void matadorGrantCard()
+    {
+
+    }
+
 }
