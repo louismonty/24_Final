@@ -23,8 +23,14 @@ public class TaxField extends Field {
     }
 
     public void payIncomeTax(Player currentPlayer, GUIController guiController){
-        if()
-        currentPlayer.getAccount().subtractBalance(incomeTax);
+        String valg = guiController.buttons("Vil du betale 4000 eller 10%?", "4000", "10%");
+
+        if(valg.equals("4000")) {
+            currentPlayer.getAccount().subtractBalance(incomeTax);
+        }
+        else if(valg.equals("10%")){
+            currentPlayer.getAccount().subtractBalance(currentPlayer.getAccount().getBalance() * taxRate);
+        }
     }
 
     public void payUnexpectedTax(Player currentPlayer, GUIController guiController){
