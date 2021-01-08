@@ -23,7 +23,8 @@ public class TaxField extends Field {
     }
 
     public void payIncomeTax(Player currentPlayer){
-
+        if()
+        currentPlayer.getAccount().subtractBalance(incomeTax);
     }
 
     public void payUnexpectedTax(Player currentPlayer, GUIController guiController){
