@@ -34,9 +34,6 @@ public class GUIController {
         }
         return input;
     }
-    public void addPlayer(GUI_Player player){
-        gui.addPlayer(player);
-    }
     public String stringInput(String text){
         return gui.getUserString(text);
     }
