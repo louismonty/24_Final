@@ -31,13 +31,12 @@ public class TaxField extends Field {
         currentPlayer.getAccount().subtractBalance(unexpectedTax);
     }
 
-    public void landOnField(PlayerController playerController, GUIController guiController, Player currentPlayer){
-        if(currentPlayer.getPlayerPosition() == 5){
+    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController) {
+        if(playerController.getCurrentPlayer().getPlayerPosition() == 5){
             payIncomeTax();
         }
-        else if(currentPlayer.getPlayerPosition() == 39){
+        else if(playerController.getCurrentPlayer().getPlayerPosition() == 39){
             payUnexpectedTax();
         }
     }
-
 }
