@@ -78,4 +78,15 @@ public class IncomeChanceCard extends ChanceCard
         }
     }
 
+    public void potluckCard(PlayerController playerController, GUIController guiController, Language language)
+    {
+        guiController.showChanceCard(language.getText(0,0));
+        for(int i = 0; i < playerController.getPlayerArray().length; i++)
+        {
+            playerController.getCurrentPlayer().getAccount().addBalance(500);
+            playerController.getPlayerArray()[i].getAccount().subtractBalance(500);
+        }
+    }
+
+
 }
