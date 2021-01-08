@@ -28,15 +28,17 @@ public class TaxField extends Field {
      * @return void
      * Player chooses to subtract 4000 or 10% from all his/her belongings.
      */
-    public void payIncomeTax(Player currentPlayer, GUIController guiController){
-        String valg = guiController.buttons("Vil du betale 4000 eller 10%?", "4000", "10%");
+    public void payIncomeTax(Player currentPlayer, GUIController guiController, Language language){
+        String valgmulighed = guiController.buttons(language.getText(0,0), language.getText(1,1), language.getText(1,1));
 
-        if(valg.equals("4000")) {
+        if(valgmulighed.equals("4000")) {
             currentPlayer.getAccount().subtractBalance(incomeTax);
         }
+        /*
         else if(valg.equals("10%")){
             currentPlayer.getAccount().subtractBalance((currentPlayer.getAccount().getBalance() * taxRate));
         }
+        */
     }
 
     /**
@@ -62,7 +64,7 @@ public class TaxField extends Field {
 
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController) {
         if(playerController.getCurrentPlayer().getPlayerPosition() == incomeTaxField){
-            payIncomeTax(playerController.getCurrentPlayer(), guiController);
+            payIncomeTax(playerController.getCurrentPlayer(), guiController, language);
         }
         else if(playerController.getCurrentPlayer().getPlayerPosition() == unexpectedTaxField){
             payUnexpectedTax(playerController.getCurrentPlayer(), guiController);
