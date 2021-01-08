@@ -27,10 +27,9 @@ public abstract class Field {
         this.guiField = guiField;
     }
 
-    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController
-            playerController, GUIController guiController){
+    public abstract void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController
+            playerController, GUIController guiController);
 
-    }
     public String getName() {
         return name;
     }
