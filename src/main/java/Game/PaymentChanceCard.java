@@ -48,4 +48,10 @@ public class PaymentChanceCard extends ChanceCard
         currentPlayer.getAccount().subtractBalance(3000);
     }
 
+    public void newTiresCard(Player currentPlayer, GUIController guiController, Language language)
+    {
+        guiController.showChanceCard(language.getText(0,0));
+        currentPlayer.getAccount().subtractBalance(1000);
+    }
+
 }
