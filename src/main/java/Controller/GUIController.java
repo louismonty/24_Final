@@ -18,6 +18,12 @@ public class GUIController {
     public void showDice(int dice){
         gui.setDie(dice);
     }
+    public void showDice(int faceValueDice1,int faceValueDice2){
+        gui.setDice(faceValueDice1,faceValueDice2);
+    }
+    public void showDice(int faceValueDice1,int rotation1,int faceValueDice2,int rotation2){
+        gui.setDice(faceValueDice1,rotation1,faceValueDice2,rotation2);
+    }
     public int integerInput(String text,int min, int max){
         int input;
         while(true){
