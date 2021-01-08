@@ -1,6 +1,7 @@
 package Game;
 
 import Controller.GUIController;
+import Controller.PlayerController;
 
 /**
  * @author Isak Risager
@@ -65,6 +66,16 @@ public class IncomeChanceCard extends ChanceCard
     public void matadorGrantCard()
     {
 
+    }
+
+    public void birthdayCard(PlayerController playerController, GUIController guiController, Language language)
+    {
+        guiController.showChanceCard(language.getText(0,0));
+        for(int i = 0; i < playerController.getPlayerArray().length; i++)
+        {
+            playerController.getCurrentPlayer().getAccount().addBalance(200);
+            playerController.getPlayerArray()[i].getAccount().subtractBalance(200);
+        }
     }
 
 }
