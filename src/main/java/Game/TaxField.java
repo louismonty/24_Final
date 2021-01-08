@@ -37,6 +37,15 @@ public class TaxField extends Field {
         currentPlayer.getAccount().subtractBalance(unexpectedTax);
     }
 
+    /**
+     *
+     * @param gameBoard
+     * @param chanceCardController
+     * @param playerController
+     * @param guiController
+     * In landOnField payIncomeTax is executed if a player lands on incomeTaxField. Otherwise, payUnexpectedTax is executed
+     * if a player lands on unexpectedTaxField.
+     */
 
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController) {
         if(playerController.getCurrentPlayer().getPlayerPosition() == incomeTaxField){
