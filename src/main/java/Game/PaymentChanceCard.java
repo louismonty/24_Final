@@ -29,4 +29,10 @@ public class PaymentChanceCard extends ChanceCard
         guiController.showChanceCard(language.getText(0,0));
         currentPlayer.getAccount().subtractBalance(1000);
     }
+
+    public void carWashCard(Player currentPlayer, GUIController guiController, Language language)
+    {
+        guiController.showChanceCard(language.getText(0,0));
+        currentPlayer.getAccount().subtractBalance(300);
+    }
 }
