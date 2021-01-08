@@ -1,0 +1,32 @@
+package Game;
+
+import Controller.GUIController;
+
+/**
+ * @Author Isak Risager
+ */
+public class PaymentChanceCard extends ChanceCard
+{
+    private int chanceCardID;
+
+    public PaymentChanceCard(int chanceCardID)
+    {
+        super(chanceCardID);
+    }
+
+    public void oilPricesCard(Player currentPlayer)
+    {
+
+    }
+
+    public void propertyTaxCard()
+    {
+
+    }
+
+    public void redLightCard(Player currentPlayer, GUIController guiController, Language language)
+    {
+        guiController.showChanceCard(language.getText(0,0));
+        currentPlayer.getAccount().subtractBalance(1000);
+    }
+}
