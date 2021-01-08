@@ -3,6 +3,7 @@ package Game;
 import java.awt.color.*;
 import Controller.*;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Player;
 
 /**
  * @author Lucas
@@ -25,6 +26,15 @@ public class TaxField extends Field {
 
     public void payUnexpectedTax(Player currentPlayer, GUIController guiController){
         currentPlayer.getAccount().subtractBalance(unexpectedTax);
+    }
+
+    public void landOnField(Gameboard gameboard,  ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Player currentPlayer){
+        if(currentPlayer.getPlayerPosition() == 5){
+            payIncomeTax();
+        }
+        else if(currentPlayer.getPlayerPosition() == 39){
+            payUnexpectedTax();
+        }
     }
 
 }
