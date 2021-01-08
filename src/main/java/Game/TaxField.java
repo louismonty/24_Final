@@ -29,7 +29,7 @@ public class TaxField extends Field {
             currentPlayer.getAccount().subtractBalance(incomeTax);
         }
         else if(valg.equals("10%")){
-            currentPlayer.getAccount().subtractBalance(currentPlayer.getAccount().getBalance() * taxRate);
+            currentPlayer.getAccount().subtractBalance((currentPlayer.getAccount().getBalance() * taxRate));
         }
     }
 
