@@ -72,4 +72,10 @@ public class PaymentChanceCard extends ChanceCard
         currentPlayer.getAccount().subtractBalance(200);
     }
 
+    public void dentistCard(Player currentPlayer, GUIController guiController, Language language)
+    {
+        guiController.showChanceCard(language.getText(0,0));
+        currentPlayer.getAccount().subtractBalance(2000);
+    }
+
 }
