@@ -5,6 +5,7 @@ import java.awt.color.*;
 import Controller.*;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
+import Game.Language;
 
 /**
  * @author Lucas
@@ -67,7 +68,7 @@ public class TaxField extends Field {
             payIncomeTax(playerController.getCurrentPlayer(), guiController, language);
         }
         else if(playerController.getCurrentPlayer().getPlayerPosition() == unexpectedTaxField){
-            payUnexpectedTax(playerController.getCurrentPlayer(), guiController);
+            payUnexpectedTax(playerController.getCurrentPlayer(), guiController, language);
         }
     }
 }
