@@ -19,4 +19,10 @@ public class IncomeChanceCard extends ChanceCard
         guiController.showChanceCard(language.getText(0,0));
         currentPlayer.getAccount().addBalance(500);
     }
+
+    public void stockDividendsCard(Player currentPlayer, GUIController guiController, Language language)
+    {
+        guiController.showChanceCard(language.getText(0,0));
+        currentPlayer.getAccount().addBalance(1000);
+    }
 }
