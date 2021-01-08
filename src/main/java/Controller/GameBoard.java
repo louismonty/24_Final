@@ -16,7 +16,8 @@ import static java.awt.Color.*;
  */
 
 public class GameBoard {
-    private Field gameBoard[] = new Field[39];
+
+    private Field[] gameBoard = new Field[39];
 
     public GameBoard(Language language){
         gameBoard[0] = new StartField(0, RED, language.getText(0,0), new GUI_Start(language.getText
@@ -100,5 +101,8 @@ public class GameBoard {
         gameBoard[39] = new PropertyField(39, MAGENTA, language.getText(0,0), new GUI_Start(language.getText
                 (0,0), language.getText(0,0), language.getText(0,0), cyan, BLACK));
 
+    }
+    public Field[] getGameBoard() {
+        return gameBoard;
     }
 }
