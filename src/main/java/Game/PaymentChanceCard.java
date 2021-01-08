@@ -54,4 +54,10 @@ public class PaymentChanceCard extends ChanceCard
         currentPlayer.getAccount().subtractBalance(1000);
     }
 
+    public void parkingTicketCard(Player currentPlayer, GUIController guiController, Language language)
+    {
+        guiController.showChanceCard(language.getText(0,0));
+        currentPlayer.getAccount().subtractBalance(200);
+    }
+
 }
