@@ -1,6 +1,7 @@
 package Game;
 
 import gui_fields.GUI_Player;
+import org.graalvm.compiler.core.common.Fields;
 
 /**
  * @author “Daniel”
@@ -15,9 +16,9 @@ public class Player {
     private int getOutOfJailCard;
     private boolean isInJail;
     private int jailCounter;
-    private Fields[] ownedFields;
-    private int doubleCounter;
 
+    private int doubleCounter;
+    private Fields[] ownedFields;
     private int playerPosition;
 
     public Player(String name){
@@ -27,9 +28,41 @@ public class Player {
         getOutOfJailCard = 0;
         isInJail = false;
         jailCounter = 0;
-        ownedFields;
+        ownedFields = new Fields[0];
         doubleCounter = 0;
         playerPosition = 0;
+    }
+
+    /**
+     * @author Louis
+     * @param newField
+     */
+    public void addField(Fields newField){
+            int lengtharr = ownedFields.length;
+            Fields[] temparr = new Fields[lengtharr + 1];
+            for (int i = 0; i < ownedFields.length; i++) {
+                temparr[i] = ownedFields[i];
+            }
+            temparr[lengtharr] = newField;
+            ownedFields = temparr;
+    }
+
+    /**
+     * @author Louis
+     * @param ball
+     */
+    public void addBalance(int ball){
+        GUIPlayer.setBalance(account.getBalance()+ball);
+        account.addBalance(ball);
+    }
+
+    /**
+     * @author Louis
+     * @param ball
+     */
+    public void subtractBalance(int ball){
+        GUIPlayer.setBalance(account.getBalance()-ball);
+        account.subtractBalance(ball);
     }
 
     public String getName() {
