@@ -68,7 +68,7 @@ public class Player {
     }
 
     public int getPlayerID(){
-        return playerID
+        return playerID;
     }
 
     public String getName() {
