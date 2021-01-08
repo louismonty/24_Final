@@ -1,5 +1,8 @@
 package Game;
 
+/**
+ * @Author Isak Risager
+ */
 public abstract class ChanceCard
 {
     protected int chanceCardID;
