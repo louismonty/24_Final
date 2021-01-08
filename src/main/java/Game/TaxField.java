@@ -13,11 +13,13 @@ import gui_fields.GUI_Player;
 public class TaxField extends Field {
     private int incomeTax = 4000;
     private int unexpectedTax = 2000;
+    private double taxRate = 0.1;
 
     public TaxField(int positionID, String name, GUI_Field guiField){
         super(positionID, name, guiField);
         this.incomeTax = incomeTax;
         this.unexpectedTax = unexpectedTax;
+        this.taxRate = taxRate;
     }
 
     public void payIncomeTax(Player currentPlayer){
@@ -28,7 +30,7 @@ public class TaxField extends Field {
         currentPlayer.getAccount().subtractBalance(unexpectedTax);
     }
 
-    public void landOnField(Gameboard gameboard,  ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Player currentPlayer){
+    public void landOnField(PlayerController playerController, GUIController guiController, Player currentPlayer){
         if(currentPlayer.getPlayerPosition() == 5){
             payIncomeTax();
         }
