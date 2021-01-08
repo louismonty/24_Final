@@ -36,7 +36,7 @@ public class TaxField extends Field {
             currentPlayer.getAccount().subtractBalance(incomeTax);
         }
         /*
-        else if(valg.equals("10%")){
+        else if(valgmulighed.equals("10%")){
             currentPlayer.getAccount().subtractBalance((currentPlayer.getAccount().getBalance() * taxRate));
         }
         */
@@ -48,7 +48,7 @@ public class TaxField extends Field {
      * @return void
      * Unexpected tax gets subtracted from the current player's account.
      */
-    public void payUnexpectedTax(Player currentPlayer, GUIController guiController){
+    public void payUnexpectedTax(Player currentPlayer, GUIController guiController, Language language){
         currentPlayer.getAccount().subtractBalance(unexpectedTax);
     }
 
@@ -63,7 +63,7 @@ public class TaxField extends Field {
      * if a player lands on unexpectedTaxField.
      */
 
-    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController) {
+    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language) {
         if(playerController.getCurrentPlayer().getPlayerPosition() == incomeTaxField){
             payIncomeTax(playerController.getCurrentPlayer(), guiController, language);
         }
