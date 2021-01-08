@@ -38,5 +38,9 @@ public class IncomeChanceCard extends ChanceCard
         currentPlayer.getAccount().addBalance(1000);
     }
 
-
+    public void salaryIncreaseCard(Player currentPlayer, GUIController guiController, Language language)
+    {
+        guiController.showChanceCard(language.getText(0,0));
+        currentPlayer.getAccount().addBalance(1000);
+    }
 }
