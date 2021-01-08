@@ -22,6 +22,12 @@ public class TaxField extends Field {
         super(positionID, color, name, guiField);
     }
 
+    /**
+     * @param currentPlayer
+     * @param guiController
+     * @return void
+     * Player chooses to subtract 4000 or 10% from all his/her belongings.
+     */
     public void payIncomeTax(Player currentPlayer, GUIController guiController){
         String valg = guiController.buttons("Vil du betale 4000 eller 10%?", "4000", "10%");
 
@@ -33,6 +39,12 @@ public class TaxField extends Field {
         }
     }
 
+    /**
+     * @param currentPlayer
+     * @param guiController
+     * @return void
+     * Unexpected tax gets subtracted from the current player's account.
+     */
     public void payUnexpectedTax(Player currentPlayer, GUIController guiController){
         currentPlayer.getAccount().subtractBalance(unexpectedTax);
     }
@@ -43,6 +55,7 @@ public class TaxField extends Field {
      * @param chanceCardController
      * @param playerController
      * @param guiController
+     * @return void
      * In landOnField payIncomeTax is executed if a player lands on incomeTaxField. Otherwise, payUnexpectedTax is executed
      * if a player lands on unexpectedTaxField.
      */
