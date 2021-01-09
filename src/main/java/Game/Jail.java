@@ -32,7 +32,6 @@ public class Jail {
     public void rollDiceToGetOut(DieController dieController, Player currentPlayer,
                                  Language language, GUIController guiController){
         dieController.diceRoll();
-
         if(dieController.isDouble()){
             currentPlayer.setInJail(false);
             guiController.showMessage(language.getText(0,0)); // print "You are out of jail."
