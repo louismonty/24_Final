@@ -6,6 +6,7 @@ import Controller.*;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import Game.Language;
+import Game.GameBoard;
 
 /**
  * @author Lucas
@@ -29,17 +30,27 @@ public class TaxField extends Field {
      * @return void
      * Player chooses to subtract 4000 or 10% from all his/her belongings.
      */
-    public void payIncomeTax(Player currentPlayer, GUIController guiController, Language language){
-        String valgmulighed = guiController.buttons(language.getText(0,0), language.getText(1,1), language.getText(1,1));
+    public void payIncomeTax(Player currentPlayer, GUIController guiController, Language language, GameBoard gameboard){
+        String buttons = guiController.buttons(language.getText(0,0), language.getText(1,1), language.getText(1,1));
 
-        if(valgmulighed.equals("4000")) {
+        if(buttons.equals(language.getText(0,0))) {
             currentPlayer.getAccount().subtractBalance(incomeTax);
         }
-        /*
-        else if(valgmulighed.equals("10%")){
-            currentPlayer.getAccount().subtractBalance((currentPlayer.getAccount().getBalance() * taxRate));
+        else if(buttons.equals(language.getText(0,0))) {
+            int totalAmount = currentPlayer.getAccount().getBalance();
+            guiController.showChanceCard(language.getText(0, 0));
+            for (int i = 0; i < gameboard.getGameBoard().length; i++) {
+                if (gameboard.getGameBoard()[i] instanceof BuyableField) {
+                    totalAmount += ((BuyableField) gameboard.getGameBoard()[i]).getPrice();
+                    if (gameboard.getGameBoard()[i] instanceof PropertyField) {
+                        if (((PropertyField) gameboard.getGameBoard()[i]).getHouses() > 0) {
+                            totalAmount += (((PropertyField) gameboard.getGameBoard()[i]).getHouses() * ((PropertyField) gameboard.getGameBoard()[i]).getHousePrice());
+                        }
+                    }
+                }
+            }
+            currentPlayer.subtractBalance(totalAmount);
         }
-        */
     }
 
     /**
@@ -65,7 +76,7 @@ public class TaxField extends Field {
 
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language) {
         if(playerController.getCurrentPlayer().getPlayerPosition() == incomeTaxField){
-            payIncomeTax(playerController.getCurrentPlayer(), guiController, language);
+            payIncomeTax(playerController.getCurrentPlayer(), guiController, language, gameBoard);
         }
         else if(playerController.getCurrentPlayer().getPlayerPosition() == unexpectedTaxField){
             payUnexpectedTax(playerController.getCurrentPlayer(), guiController, language);
