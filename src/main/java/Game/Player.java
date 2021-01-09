@@ -25,7 +25,7 @@ public class Player {
 
     public Player(String name,int playerID){
         this.name = name;
-        account.setBalance(30000);
+        account = new Account();
         this.GUIPlayer = new GUI_Player(name, 30000);
         getOutOfJailCard = 0;
         isInJail = false;
