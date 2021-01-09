@@ -47,7 +47,10 @@ public abstract class BuyableField extends Field {
                 auction(language, guiController, playerController.getPlayerArray());
             }
         }else{
-            payRent();
+            int fieldRent = payRent(playerController,gameBoard);
+            playerController.getCurrentPlayer().subtractBalance(fieldRent);
+            BuyableField fieldLandedOn = (BuyableField)gameBoard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()];
+            playerController.getPlayerArray()[fieldLandedOn.getOwner()].addBalance(fieldRent);
         }
 
     }
@@ -81,5 +84,5 @@ public abstract class BuyableField extends Field {
                 }
             }
     }
-    public abstract void payRent();
+    public abstract int payRent(PlayerController playerController,GameBoard gameBoard);
 }
