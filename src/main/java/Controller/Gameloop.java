@@ -21,7 +21,7 @@ public class Gameloop
         guiController.createGUIBoard(gameboard.getGuiGamebord());
         playerController.createPlayer(language, guiController);
         chanceCardController.shuffleChanceCardDeck();
-        playerController.setCurrentPlayer(playerController.getPlayerArray()[guiController.integerInput(language.getText(0,0),1,playerController.getPlayerArray().length)]);
+        playerController.setCurrentPlayer(playerController.getPlayerArray()[guiController.integerInput(language.getText(0,0),1,playerController.getPlayerArray().length)-1]);
 
         while(isGameRunning)
         {
