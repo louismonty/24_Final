@@ -49,7 +49,9 @@ public class TaxField extends Field {
                     }
                 }
             }
-            currentPlayer.subtractBalance(Math.round(totalAmount * taxRate));
+            int taxPaymentDue = Math.round(totalAmount * taxRate);
+            guiController.showMessage(language.getText(0,0)); // "Du skal betale 10% af dine penge"
+            currentPlayer.subtractBalance(taxPaymentDue);
         }
     }
 
