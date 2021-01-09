@@ -14,10 +14,10 @@ public class Jail {
      * When executed, the currentPlayer gets bail subtracted from their account.
      */
 
-    public void payBail(Player currentPlayer, GUIController guiController){
+    public void payBail(Player currentPlayer, GUIController guiController, Language language){
         currentPlayer.getAccount().subtractBalance(bail);
         currentPlayer.setInJail(false);
-
+        guiController.showMessage(language.getText(0,0)); // "You are out of jail."
     }
 
     /**
@@ -35,7 +35,7 @@ public class Jail {
 
         if(dieController.isDouble()){
             currentPlayer.setInJail(false);
-            language.getText(0,0); // print "You are out of jail."
+            guiController.showMessage(language.getText(0,0)); // print "You are out of jail."
         }
     }
 
@@ -50,7 +50,7 @@ public class Jail {
     public void useGetOutOfJailCard(Player currentPlayer, Language language, GUIController guiController){
         currentPlayer.setInJail(false);
         currentPlayer.setGetOutOfJailCard(currentPlayer.getGetOutOfJailCard() - 1);
-        language.getText(0,0); //print "You are out of jail."
+        guiController.showMessage(language.getText(0,0)); //print "You are out of jail."
     }
 
     /**
@@ -69,23 +69,23 @@ public class Jail {
             String valgmulighed = guiController.buttons(language.getText(0, 0), language.getText(0, 0),
                     language.getText(0, 0), language.getText(0, 0)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice", "4: use Jail Card".
             if (valgmulighed.equals(language.getText(0, 0))) {
-                payBail(currentPlayer);
+                payBail(currentPlayer, guiController);
             }
             else if (valgmulighed.equals(language.getText(0, 1))) {
-                rollDiceToGetOut(dieController, currentPlayer, language);
+                rollDiceToGetOut(dieController, currentPlayer, language, guiController);
             }
             else if (valgmulighed.equals(language.getText(0, 2))) {
-                useGetOutOfJailCard(currentPlayer, language);
+                useGetOutOfJailCard(currentPlayer, language, guiController);
             }
         }
         else if (currentPlayer.getGetOutOfJailCard() == 0){
             String valgmulighed = guiController.buttons(language.getText(0, 0), language.getText(0, 0),
                     language.getText(0, 0), language.getText(0, 0)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice"
             if (valgmulighed.equals(language.getText(0, 0))) {
-                payBail(currentPlayer);
+                payBail(currentPlayer, guiController);
             }
             else if (valgmulighed.equals(language.getText(0, 1))) {
-                rollDiceToGetOut(dieController, currentPlayer, language);
+                rollDiceToGetOut(dieController, currentPlayer, language, guiController);
             }
         }
         }
