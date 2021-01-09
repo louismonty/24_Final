@@ -17,6 +17,14 @@ public class Jail {
         currentPlayer.getAccount().subtractBalance(bail);
     }
 
+    /**
+     * @param dieController
+     * @param currentPlayer
+     * @param language
+     * @return void
+     * If player chooses to rollDiceToGetOut in GUI, he/she rolls the dice and sets isInJail status as false
+     * for the currentPlayer object.
+     */
     public void rollDiceToGetOut(DieController dieController, Player currentPlayer,
                                  Language language){
         dieController.diceRoll();
@@ -31,4 +39,5 @@ public class Jail {
         currentPlayer.isInJail(false);
         language.getText(0,0); //print "You are out of jail."
     }
+
 }
