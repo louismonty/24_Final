@@ -70,10 +70,10 @@ public class Rules
     {
         if(playerController.getPlayerArray().length == 1)
         {
-            return true;
+            return false;
         }
         else
-            return false;
+            return true;
     }
 
 }
