@@ -17,6 +17,9 @@ public class Gameloop
 
     public void matadorGameloop()
     {
+        language.loadFile();
+        GameBoard gameboard = new GameBoard(language);
+        guiController.createGUIBoard(gameboard.getGuiGamebord());
         playerController.createPlayer(language, guiController);
         chanceCardController.shuffleChanceCardDeck();
 
