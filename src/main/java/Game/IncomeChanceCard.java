@@ -64,8 +64,28 @@ public class IncomeChanceCard extends ChanceCard
         currentPlayer.addBalance(200);
     }
 
-    public void matadorGrantCard()
+    public void matadorGrantCard(Player currentPlayer, GameBoard gameboard, GUIController guiController, Language language)
     {
+        int totalAmount = currentPlayer.getAccount().getBalance();
+        guiController.showChanceCard(language.getText(0,0));
+        for(int i =0; i < gameboard.getGameBoard().length; i++)
+        {
+            if(gameboard.getGameBoard()[i] instanceof BuyableField)
+            {
+                totalAmount += gameboard.getGameBoard()[i].getPrice();
+                if (gameboard.getGameBoard()[i] instanceof PropertyField)
+                {
+                    if (((PropertyField) gameboard.getGameBoard()[i]).getHouses() > 0)
+                    {
+                        totalAmount += (((PropertyField) gameboard.getGameBoard()[i]).getHouses() * ((PropertyField) gameboard.getGameBoard()[i]).getHousePrice());
+                    }
+                }
+            }
+        }
+        if(totalAmount < 15000)
+        {
+            currentPlayer.addBalance(40000);
+        }
 
     }
 
