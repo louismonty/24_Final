@@ -18,7 +18,7 @@ import static java.awt.Color.*;
 
 public class GameBoard {
 
-    private Field[] gameBoard = new Field[39];
+    private Field[] gameBoard = new Field[40];
 
     public GameBoard(Language language){
         gameBoard[0] = new StartField(0, RED, language.getText(0,0), new GUI_Start(language.getText
@@ -107,7 +107,7 @@ public class GameBoard {
         return gameBoard;
     }
     public GUI_Field[] getGuiGamebord(){
-        GUI_Field[] Fields = new GUI_Field[39];
+        GUI_Field[] Fields = new GUI_Field[40];
         for(int i = 0;i<getGameBoard().length;i++){
             Fields[i] = getGameBoard()[i].guiField;
         }
