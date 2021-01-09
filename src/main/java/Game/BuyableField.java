@@ -33,6 +33,12 @@ public abstract class BuyableField extends Field {
         this.pawnValue = pawnValue;
         this.group = group;
     }
+
+    public int getGroup(){
+        return group;
+    }
+    public int getOwner(){return owner}
+
     public void buyOrAuctionMenu(GUIController guiController, Language language, PlayerController playerController){
         if(guiController.buttons(language.getText(0,0), language.getLine(0)) == language.getText(0,0)){
             buy(playerController.getCurrentPlayer());
