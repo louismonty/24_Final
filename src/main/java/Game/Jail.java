@@ -10,6 +10,7 @@ public class Jail {
 
     /**
      * @param currentPlayer
+     * @return void
      * When executed, the currentPlayer gets bail subtracted from their account.
      */
 
