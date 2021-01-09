@@ -65,25 +65,25 @@ public class Jail {
     public void inJail(DieController dieController, Player currentPlayer, GUIController guiController,
                        ChanceCardController chanceCardController, Language language){
         if(currentPlayer.getGetOutOfJailCard() > 0) {
-            String valgmulighed = guiController.buttons(language.getText(0, 0), language.getText(0, 0),
+            String buttons = guiController.buttons(language.getText(0, 0), language.getText(0, 0),
                     language.getText(0, 0), language.getText(0, 0)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice", "4: use Jail Card".
-            if (valgmulighed.equals(language.getText(0, 0))) {
+            if (buttons.equals(language.getText(0, 0))) {
                 payBail(currentPlayer, guiController, language);
             }
-            else if (valgmulighed.equals(language.getText(0, 1))) {
+            else if (buttons.equals(language.getText(0, 1))) {
                 rollDiceToGetOut(dieController, currentPlayer, language, guiController);
             }
-            else if (valgmulighed.equals(language.getText(0, 2))) {
+            else if (buttons.equals(language.getText(0, 2))) {
                 useGetOutOfJailCard(currentPlayer, language, guiController);
             }
         }
         else if (currentPlayer.getGetOutOfJailCard() == 0){
-            String valgmulighed = guiController.buttons(language.getText(0, 0), language.getText(0, 0),
+            String buttons = guiController.buttons(language.getText(0, 0), language.getText(0, 0),
                     language.getText(0, 0), language.getText(0, 0)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice"
-            if (valgmulighed.equals(language.getText(0, 0))) {
+            if (buttons.equals(language.getText(0, 0))) {
                 payBail(currentPlayer, guiController, language);
             }
-            else if (valgmulighed.equals(language.getText(0, 1))) {
+            else if (buttons.equals(language.getText(0, 1))) {
                 rollDiceToGetOut(dieController, currentPlayer, language, guiController);
             }
         }
