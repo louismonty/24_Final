@@ -49,6 +49,11 @@ public class Jail {
         currentPlayer.setGetOutOfJailCard(currentPlayer.getGetOutOfJailCard() - 1);
         language.getText(0,0); //print "You are out of jail."
     }
+    public void inJail(DieController dieController, Player currentPlayer, GUIController guiController,
+                       ChanceCardController chanceCardController, Language language){
+        guiController.buttons(language.getText(0,0), language.getText(0,0), language.getText(0,0), language.getText(0,0));
+
+    }
 
 
 }
