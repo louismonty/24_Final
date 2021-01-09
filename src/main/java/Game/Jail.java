@@ -23,11 +23,12 @@ public class Jail {
 
         if(dieController.isDouble()){
             currentPlayer.isInJail(false);
-            language.getText(0,0); // print "You are out of jail".
+            language.getText(0,0); // print "You are out of jail."
         }
     }
 
-    public void useGetOutOfJailCard(Player currentPlayer){
-
+    public void useGetOutOfJailCard(Player currentPlayer, Language language){
+        currentPlayer.isInJail(false);
+        language.getText(0,0); //print "You are out of jail."
     }
 }
