@@ -35,4 +35,8 @@ public class PropertyField extends BuyableField
     {
         return houses;
     }
+    public int getHousePrice()
+    {
+        return housePrice;
+    }
 }
