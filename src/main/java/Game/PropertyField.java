@@ -24,4 +24,13 @@ public class PropertyField extends BuyableField
         int rent = Integer.parseInt(language.getText(0,houses));
         return rent;
     }
+
+    public void setHouses(int houses)
+    {
+        this.houses = houses;
+    }
+    public int getHouses()
+    {
+        return houses;
+    }
 }
