@@ -14,8 +14,10 @@ public class Jail {
      * When executed, the currentPlayer gets bail subtracted from their account.
      */
 
-    public void payBail(Player currentPlayer){
+    public void payBail(Player currentPlayer, GUIController guiController){
         currentPlayer.getAccount().subtractBalance(bail);
+        currentPlayer.setInJail(false);
+
     }
 
     /**
@@ -28,11 +30,11 @@ public class Jail {
      */
 
     public void rollDiceToGetOut(DieController dieController, Player currentPlayer,
-                                 Language language){
+                                 Language language, GUIController guiController){
         dieController.diceRoll();
 
         if(dieController.isDouble()){
-            currentPlayer.isInJail(false);
+            currentPlayer.setInJail(false);
             language.getText(0,0); // print "You are out of jail."
         }
     }
@@ -45,8 +47,8 @@ public class Jail {
      * If a player chooses to useGetOutOfJailCard in GUI, the currentPlayer object's isInJail variable is
      * set to false. Meanwhile, they lose a getOutOfJailCard.
      */
-    public void useGetOutOfJailCard(Player currentPlayer, Language language){
-        currentPlayer.isInJail(false);
+    public void useGetOutOfJailCard(Player currentPlayer, Language language, GUIController guiController){
+        currentPlayer.setInJail(false);
         currentPlayer.setGetOutOfJailCard(currentPlayer.getGetOutOfJailCard() - 1);
         language.getText(0,0); //print "You are out of jail."
     }
