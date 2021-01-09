@@ -35,12 +35,17 @@ public abstract class BuyableField extends Field
 
     public int getGroup()
     {
-        return group;
+        return this.group;
     }
     public int getOwner()
     {
-        return owner;
+        return this.owner;
     }
+    public int getPawnValue() {return this.pawnValue;}
+    public int getPrice(){return this.price;}
+    public boolean getIsPawned(){return this.isPawned;}
+    public void setIsPawned(boolean set) {this.isPawned =set;}
+
 
     @Override
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language)
