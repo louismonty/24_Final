@@ -8,7 +8,7 @@ import gui_fields.GUI_Field;
 import java.awt.*;
 
 /**
- * @author “Daniel”
+ * @author “Louis”
  *
  */
 
@@ -23,11 +23,10 @@ public abstract class BuyableField extends Field {
     protected boolean isPawned;
     protected int group;
 
-    public BuyableField(int positionID, Color colorID, String name, GUI_Field guiField, int price, int rent, int pawnValue, int group)
+    public BuyableField(int positionID, Color colorID, String name, GUI_Field guiField, int price, int pawnValue, int group)
     {
         super(positionID, colorID, name, guiField);
         this.price = price;
-        this.rent = rent;
         int owner;
         isPropertyBought = false;
         this.pawnValue = pawnValue;
@@ -37,7 +36,7 @@ public abstract class BuyableField extends Field {
     public int getGroup(){
         return group;
     }
-    public int getOwner(){return owner}
+    public int getOwner(){return owner;}
 
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language){
         if(!isPropertyBought) {
