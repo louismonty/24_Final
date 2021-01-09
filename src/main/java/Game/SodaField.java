@@ -1,8 +1,5 @@
 package Game;
-import Controller.DieController;
-import Controller.GUIController;
-import Controller.GameBoard;
-import Controller.PlayerController;
+import Controller.*;
 import gui_fields.GUI_Field;
 
 import java.awt.*;
