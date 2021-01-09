@@ -61,7 +61,7 @@ public class Jail {
      * @param chanceCardController
      * @param language
      * @return void
-     *
+     * Introduces GUIButtons for player to choose a method to get out of jail.
      */
     public void inJail(DieController dieController, Player currentPlayer, GUIController guiController,
                        ChanceCardController chanceCardController, Language language){
@@ -69,7 +69,7 @@ public class Jail {
             String valgmulighed = guiController.buttons(language.getText(0, 0), language.getText(0, 0),
                     language.getText(0, 0), language.getText(0, 0)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice", "4: use Jail Card".
             if (valgmulighed.equals(language.getText(0, 0))) {
-                payBail(currentPlayer, guiController);
+                payBail(currentPlayer, guiController, language);
             }
             else if (valgmulighed.equals(language.getText(0, 1))) {
                 rollDiceToGetOut(dieController, currentPlayer, language, guiController);
@@ -82,7 +82,7 @@ public class Jail {
             String valgmulighed = guiController.buttons(language.getText(0, 0), language.getText(0, 0),
                     language.getText(0, 0), language.getText(0, 0)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice"
             if (valgmulighed.equals(language.getText(0, 0))) {
-                payBail(currentPlayer, guiController);
+                payBail(currentPlayer, guiController, language);
             }
             else if (valgmulighed.equals(language.getText(0, 1))) {
                 rollDiceToGetOut(dieController, currentPlayer, language, guiController);
