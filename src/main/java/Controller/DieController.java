@@ -15,14 +15,14 @@ public class DieController {
     private Die die1 = new Die();
     private Die die2 = new Die();
 
-    public void diceRoll() {
+    public void diceRoll(GUIController guiController) {
         die1.roll();
         die2.roll();
+        guiController.showDice(die1.getFaceValue(), 5,die2.getFaceValue(), 5);
     }
 
     public int diceValue() {
         return die1.getFaceValue() + die2.getFaceValue();
-
     }
 
     /**
