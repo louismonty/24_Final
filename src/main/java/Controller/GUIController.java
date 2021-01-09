@@ -12,11 +12,17 @@ public class GUIController {
     public String buttons(String msg,String... buttons){
         return gui.getUserButtonPressed(msg,buttons);
     }
-    public void showMessege(String message){
+    public void showMessage(String message){
         gui.showMessage(message);
     }
     public void showDice(int dice){
         gui.setDie(dice);
+    }
+    public void showDice(int faceValueDice1,int faceValueDice2){
+        gui.setDice(faceValueDice1,faceValueDice2);
+    }
+    public void showDice(int faceValueDice1,int rotation1,int faceValueDice2,int rotation2){
+        gui.setDice(faceValueDice1,rotation1,faceValueDice2,rotation2);
     }
     public int integerInput(String text,int min, int max){
         int input;
@@ -28,6 +34,9 @@ public class GUIController {
         }
         return input;
     }
+    public void addPlayer(GUI_Player player){
+        gui.addPlayer(player);
+    }
     public String stringInput(String text){
         return gui.getUserString(text);
     }
@@ -35,14 +44,9 @@ public class GUIController {
     public void showChanceCard(String text){
         gui.displayChanceCard(text);
     }
-    public void updatePlayerBal(int bal, GUI_Player player){
-        player.setBalance(bal);
-    }
 
     //public boolean isInstanceOfField(int currentposition){
     //    return (field[currentposition] instanceof GUI_Street);
     //}
-    public void changeBalce(int bal ,GUI_Player player){
-        player.setBalance(bal);
-    }
+
 }
