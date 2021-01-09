@@ -33,4 +33,9 @@ public abstract class Field {
     public String getName() {
         return name;
     }
+
+    public GUI_Field getGUIField()
+    {
+        return guiField;
+    }
 }
