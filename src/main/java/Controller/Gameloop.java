@@ -31,6 +31,13 @@ public class Gameloop
                 {
                     menu.takeTurnMenu(language, gameboard, guiController, currentPlayer);
                     dieController.diceRoll(guiController);
+                    rules.doubleExtraTurn(currentPlayer, dieController);
+                    if(currentPlayer.getDoubleCounter()==3)
+                    {
+                        rules.setExtraTurn(false);
+                        rules.threeDoubleGoToJail(currentPlayer);
+                    }
+
                 }
             while(true)
             {
@@ -47,7 +54,11 @@ public class Gameloop
             }
             rules.bankrupt(currentPlayer, playerController, guiController);
             isGameRunning = rules.win(playerController);
-            playerController.nextPlayer();
+            if(!rules.getExtraTurn())
+            {
+                currentPlayer.setDoubleCounter(0);
+                playerController.nextPlayer();
+            }
         }
     }
 
