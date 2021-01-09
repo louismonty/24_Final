@@ -20,6 +20,7 @@ public class Player {
     private int playerID;
     private int numberOfMoves;
     private boolean hasMoved;
+    private boolean hasMovedBackwards;
 
 
     public Player(String name,int playerID){
@@ -34,6 +35,7 @@ public class Player {
         this.playerID = playerID;
         this.numberOfMoves = 0;
         hasMoved = false;
+        hasMovedBackwards = false;
     }
 
 
@@ -71,6 +73,16 @@ public class Player {
     public void setHasMoved(boolean hasMoved)
     {
         this.hasMoved = hasMoved;
+    }
+
+    public boolean getHasMovedBackwards()
+    {
+        return hasMovedBackwards;
+    }
+
+    public void setHasMovedBackwards(boolean hasMovedBackwards)
+    {
+        this.hasMovedBackwards = hasMovedBackwards;
     }
 
     public int getPlayerID(){
