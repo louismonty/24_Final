@@ -1,7 +1,6 @@
 package Game;
 
 import gui_fields.GUI_Player;
-import org.graalvm.compiler.core.common.Fields;
 
 /**
  * @author “Daniel”
@@ -17,11 +16,11 @@ public class Player {
     private boolean isInJail;
     private int jailCounter;
     private int doubleCounter;
-    private Fields[] ownedFields;
     private int playerPosition;
     private int playerID;
     private int numberOfMoves;
     private boolean hasMoved;
+    private boolean hasMovedBackwards;
 
 
     public Player(String name,int playerID){
@@ -31,27 +30,14 @@ public class Player {
         getOutOfJailCard = 0;
         isInJail = false;
         jailCounter = 0;
-        ownedFields = new Fields[0];
         doubleCounter = 0;
         playerPosition = 0;
         this.playerID = playerID;
         this.numberOfMoves = 0;
         hasMoved = false;
+        hasMovedBackwards = false;
     }
 
-    /**
-     * @author Louis
-     * @param newField
-     */
-    public void addField(Fields newField){
-            int lengtharr = ownedFields.length;
-            Fields[] temparr = new Fields[lengtharr + 1];
-            for (int i = 0; i < ownedFields.length; i++) {
-                temparr[i] = ownedFields[i];
-            }
-            temparr[lengtharr] = newField;
-            ownedFields = temparr;
-    }
 
     /**
      * @author Louis
@@ -87,6 +73,16 @@ public class Player {
     public void setHasMoved(boolean hasMoved)
     {
         this.hasMoved = hasMoved;
+    }
+
+    public boolean getHasMovedBackwards()
+    {
+        return hasMovedBackwards;
+    }
+
+    public void setHasMovedBackwards(boolean hasMovedBackwards)
+    {
+        this.hasMovedBackwards = hasMovedBackwards;
     }
 
     public int getPlayerID(){
@@ -139,14 +135,6 @@ public class Player {
 
     public void setJailCounter(int jailCounter) {
         this.jailCounter = jailCounter;
-    }
-
-    public Fields[] getOwnedFields() {
-        return ownedFields;
-    }
-
-    public void setOwnedFields(Fields[] ownedFields) {
-        this.ownedFields = ownedFields;
     }
 
     public int getDoubleCounter() {
