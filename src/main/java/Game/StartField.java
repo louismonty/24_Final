@@ -1,5 +1,6 @@
 package Game;
 
+import Controller.ChanceCardController;
 import Controller.GUIController;
 import Controller.GameBoard;
 import Controller.PlayerController;
