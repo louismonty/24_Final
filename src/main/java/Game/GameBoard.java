@@ -4,6 +4,7 @@ import Game.*;
 import gui_fields.GUI_Field;
 import gui_fields.GUI_Start;
 import gui_main.GUI;
+import org.graalvm.compiler.core.common.Fields;
 
 import java.awt.*;
 
@@ -104,5 +105,13 @@ public class GameBoard {
     }
     public Field[] getGameBoard() {
         return gameBoard;
+    }
+    public GUI_Field[] getGuiGamebord(){
+        GUI_Field[] Fields = new GUI_Field[39];
+        for(int i = 0;i<getGameBoard().length;i++){
+            Fields[i] = getGameBoard()[i].guiField;
+        }
+        return Fields;
+
     }
 }
