@@ -17,15 +17,13 @@ public class Jail {
         currentPlayer.getAccount().subtractBalance(bail);
     }
 
-    public void rollDiceToGetOut(DieController dieController, Player currentPlayer, GUIController guiController,
-                                 ChanceCardController chanceCardController,
-                                 PlayerController playerController, Language language){
+    public void rollDiceToGetOut(DieController dieController, Player currentPlayer,
+                                 Language language){
         dieController.diceRoll();
 
         if(dieController.isDouble()){
             currentPlayer.isInJail(false);
-            System.out.println(language.getText(0,0)); // print "You are out of jail".
+            language.getText(0,0); // print "You are out of jail".
         }
-
     }
 }
