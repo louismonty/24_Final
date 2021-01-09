@@ -22,16 +22,17 @@ public class SodaField extends BuyableField {
             return false;
         }
     }
-    public void rentSodaMultiplier(DieController dieController,GameBoard gameBoard) {
+    public int rentSodaMultiplier(DieController dieController,GameBoard gameBoard) {
         if(isPairBought(gameBoard)) {
-            rent = (rent*dieController.diceValue())*2;
+            return (rent*dieController.diceValue())*2;
         }
         else {
-            rent = (rent*dieController.diceValue());
+            return(rent*dieController.diceValue());
         }
     }
 
-    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language) {
-
+    @Override
+    public int payRent(DieController dieController,GameBoard gameBoard){
+        return rentSodaMultiplier(dieController,gameBoard);
     }
 }
