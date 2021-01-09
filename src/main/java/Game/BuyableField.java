@@ -1,9 +1,9 @@
 package Game;
 
-import Controller.GUIController;
-import Controller.PlayerController;
+
+import Controller.*;
 import gui_fields.GUI_Field;
-import Controller.GUIController;
+
 
 import java.awt.*;
 
@@ -39,13 +39,17 @@ public abstract class BuyableField extends Field {
     }
     public int getOwner(){return owner}
 
-    public void buyOrAuctionMenu(GUIController guiController, Language language, PlayerController playerController){
-        if(guiController.buttons(language.getText(0,0), language.getLine(0)) == language.getText(0,0)){
-            buy(playerController.getCurrentPlayer());
+    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language){
+        if(!isPropertyBought) {
+            if (guiController.buttons(language.getText(0, 0), language.getLine(0)) == language.getText(0, 0)) {
+                buy(playerController.getCurrentPlayer());
+            } else {
+                auction(language, guiController, playerController.getPlayerArray());
+            }
+        }else{
+            payRent();
         }
-        else{
-            auction(language,guiController,playerController.getPlayerArray());
-        }
+
     }
 
     public void buy(Player player) {
@@ -77,4 +81,5 @@ public abstract class BuyableField extends Field {
                 }
             }
     }
+    public abstract void payRent();
 }
