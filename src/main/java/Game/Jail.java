@@ -14,6 +14,6 @@ public class Jail {
      */
 
     public void payBail(Player currentPlayer){
-
+        currentPlayer.getAccount().subtractBalance(bail);
     }
 }
