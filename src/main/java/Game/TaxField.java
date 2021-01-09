@@ -17,8 +17,8 @@ import java.lang.Math;
 public class TaxField extends Field {
     private int incomeTax = 4000;
     private int unexpectedTax = 2000;
-    private int incomeTaxField = 5;
-    private int unexpectedTaxField = 39;
+    private int incomeTaxField = 4; //4 in GameBoard class
+    private int unexpectedTaxField = 38; //38 in GameBoard class
     private float taxRate = 0.1f;
 
     public TaxField(int positionID, String name, GUI_Field guiField, Color color){
