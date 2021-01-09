@@ -16,12 +16,14 @@ public class Player {
     private int getOutOfJailCard;
     private boolean isInJail;
     private int jailCounter;
-
     private int doubleCounter;
     private Fields[] ownedFields;
     private int playerPosition;
+    private int playerID;
+    private int numberOfMoves;
 
-    public Player(String name){
+
+    public Player(String name,int playerID){
         this.name = name;
         account.setBalance(30000);
         this.GUIPlayer = new GUI_Player(name, 30000);
@@ -31,6 +33,8 @@ public class Player {
         ownedFields = new Fields[0];
         doubleCounter = 0;
         playerPosition = 0;
+        this.playerID = playerID;
+        this.numberOfMoves = 0;
     }
 
     /**
@@ -65,6 +69,18 @@ public class Player {
         account.subtractBalance(ball);
     }
 
+    public int getNumberOfMoves(){
+        return numberOfMoves;
+    }
+
+    public void setNumberOfMoves(int numberOfMoves){
+        this.numberOfMoves = numberOfMoves;
+    }
+
+    public int getPlayerID(){
+        return playerID;
+    }
+
     public String getName() {
         return name;
     }
@@ -97,7 +113,7 @@ public class Player {
         this.getOutOfJailCard = getOutOfJailCard;
     }
 
-    public boolean isInJail() {
+    public boolean isInJail(boolean b) {
         return isInJail;
     }
 

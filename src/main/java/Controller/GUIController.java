@@ -44,14 +44,9 @@ public class GUIController {
     public void showChanceCard(String text){
         gui.displayChanceCard(text);
     }
-    public void updatePlayerBal(int bal, GUI_Player player){
-        player.setBalance(bal);
-    }
 
     //public boolean isInstanceOfField(int currentposition){
     //    return (field[currentposition] instanceof GUI_Street);
     //}
-    public void changeBalce(int bal ,GUI_Player player){
-        player.setBalance(bal);
-    }
+
 }

@@ -8,6 +8,7 @@ import Controller.ChanceCardController;
 
 import java.awt.*;
 import java.awt.color.*;
+import Game.Language;
 
 /**
  * @author “Daniel”
@@ -28,7 +29,7 @@ public abstract class Field {
     }
 
     public abstract void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController
-            playerController, GUIController guiController);
+            playerController, GUIController guiController, Language language);
 
     public String getName() {
         return name;
