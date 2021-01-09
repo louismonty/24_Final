@@ -7,6 +7,7 @@ import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import Game.Language;
 import Game.GameBoard;
+import java.lang.Math;
 
 /**
  * @author Lucas
@@ -18,7 +19,7 @@ public class TaxField extends Field {
     private int unexpectedTax = 2000;
     private int incomeTaxField = 5;
     private int unexpectedTaxField = 39;
-    private double taxRate = 0.1;
+    private float taxRate = 0.1f;
 
     public TaxField(int positionID, String name, GUI_Field guiField, Color color){
         super(positionID, color, name, guiField);
@@ -38,7 +39,6 @@ public class TaxField extends Field {
         }
         else if(buttons.equals(language.getText(0,0))) {
             int totalAmount = currentPlayer.getAccount().getBalance();
-            guiController.showChanceCard(language.getText(0, 0));
             for (int i = 0; i < gameboard.getGameBoard().length; i++) {
                 if (gameboard.getGameBoard()[i] instanceof BuyableField) {
                     totalAmount += ((BuyableField) gameboard.getGameBoard()[i]).getPrice();
@@ -49,7 +49,7 @@ public class TaxField extends Field {
                     }
                 }
             }
-            currentPlayer.subtractBalance(totalAmount);
+            currentPlayer.subtractBalance(Math.round(totalAmount * taxRate));
         }
     }
 
@@ -61,6 +61,7 @@ public class TaxField extends Field {
      */
     public void payUnexpectedTax(Player currentPlayer, GUIController guiController, Language language){
         currentPlayer.getAccount().subtractBalance(unexpectedTax);
+        guiController.showMessage(language.getText(0,0)); //"Tax has been deducted."
     }
 
     /**
