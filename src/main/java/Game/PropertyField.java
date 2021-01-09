@@ -15,7 +15,7 @@ public class PropertyField extends BuyableField
 
     public PropertyField(int positionID, Color colorID, String name, GUI_Field guiField, int price, int pawnValue, int group)
     {
-        super(positionID, colorID, name, guiField, price, rent, pawnValue, group);
+        super(positionID, colorID, name, guiField, price, pawnValue, group);
         houses = 0;
     }
 
