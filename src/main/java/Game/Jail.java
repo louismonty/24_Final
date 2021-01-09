@@ -25,6 +25,7 @@ public class Jail {
      * If player chooses to rollDiceToGetOut in GUI, he/she rolls the dice and sets isInJail status as false
      * for the currentPlayer object.
      */
+
     public void rollDiceToGetOut(DieController dieController, Player currentPlayer,
                                  Language language){
         dieController.diceRoll();
@@ -35,9 +36,18 @@ public class Jail {
         }
     }
 
+    /**
+     *
+     * @param currentPlayer
+     * @param language
+     * @return void
+     * If a player chooses to useGetOutOfJailCard in GUI, the currentPlayer object's isInJail variable is
+     * set to false. Meanwhile, they lose a getOutOfJailCard.
+     */
     public void useGetOutOfJailCard(Player currentPlayer, Language language){
         currentPlayer.isInJail(false);
         language.getText(0,0); //print "You are out of jail."
     }
+
 
 }
