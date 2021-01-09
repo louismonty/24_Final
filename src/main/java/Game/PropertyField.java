@@ -12,35 +12,31 @@ import java.awt.*;
 public class PropertyField extends BuyableField
 {
     private int houses;
+    private int housePrice;
 
-    public PropertyField(int positionID, Color colorID, String name, GUI_Field guiField, int price, int rent, int pawnValue, int group)
+    public PropertyField(int positionID, Color colorID, String name, GUI_Field guiField, int price, int pawnValue, int group, int housePrice)
     {
-        super(positionID, colorID, name, guiField, price, rent, pawnValue, group);
+        super(positionID, colorID, name, guiField, price, pawnValue, group);
         houses = 0;
+        this.housePrice = housePrice;
     }
 
-    public void landOnField(GameBoard gameboard, PlayerController playerController, GUIController guiController, ChanceCardController chanceCardController, Language language){
-        PropertyField currentField = (PropertyField) gameboard.getGameboard()[playerController.getCurrentPlayer().getPlayerPosition()];
-        if(!currentField.getIsPropertyBought())
-        {
-            guiController.showMessage(language.getText(0,0)+currentField.getName());
-            if( playerController.getCurrentPlayer().getAccount().getBalance() > currentField.getPrice())
-            {
-                guiController.makeOwner(playerController.getCurrentPlayer().getPlayerPosition(), guiPlayer.getPrimaryColor());
-                currentField.setOwner(playerController.getCurrentPlayer());
-                currentField.setIsPropertyBought(true);
-                playerController.getCurrentPlayer().getAccount().setBalance(playerController.getCurrentPlayer().getAccount().getBalance()-currentField.getPrice());
-            }
+    public int payRent(PlayerController playerController, GameBoard gameboard, Language language)
+    {
+        int rent = Integer.parseInt(language.getText(0,houses));
+        return rent;
+    }
 
-        }
-        else if(currentField.getOwner().equals(playerController.getCurrentPlayer()))
-        {
-        }
-        else{
-            guiController.showMessage(language.getText(0,0)+currentField.getOwner().getPlayerName());
-            playerController.getCurrentPlayer().getAccount().setBalance(playerController.getCurrentPlayer().getAccount().getBalance()-currentField.getPrice());
-            currentField.getOwner().getPlayerAccount().setBalance(currentField.getOwner().getPlayerAccount().getBalance()+currentField.getRent());
-            guiController.updatePlayerBal(currentField.getOwner().getPlayerAccount().getBalance(), guiPlayerArray[currentField.getOwner().getPlayerId()]);
-        }
+    public void setHouses(int houses)
+    {
+        this.houses = houses;
+    }
+    public int getHouses()
+    {
+        return houses;
+    }
+    public int getHousePrice()
+    {
+        return housePrice;
     }
 }
