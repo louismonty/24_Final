@@ -22,17 +22,17 @@ public class SodaField extends BuyableField {
             return false;
         }
     }
-    public int rentSodaMultiplier(DieController dieController,GameBoard gameBoard) {
+    public int rentSodaMultiplier(PlayerController playerController,GameBoard gameBoard) {
         if(isPairBought(gameBoard)) {
-            return (rent*dieController.diceValue())*2;
+            return (rent*playerController.getCurrentPlayer().getNumberOfMoves())*2;
         }
         else {
-            return(rent*dieController.diceValue());
+            return(rent*playerController.getCurrentPlayer().getNumberOfMoves());
         }
     }
 
     @Override
-    public int payRent(DieController dieController,GameBoard gameBoard){
-        return rentSodaMultiplier(dieController,gameBoard);
+    public int payRent(PlayerController playerController,GameBoard gameBoard){
+        return rentSodaMultiplier(playerController,gameBoard);
     }
 }
