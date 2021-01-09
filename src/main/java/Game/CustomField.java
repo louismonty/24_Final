@@ -12,9 +12,11 @@ import Controller.*;
 
 public class CustomField extends Field {
 
-    public CustomField(int positionID, String name, GUI_Field guiField, Color color) {
-        super(positionID, color, name, guiField);
+    public CustomField(int positionID, Color colorID, String name, GUI_Field guiField) {
+        super(positionID, colorID, name, guiField);
     }
+
+
 
     /**
      *
@@ -24,7 +26,8 @@ public class CustomField extends Field {
      * @param guiController
      * When landOnField is executed, the player's position is updated and nothing else happens.
      */
-    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController) {
+    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language) {
+
     }
 
     public String getName(){
