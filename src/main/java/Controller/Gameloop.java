@@ -4,7 +4,7 @@ import Game.*;
 public class Gameloop
 {
     private DieController dieController = new DieController();
-    private Language language;
+    private Language language = new Language();
     private PlayerController playerController = new PlayerController();
     private GUIController guiController = new GUIController();
     private ChanceCardController chanceCardController = new ChanceCardController();
