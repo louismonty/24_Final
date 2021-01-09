@@ -77,7 +77,7 @@ public class Jail {
         }
         else if (currentPlayer.getGetOutOfJailCard() == 0){
             String valgmulighed = guiController.buttons(language.getText(0, 0), language.getText(0, 0),
-                    language.getText(0, 0), language.getText(0, 0)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice", "4: use Jail Card".
+                    language.getText(0, 0), language.getText(0, 0)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice"
             if (valgmulighed.equals(language.getText(0, 0))) {
                 payBail(currentPlayer);
             }
