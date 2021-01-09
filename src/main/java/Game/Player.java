@@ -20,6 +20,7 @@ public class Player {
     private Fields[] ownedFields;
     private int playerPosition;
     private int playerID;
+    private int numberOfMoves;
 
 
     public Player(String name,int playerID){
@@ -33,6 +34,7 @@ public class Player {
         doubleCounter = 0;
         playerPosition = 0;
         this.playerID = playerID;
+        this.numberOfMoves = 0;
     }
 
     /**
@@ -65,6 +67,14 @@ public class Player {
     public void subtractBalance(int ball){
         GUIPlayer.setBalance(account.getBalance()-ball);
         account.subtractBalance(ball);
+    }
+
+    public int getNumberOfMoves(){
+        return numberOfMoves;
+    }
+
+    public void setNumberOfMoves(int numberOfMoves){
+        this.numberOfMoves = numberOfMoves;
     }
 
     public int getPlayerID(){
