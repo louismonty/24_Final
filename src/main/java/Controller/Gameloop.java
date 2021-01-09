@@ -45,7 +45,7 @@ public class Gameloop
             {
                 gameboard.getGameBoard()[currentPlayer.getPlayerPosition() % 40].landOnField(gameboard, chanceCardController, playerController, guiController, language);
                 rules.overStartRule(currentPlayer, guiController, language);
-                if(currentPlayer.getHasMoved())
+                if(!currentPlayer.getHasMoved())
                 {
                     break;
                 }
