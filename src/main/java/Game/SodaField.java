@@ -4,6 +4,9 @@ import gui_fields.GUI_Field;
 
 import java.awt.*;
 
+/**
+ * @Author Louis
+ */
 public class SodaField extends BuyableField
 {
 
@@ -27,6 +30,13 @@ public class SodaField extends BuyableField
                 return false;
             }
     }
+
+    /**
+     * @Author Victor
+     * @param playerController
+     * @param gameBoard
+     * @return rent for the field based on dice values
+     */
     public int rentSodaMultiplier(PlayerController playerController,GameBoard gameBoard)
     {
         if(isPairBought(gameBoard))
