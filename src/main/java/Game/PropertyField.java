@@ -12,11 +12,13 @@ import java.awt.*;
 public class PropertyField extends BuyableField
 {
     private int houses;
+    private int housePrice;
 
-    public PropertyField(int positionID, Color colorID, String name, GUI_Field guiField, int price, int pawnValue, int group)
+    public PropertyField(int positionID, Color colorID, String name, GUI_Field guiField, int price, int pawnValue, int group, int housePrice)
     {
         super(positionID, colorID, name, guiField, price, pawnValue, group);
         houses = 0;
+        this.housePrice = housePrice;
     }
 
     public int payRent(PlayerController playerController, GameBoard gameboard, Language language)
