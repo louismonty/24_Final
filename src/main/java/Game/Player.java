@@ -21,6 +21,7 @@ public class Player {
     private int playerPosition;
     private int playerID;
     private int numberOfMoves;
+    private boolean hasMoved;
 
 
     public Player(String name,int playerID){
@@ -35,6 +36,7 @@ public class Player {
         playerPosition = 0;
         this.playerID = playerID;
         this.numberOfMoves = 0;
+        hasMoved = false;
     }
 
     /**
@@ -75,6 +77,16 @@ public class Player {
 
     public void setNumberOfMoves(int numberOfMoves){
         this.numberOfMoves = numberOfMoves;
+    }
+
+    public boolean getHasMoved()
+    {
+        return hasMoved;
+    }
+
+    public void setHasMoved(boolean hasMoved)
+    {
+        this.hasMoved = hasMoved;
     }
 
     public int getPlayerID(){
