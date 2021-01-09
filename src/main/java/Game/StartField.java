@@ -1,5 +1,6 @@
 package Game;
 
+import Controller.ChanceCardController;
 import Controller.GUIController;
 import Controller.GameBoard;
 import Controller.PlayerController;
@@ -18,6 +19,9 @@ public class StartField extends Field{
         super(positionID, colorID, name, guiField);
 
     }
-    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController) {
+
+    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language) {
+
     }
+
 }
