@@ -1,6 +1,7 @@
 package Game;
 
 import gui_fields.GUI_Player;
+import org.graalvm.compiler.core.common.Fields;
 
 /**
  * @author “Daniel”
@@ -15,21 +16,69 @@ public class Player {
     private int getOutOfJailCard;
     private boolean isInJail;
     private int jailCounter;
-    private Fields[] ownedFields;
     private int doubleCounter;
-
+    private Fields[] ownedFields;
     private int playerPosition;
+    private int playerID;
+    private int numberOfMoves;
 
-    public Player(String name){
+
+    public Player(String name,int playerID){
         this.name = name;
         account.setBalance(30000);
         this.GUIPlayer = new GUI_Player(name, 30000);
         getOutOfJailCard = 0;
         isInJail = false;
         jailCounter = 0;
-        ownedFields;
+        ownedFields = new Fields[0];
         doubleCounter = 0;
         playerPosition = 0;
+        this.playerID = playerID;
+        this.numberOfMoves = 0;
+    }
+
+    /**
+     * @author Louis
+     * @param newField
+     */
+    public void addField(Fields newField){
+            int lengtharr = ownedFields.length;
+            Fields[] temparr = new Fields[lengtharr + 1];
+            for (int i = 0; i < ownedFields.length; i++) {
+                temparr[i] = ownedFields[i];
+            }
+            temparr[lengtharr] = newField;
+            ownedFields = temparr;
+    }
+
+    /**
+     * @author Louis
+     * @param ball
+     */
+    public void addBalance(int ball){
+        GUIPlayer.setBalance(account.getBalance()+ball);
+        account.addBalance(ball);
+    }
+
+    /**
+     * @author Louis
+     * @param ball
+     */
+    public void subtractBalance(int ball){
+        GUIPlayer.setBalance(account.getBalance()-ball);
+        account.subtractBalance(ball);
+    }
+
+    public int getNumberOfMoves(){
+        return numberOfMoves;
+    }
+
+    public void setNumberOfMoves(int numberOfMoves){
+        this.numberOfMoves = numberOfMoves;
+    }
+
+    public int getPlayerID(){
+        return playerID;
     }
 
     public String getName() {
@@ -64,7 +113,7 @@ public class Player {
         this.getOutOfJailCard = getOutOfJailCard;
     }
 
-    public boolean isInJail() {
+    public boolean isInJail(boolean b) {
         return isInJail;
     }
 
