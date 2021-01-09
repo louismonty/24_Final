@@ -10,10 +10,12 @@ public class Jail {
 
     /**
      * @param currentPlayer
-     * A player can choose to pay bail to get out of jail.
+     * When executed, the currentPlayer gets bail subtracted from their account.
      */
 
     public void payBail(Player currentPlayer){
         currentPlayer.getAccount().subtractBalance(bail);
     }
+
+
 }
