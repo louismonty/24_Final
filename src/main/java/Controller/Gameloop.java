@@ -7,7 +7,6 @@ public class Gameloop
     private Language language;
     private PlayerController playerController = new PlayerController();
     private GUIController guiController = new GUIController();
-    private GameBoard gameboard = new GameBoard(language);
     private ChanceCardController chanceCardController = new ChanceCardController();
     private Rules rules = new Rules();
     private Menu menu = new Menu();
