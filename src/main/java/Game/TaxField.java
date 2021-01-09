@@ -19,7 +19,7 @@ public class TaxField extends Field {
     private int unexpectedTaxField = 39;
     private double taxRate = 0.1;
 
-    public TaxField(int positionID, String name, GUI_Field guiField, Color color){
+    public TaxField(int positionID, Color color, String name, GUI_Field guiField){
         super(positionID, color, name, guiField);
     }
 
