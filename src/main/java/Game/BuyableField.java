@@ -13,10 +13,10 @@ import java.awt.*;
  */
 
 
-public abstract class BuyableField extends Field {
+public abstract class BuyableField extends Field
+{
 
     protected int price;
-    protected int rent;
     protected int owner;
     protected boolean isPropertyBought;
     protected int pawnValue;
@@ -33,55 +33,76 @@ public abstract class BuyableField extends Field {
         this.group = group;
     }
 
-    public int getGroup(){
+    public int getGroup()
+    {
         return group;
     }
-    public int getOwner(){return owner;}
+    public int getOwner()
+    {
+        return owner;
+    }
 
-    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language){
-        if(!isPropertyBought) {
-            if (guiController.buttons(language.getText(0, 0), language.getLine(0)) == language.getText(0, 0)) {
+    @Override
+    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language)
+    {
+        if(!isPropertyBought)
+        {
+            if (guiController.buttons(language.getText(0, 0), language.getLine(0)) == language.getText(0, 0))
+            {
                 buy(playerController.getCurrentPlayer());
-            } else {
-                auction(language, guiController, playerController.getPlayerArray());
             }
-        }else{
-            int fieldRent = payRent(playerController,gameBoard);
-            playerController.getCurrentPlayer().subtractBalance(fieldRent);
-            BuyableField fieldLandedOn = (BuyableField)gameBoard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()];
-            playerController.getPlayerArray()[fieldLandedOn.getOwner()].addBalance(fieldRent);
+            else
+                {
+                    auction(language, guiController, playerController.getPlayerArray());
+                }
         }
+        else
+            {
+                int fieldRent = payRent(playerController,gameBoard, language);
+                playerController.getCurrentPlayer().subtractBalance(fieldRent);
+                BuyableField fieldLandedOn = (BuyableField)gameBoard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()];
+                playerController.getPlayerArray()[fieldLandedOn.getOwner()].addBalance(fieldRent);
+            }
 
     }
 
-    public void buy(Player player) {
+    public void buy(Player player)
+    {
         owner = player.getPlayerID();
         player.subtractBalance(price);
     }
 
-    public void auction(Language language,GUIController guiController, Player[] players) {
+    public void auction(Language language,GUIController guiController, Player[] players)
+    {
         int min = 0;
         int i = 0;
         boolean onGoingAuction = true;
         int amountOfPlayer = players.length;
 
-            while(onGoingAuction ==true){
+            while(onGoingAuction ==true)
+            {
                 i = i + 1 % amountOfPlayer;
-                if(players[i]==null) {
+                if(players[i]==null)
+                {
                     String  playerChose = guiController.buttons(language.getText(0,0),language.getLine(1));
-                    if (playerChose == language.getText(0, 0)) {
-                        if (players[i] == null) {
+                    if (playerChose == language.getText(0, 0))
+                    {
+                        if (players[i] == null)
+                        {
                             min = guiController.integerInput(language.getText(0, 0) + players[i].getName(), min, 100000);
                             Player lastPlayer = players[i];
-                            if(lastPlayer == players[i]){
+                            if(lastPlayer == players[i])
+                            {
                                 break;
                             }
                         }
-                    } else {
-                        players[i] = null;
                     }
+                    else
+                        {
+                            players[i] = null;
+                        }
                 }
             }
     }
-    public abstract int payRent(PlayerController playerController,GameBoard gameBoard);
+    public abstract int payRent(PlayerController playerController,GameBoard gameBoard, Language language);
 }
