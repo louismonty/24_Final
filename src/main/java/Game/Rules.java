@@ -66,7 +66,7 @@ public class Rules
         }
     }
 
-    public boolean win(Player currentPlayer, PlayerController playerController)
+    public boolean win(PlayerController playerController)
     {
         if(playerController.getPlayerArray().length == 1)
         {
