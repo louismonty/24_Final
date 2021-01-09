@@ -46,6 +46,7 @@ public class Jail {
      */
     public void useGetOutOfJailCard(Player currentPlayer, Language language){
         currentPlayer.isInJail(false);
+        currentPlayer.setGetOutOfJailCard(currentPlayer.getGetOutOfJailCard() - 1);
         language.getText(0,0); //print "You are out of jail."
     }
 
