@@ -18,53 +18,74 @@ public class IncomeChanceCard extends ChanceCard
     public void lotteryCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().addBalance(500);
+        currentPlayer.addBalance(500);
     }
 
     public void stockDividendsCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().addBalance(1000);
+        currentPlayer.addBalance(1000);
     }
 
     public void taxReturnCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().addBalance(3000);
+        currentPlayer.addBalance(3000);
     }
 
     public void gamblingCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().addBalance(1000);
+        currentPlayer.addBalance(1000);
     }
 
     public void salaryIncreaseCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().addBalance(1000);
+        currentPlayer.addBalance(1000);
     }
 
     public void premiumBondCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().addBalance(1000);
+        currentPlayer.addBalance(1000);
     }
 
     public void soldFurnitureCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
         currentPlayer.getAccount().addBalance(1000);
+        currentPlayer.addBalance(1000);
     }
 
     public void utilityGardenCard(Player currentPlayer, GUIController guiController, Language language)
     {
         guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().addBalance(200);
+        currentPlayer.addBalance(200);
     }
 
-    public void matadorGrantCard()
+    public void matadorGrantCard(Player currentPlayer, GameBoard gameboard, GUIController guiController, Language language)
     {
+        int totalAmount = currentPlayer.getAccount().getBalance();
+        guiController.showChanceCard(language.getText(0,0));
+        for(int i =0; i < gameboard.getGameBoard().length; i++)
+        {
+            if(gameboard.getGameBoard()[i] instanceof BuyableField)
+            {
+                totalAmount += gameboard.getGameBoard()[i].getPrice();
+                if (gameboard.getGameBoard()[i] instanceof PropertyField)
+                {
+                    if (((PropertyField) gameboard.getGameBoard()[i]).getHouses() > 0)
+                    {
+                        totalAmount += (((PropertyField) gameboard.getGameBoard()[i]).getHouses() * ((PropertyField) gameboard.getGameBoard()[i]).getHousePrice());
+                    }
+                }
+            }
+        }
+        if(totalAmount < 15000)
+        {
+            currentPlayer.addBalance(40000);
+        }
 
     }
 
@@ -73,8 +94,8 @@ public class IncomeChanceCard extends ChanceCard
         guiController.showChanceCard(language.getText(0,0));
         for(int i = 0; i < playerController.getPlayerArray().length; i++)
         {
-            playerController.getCurrentPlayer().getAccount().addBalance(200);
-            playerController.getPlayerArray()[i].getAccount().subtractBalance(200);
+            playerController.getCurrentPlayer().addBalance(200);
+            playerController.getPlayerArray()[i].subtractBalance(200);
         }
     }
 
@@ -83,8 +104,8 @@ public class IncomeChanceCard extends ChanceCard
         guiController.showChanceCard(language.getText(0,0));
         for(int i = 0; i < playerController.getPlayerArray().length; i++)
         {
-            playerController.getCurrentPlayer().getAccount().addBalance(500);
-            playerController.getPlayerArray()[i].getAccount().subtractBalance(500);
+            playerController.getCurrentPlayer().addBalance(500);
+            playerController.getPlayerArray()[i].subtractBalance(500);
         }
     }
 
@@ -93,8 +114,8 @@ public class IncomeChanceCard extends ChanceCard
         guiController.showChanceCard(language.getText(0,0));
         for(int i = 0; i < playerController.getPlayerArray().length; i++)
         {
-            playerController.getCurrentPlayer().getAccount().addBalance(500);
-            playerController.getPlayerArray()[i].getAccount().subtractBalance(500);
+            playerController.getCurrentPlayer().addBalance(500);
+            playerController.getPlayerArray()[i].subtractBalance(500);
         }
     }
 
