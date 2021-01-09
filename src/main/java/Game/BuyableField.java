@@ -42,6 +42,7 @@ public abstract class BuyableField extends Field
         return owner;
     }
 
+    @Override
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language)
     {
         if(!isPropertyBought)
