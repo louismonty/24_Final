@@ -3,7 +3,6 @@ package Game;
 import Controller.GUIController;
 import Controller.PlayerController;
 import gui_fields.GUI_Field;
-import Controller.GameBoard;
 import Controller.ChanceCardController;
 
 import java.awt.*;

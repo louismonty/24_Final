@@ -4,10 +4,9 @@ import Game.*;
 public class Gameloop
 {
     private DieController dieController = new DieController();
-    private Language language;
+    private Language language = new Language();
     private PlayerController playerController = new PlayerController();
     private GUIController guiController = new GUIController();
-    private GameBoard gameboard = new GameBoard(language);
     private ChanceCardController chanceCardController = new ChanceCardController();
     private Rules rules = new Rules();
     private Menu menu = new Menu();
@@ -17,7 +16,11 @@ public class Gameloop
 
     public void matadorGameloop()
     {
+        language.loadFile();
+        GameBoard gameboard = new GameBoard(language);
+        guiController.createGUIBoard(gameboard.getGuiGamebord());
         playerController.createPlayer(language, guiController);
+        chanceCardController.shuffleChanceCardDeck();
 
         while(isGameRunning)
         {
@@ -30,12 +33,19 @@ public class Gameloop
                 {
                     menu.takeTurnMenu(language, gameboard, guiController, currentPlayer);
                     dieController.diceRoll(guiController);
+                    rules.doubleExtraTurn(currentPlayer, dieController);
+                    if(currentPlayer.getDoubleCounter()==3)
+                    {
+                        rules.setExtraTurn(false);
+                        rules.threeDoubleGoToJail(currentPlayer);
+                    }
+
                 }
             while(true)
             {
                 gameboard.getGameBoard()[currentPlayer.getPlayerPosition() % 40].landOnField(gameboard, chanceCardController, playerController, guiController, language);
                 rules.overStartRule(currentPlayer, guiController, language);
-                if(currentPlayer.getHasMoved())
+                if(!currentPlayer.getHasMoved())
                 {
                     break;
                 }
@@ -46,7 +56,11 @@ public class Gameloop
             }
             rules.bankrupt(currentPlayer, playerController, guiController);
             isGameRunning = rules.win(playerController);
-            playerController.nextPlayer();
+            if(!rules.getExtraTurn())
+            {
+                currentPlayer.setDoubleCounter(0);
+                playerController.nextPlayer();
+            }
         }
     }
 
