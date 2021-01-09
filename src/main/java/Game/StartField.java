@@ -18,6 +18,9 @@ public class StartField extends Field{
         super(positionID, colorID, name, guiField);
 
     }
-    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController) {
+
+    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language) {
+
     }
+
 }
