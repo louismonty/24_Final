@@ -26,4 +26,8 @@ public class Jail {
             language.getText(0,0); // print "You are out of jail".
         }
     }
+
+    public void useGetOutOfJailCard(Player currentPlayer){
+
+    }
 }
