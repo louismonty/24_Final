@@ -27,7 +27,7 @@ public class ChanceCardController {
             chanceCardDeck[i] = new JailChanceCard(i);
         }
     }
-
+    ChanceCard currentCard;
 
     /**
      * Move the cards in the deck 1 time and draws the first card
@@ -44,7 +44,7 @@ public class ChanceCardController {
             else
                 chanceCardDeck[i] = chanceCardDeck[i+1];
         }
-
+        currentCard = chanceCardDeck[0];
         return chanceCardDeck[0];
     }
 
@@ -61,5 +61,7 @@ public class ChanceCardController {
             chanceCardDeck[i] = temp;
         }
         random=null;
+    }
+    public void executeChanceCard(GameBoard gameBoard,PlayerController playerController,GUIController guiController,Language language){
     }
 }
