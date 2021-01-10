@@ -25,9 +25,9 @@ public class Language {
             }
         }
         public String getText(int line, int column){
-            return ImportedText[line+1][column+1];
+            return ImportedText[line-1][column-1];
         }
         public String[] getLine(int column){
-            return ImportedText[column+1];
+            return ImportedText[column-1];
         }
     }
