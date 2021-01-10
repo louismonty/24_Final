@@ -41,20 +41,20 @@ public class Player {
 
     /**
      * @author Louis
-     * @param ball
+     * @param amount
      */
-    public void addBalance(int ball){
-        GUIPlayer.setBalance(account.getBalance()+ball);
-        account.addBalance(ball);
+    public void addBalance(int amount){
+        GUIPlayer.setBalance(account.getBalance()+amount);
+        account.addBalance(amount);
     }
 
     /**
      * @author Louis
-     * @param ball
+     * @param amount
      */
-    public void subtractBalance(int ball){
-        GUIPlayer.setBalance(account.getBalance()-ball);
-        account.subtractBalance(ball);
+    public void subtractBalance(int amount){
+        GUIPlayer.setBalance(account.getBalance()-amount);
+        account.subtractBalance(amount);
     }
 
     public int getNumberOfMoves(){
