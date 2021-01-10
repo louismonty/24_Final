@@ -25,10 +25,10 @@ public class PlayerController {
      * @param guiController
      */
     public void createPlayer(Language language, GUIController guiController){
-        int numberOfPlayers = guiController.integerInput(language.getText(0,0), 2, 6);
+        int numberOfPlayers = guiController.integerInput(language.getText(2,2), 2, 6);
         players = new Player[numberOfPlayers];
         for(int i = 0;i<numberOfPlayers;i++) {
-            String playerName = guiController.stringInput(language.getText(0,0));
+            String playerName = guiController.stringInput(language.getText(2,3));
             players[i]= new Player(playerName,i);
             guiController.addPlayer(players[i].getGUIPlayer());
         }
