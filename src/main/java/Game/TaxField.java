@@ -32,13 +32,13 @@ public class TaxField extends Field {
      * Player chooses to subtract 4000 or 10% from all his/her belongings.
      */
     public void payIncomeTax(Player currentPlayer, GUIController guiController, Language language, GameBoard gameboard){
-        String buttons = guiController.buttons(language.getText(18,5), language.getText(18,6), language.getText(18,7));
+        String buttons = guiController.buttons(language.getText(19,5), language.getText(19,6), language.getText(19,7));
 
-        if(buttons.equals(language.getText(18,7))) {
+        if(buttons.equals(language.getText(19,7))) {
             currentPlayer.getAccount().subtractBalance(incomeTax);
-            guiController.showMessage(language.getText(18,2));
+            guiController.showMessage(language.getText(19,2));
         }
-        else if(buttons.equals(language.getText(18,6))) {
+        else if(buttons.equals(language.getText(19,6))) {
             int totalAmount = currentPlayer.getAccount().getBalance();
             for (int i = 0; i < gameboard.getGameBoard().length; i++) {
                 if (gameboard.getGameBoard()[i] instanceof BuyableField) {
@@ -51,7 +51,7 @@ public class TaxField extends Field {
                 }
             }
             int taxPaymentDue = Math.round(totalAmount * taxRate);
-            guiController.showMessage(language.getText(18,2)); // "Du skal betale 10% af dine penge"
+            guiController.showMessage(language.getText(19,2)); // "Du skal betale 10% af dine penge"
             currentPlayer.subtractBalance(taxPaymentDue);
         }
     }
@@ -64,7 +64,7 @@ public class TaxField extends Field {
      */
     public void payUnexpectedTax(Player currentPlayer, GUIController guiController, Language language){
         currentPlayer.getAccount().subtractBalance(unexpectedTax);
-        guiController.showMessage(language.getText(18,4)); //"Tax has been deducted."
+        guiController.showMessage(language.getText(19,4)); //"Tax has been deducted."
     }
 
     /**
