@@ -13,8 +13,9 @@ public class PropertyField extends BuyableField
 {
     private int houses;
     private int housePrice;
+    private int csvLine;
 
-    public PropertyField(int positionID, Color colorID, String name, GUI_Field guiField, int price, int pawnValue, int group, int housePrice)
+    public PropertyField(int positionID, Color colorID, String name, GUI_Field guiField, int price, int pawnValue, int group, int housePrice, int csvLine)
     {
         super(positionID, colorID, name, guiField, price, pawnValue, group);
         houses = 0;
@@ -23,7 +24,7 @@ public class PropertyField extends BuyableField
 
     public int payRent(PlayerController playerController, GameBoard gameboard, Language language)
     {
-        int rent = Integer.parseInt(language.getText(0,houses));
+        int rent = Integer.parseInt(language.getText(csvLine,houses+1));
         return rent;
     }
 
