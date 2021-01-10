@@ -15,59 +15,65 @@ public class IncomeChanceCard extends ChanceCard
         super(chanceCardID);
     }
 
-    public void lotteryCard(Player currentPlayer, GUIController guiController, Language language)
+    public void addBalanceFromCard(GUIController guiController, Language language, PlayerController playerController, int amount, int textColumn)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.addBalance(500);
+        guiController.showChanceCard(language.getText(25,textColumn));
+        playerController.getCurrentPlayer().addBalance(amount);
+    }
+    public void receiveMoneyFromOthers(GUIController guiController, Language language, PlayerController playerController, int amount, int textColumn)
+    {
+    guiController.showChanceCard(language.getText(25,textColumn));
+        for(int i = 0; i < playerController.getPlayerArray().length; i++)
+        {
+            playerController.getCurrentPlayer().addBalance(amount);
+            playerController.getPlayerArray()[i].subtractBalance(amount);
+        }
     }
 
-    public void stockDividendsCard(Player currentPlayer, GUIController guiController, Language language)
+    public void lotteryCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.addBalance(1000);
+        addBalanceFromCard(guiController, language, playerController, 500, 2);
     }
 
-    public void taxReturnCard(Player currentPlayer, GUIController guiController, Language language)
+    public void stockDividendsCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.addBalance(3000);
+        addBalanceFromCard(guiController, language, playerController, 1000, 3);
     }
 
-    public void gamblingCard(Player currentPlayer, GUIController guiController, Language language)
+    public void taxReturnCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.addBalance(1000);
+        addBalanceFromCard(guiController, language, playerController, 3000, 4);
     }
 
-    public void salaryIncreaseCard(Player currentPlayer, GUIController guiController, Language language)
+    public void gamblingCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.addBalance(1000);
+        addBalanceFromCard(guiController, language, playerController, 1000, 5);
     }
 
-    public void premiumBondCard(Player currentPlayer, GUIController guiController, Language language)
+    public void salaryIncreaseCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.addBalance(1000);
+        addBalanceFromCard(guiController, language, playerController, 1000, 6);
     }
 
-    public void soldFurnitureCard(Player currentPlayer, GUIController guiController, Language language)
+    public void premiumBondCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.getAccount().addBalance(1000);
-        currentPlayer.addBalance(1000);
+        addBalanceFromCard(guiController, language, playerController, 1000, 7);
     }
 
-    public void utilityGardenCard(Player currentPlayer, GUIController guiController, Language language)
+    public void soldFurnitureCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.addBalance(200);
+        addBalanceFromCard(guiController, language, playerController, 1000, 8);
     }
 
-    public void matadorGrantCard(Player currentPlayer, GameBoard gameboard, GUIController guiController, Language language)
+    public void utilityGardenCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        int totalAmount = currentPlayer.getAccount().getBalance();
-        guiController.showChanceCard(language.getText(0,0));
+        addBalanceFromCard(guiController, language, playerController, 200, 9);
+    }
+
+    public void matadorGrantCard(PlayerController playerController, GameBoard gameboard, GUIController guiController, Language language)
+    {
+        int totalAmount = playerController.getCurrentPlayer().getAccount().getBalance();
+        guiController.showChanceCard(language.getText(25,10));
         for(int i =0; i < gameboard.getGameBoard().length; i++)
         {
             if(gameboard.getGameBoard()[i] instanceof BuyableField)
@@ -84,39 +90,24 @@ public class IncomeChanceCard extends ChanceCard
         }
         if(totalAmount < 15000)
         {
-            currentPlayer.addBalance(40000);
+            playerController.getCurrentPlayer().addBalance(40000);
         }
 
     }
 
     public void birthdayCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        for(int i = 0; i < playerController.getPlayerArray().length; i++)
-        {
-            playerController.getCurrentPlayer().addBalance(200);
-            playerController.getPlayerArray()[i].subtractBalance(200);
-        }
+        receiveMoneyFromOthers(guiController, language, playerController, 200, 11);
     }
 
     public void potluckCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        for(int i = 0; i < playerController.getPlayerArray().length; i++)
-        {
-            playerController.getCurrentPlayer().addBalance(500);
-            playerController.getPlayerArray()[i].subtractBalance(500);
-        }
+        receiveMoneyFromOthers(guiController, language, playerController, 500, 12);
     }
 
     public void familyPartyCard(PlayerController playerController, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        for(int i = 0; i < playerController.getPlayerArray().length; i++)
-        {
-            playerController.getCurrentPlayer().addBalance(500);
-            playerController.getPlayerArray()[i].subtractBalance(500);
-        }
+        receiveMoneyFromOthers(guiController, language, playerController, 500, 13);
     }
 
 }
