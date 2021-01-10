@@ -50,7 +50,7 @@ public class GameBoard {
         gameBoard[9] = new PropertyField(9, ORANGE,"Allégade", new GUI_Street(language.getText
                 (13,28), language.getText(13,29), language.getText(13,30), cyan, BLACK),2400,1200,4,1000,34);
 
-        gameBoard[10] = new JailField(10, BLACK,"Fængsel", new GUI_Jail(language.getText
+        gameBoard[10] = new JailField(10, BLACK,"Fængsel", new GUI_Jail("default",language.getText
                 (13,31), language.getText(13,32), language.getText(13,33), cyan, BLACK));
 
         gameBoard[11] = new PropertyField(11, YELLOW,"Frederiksberg Allé", new GUI_Street(language.getText
@@ -80,7 +80,7 @@ public class GameBoard {
         gameBoard[19] = new PropertyField(19, GRAY,"Strandvejen", new GUI_Street(language.getText
                 (13,58), language.getText(13,59), language.getText(13,60), cyan, BLACK),4000,2000,6,2000,40);
 
-        gameBoard[20] = new CustomField(20, cyan,"Parkering", new GUI_Refuge(language.getText
+        gameBoard[20] = new CustomField(20, cyan,"Parkering", new GUI_Refuge("default",language.getText
                 (13,61), language.getText(13,62), language.getText(13,63), cyan, BLACK));
 
         gameBoard[21] = new PropertyField(21, RED,"Trianglen", new GUI_Street(language.getText
@@ -110,7 +110,7 @@ public class GameBoard {
         gameBoard[29] = new PropertyField(29, WHITE,"Østergade", new GUI_Street(language.getText
                 (13,88), language.getText(13,89), language.getText(13,90), cyan, BLACK),5600,2800,8, 3000,46);
 
-        gameBoard[30] = new JailField(30, BLACK,"Fængsel", new GUI_Jail(language.getText
+        gameBoard[30] = new JailField(30, BLACK,"Fængsel", new GUI_Jail("default",language.getText
                 (13,91), language.getText(13,92), language.getText(13,93), cyan, BLACK));
 
         gameBoard[31] = new PropertyField(31, YELLOW,"Amagertorv", new GUI_Street(language.getText
