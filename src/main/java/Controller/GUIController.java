@@ -1,12 +1,16 @@
 package Controller;
 
+import gui_fields.GUI_Field;
 import gui_fields.GUI_Player;
 import gui_fields.GUI_Street;
 import gui_main.GUI;
 
 public class GUIController {
-    //Todo  we need to load in fields later
-    GUI gui = new GUI();
+    GUI gui;
+    public void createGUIBoard(GUI_Field[] fields){
+        gui = new GUI(fields);
+    }
+
 
     //
     public String buttons(String msg,String... buttons){

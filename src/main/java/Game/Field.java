@@ -3,7 +3,6 @@ package Game;
 import Controller.GUIController;
 import Controller.PlayerController;
 import gui_fields.GUI_Field;
-import Controller.GameBoard;
 import Controller.ChanceCardController;
 
 import java.awt.*;
@@ -33,5 +32,10 @@ public abstract class Field {
 
     public String getName() {
         return name;
+    }
+
+    public GUI_Field getGUIField()
+    {
+        return guiField;
     }
 }

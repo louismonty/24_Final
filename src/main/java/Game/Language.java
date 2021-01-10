@@ -15,7 +15,7 @@ public class Language {
                 int i = 0;
                 while(Reader.hasNextLine()) {
                     line = Reader.nextLine();
-                    ImportedText[i] = line.split(";");
+                    ImportedText[i] = line.split(",");
                     i++;
                 }
                 Reader.close();
@@ -24,10 +24,10 @@ public class Language {
                 e.printStackTrace();
             }
         }
-        public String getText(int line, int row){
-            return ImportedText[line][row];
+        public String getText(int line, int column){
+            return ImportedText[line-1][column-1];
         }
-        public String[] getLine(int line){
-            return ImportedText[line];
+        public String[] getLine(int column){
+            return ImportedText[column-1];
         }
     }

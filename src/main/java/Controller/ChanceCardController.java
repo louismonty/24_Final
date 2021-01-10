@@ -1,22 +1,30 @@
 package Controller;
 
-import Game.ChanceCard;
-import Game.IncomeChanceCard;
-import Game.PaymentChanceCard;
+import Game.*;
 
 import java.util.Random;
 
 public class ChanceCardController {
     ChanceCard[] chanceCardDeck = new ChanceCard[46];
-    public ChanceCardController(){
-        int i = 0;
-
-        while(i<12){
+    public ChanceCardController()
+    {
+        for(int i = 0; i<chanceCardDeck.length; i++)
+        if(i<12)
+        {
             chanceCardDeck[i] = new PaymentChanceCard(i);
             i++;
         }
-        while(i<25){
+        else if(i>=12 && i<27)
+        {
             chanceCardDeck[i] = new IncomeChanceCard(i);
+        }
+        else if(i>=27 && i<44)
+        {
+            chanceCardDeck[i] = new MoveChanceCard(i);
+        }
+        else if(i>= 44)
+        {
+            chanceCardDeck[i] = new JailChanceCard(i);
         }
     }
 
