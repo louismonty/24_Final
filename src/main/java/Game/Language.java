@@ -15,7 +15,7 @@ public class Language {
                 int i = 0;
                 while(Reader.hasNextLine()) {
                     line = Reader.nextLine();
-                    ImportedText[i] = line.split(";");
+                    ImportedText[i] = line.split(",");
                     i++;
                 }
                 Reader.close();
