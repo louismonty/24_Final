@@ -1,9 +1,10 @@
 package Game;
 
 import Controller.GUIController;
+import Controller.PlayerController;
 
 /**
- * @Author Isak Risager
+ * @Author Isak
  */
 public class PaymentChanceCard extends ChanceCard
 {
@@ -14,10 +15,10 @@ public class PaymentChanceCard extends ChanceCard
         super(chanceCardID);
     }
 
-    public void oilPricesCard(Player currentPlayer, GameBoard gameboard, GUIController guiController, Language language)
+    public void subtractBasedOnHousesAndHotels(Language language, GUIController guiController, GameBoard gameboard, PlayerController playerController, int hotelCost, int houseCost, int textColumn)
     {
         int totalCost = 0;
-        guiController.showChanceCard(language.getText(0,0));
+        guiController.showChanceCard(language.getText(27,textColumn));
         for(int i =0; i < gameboard.getGameBoard().length; i++)
         {
             if(gameboard.getGameBoard()[i] instanceof PropertyField)
@@ -26,96 +27,77 @@ public class PaymentChanceCard extends ChanceCard
                 {
                     if (((PropertyField) gameboard.getGameBoard()[i]).getHouses() == 5)
                     {
-                        totalCost = totalCost + 2000;
+                        totalCost += hotelCost;
                     }
                     else
                     {
-                        totalCost = totalCost + (((PropertyField) gameboard.getGameBoard()[i]).getHouses()*500);
+                        totalCost += (((PropertyField) gameboard.getGameBoard()[i]).getHouses()*houseCost);
                     }
                 }
             }
         }
-        currentPlayer.subtractBalance(totalCost);
+        playerController.getCurrentPlayer().subtractBalance(totalCost);
     }
 
-    public void propertyTaxCard(Player currentPlayer, GameBoard gameboard, GUIController guiController, Language language)
+    public void subtractBalanceFromCard(Language language, GUIController guiController, PlayerController playerController, int amount, int textColumn)
     {
-        {
-            int totalCost = 0;
-            guiController.showChanceCard(language.getText(0,0));
-            for(int i =0; i < gameboard.getGameBoard().length; i++)
-            {
-                if(gameboard.getGameBoard()[i] instanceof PropertyField)
-                {
-                    if (((PropertyField) gameboard.getGameBoard()[i]).getHouses() > 0)
-                    {
-                        if (((PropertyField) gameboard.getGameBoard()[i]).getHouses() == 5)
-                        {
-                            totalCost = totalCost + 2300;
-                        }
-                        else
-                        {
-                            totalCost = totalCost + (((PropertyField) gameboard.getGameBoard()[i]).getHouses()*800);
-                        }
-                    }
-                }
-            }
-            currentPlayer.subtractBalance(totalCost);
-        }
+        guiController.showChanceCard(language.getText(27, textColumn));
+        playerController.getCurrentPlayer().subtractBalance(amount);
     }
 
-    public void redLightCard(Player currentPlayer, GUIController guiController, Language language)
+    public void oilPricesCard(Language language, GUIController guiController, GameBoard gameboard, PlayerController playerController)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.subtractBalance(1000);
+        subtractBasedOnHousesAndHotels(language, guiController, gameboard, playerController, 2000, 500, 2);
     }
 
-    public void carWashCard(Player currentPlayer, GUIController guiController, Language language)
+    public void propertyTaxCard(Language language, GUIController guiController, GameBoard gameboard, PlayerController playerController)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.subtractBalance(300);
+        subtractBasedOnHousesAndHotels(language, guiController, gameboard, playerController, 2300, 800, 3);
     }
 
-    public void beerCard(Player currentPlayer, GUIController guiController, Language language)
+    public void redLightCard(Language language, GUIController guiController, PlayerController playerController)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.subtractBalance(200);
+        subtractBalanceFromCard(language, guiController, playerController, 1000, 4);
     }
 
-    public void carRepairCard(Player currentPlayer, GUIController guiController, Language language)
+    public void carWashCard(Language language, GUIController guiController, PlayerController playerController)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.subtractBalance(3000);
+        subtractBalanceFromCard(language, guiController, playerController, 300, 5);
     }
 
-    public void newTiresCard(Player currentPlayer, GUIController guiController, Language language)
+    public void beerCard(Language language, GUIController guiController, PlayerController playerController)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.subtractBalance(1000);
+        subtractBalanceFromCard(language, guiController, playerController, 200, 6);
     }
 
-    public void parkingTicketCard(Player currentPlayer, GUIController guiController, Language language)
+    public void carRepairCard(Language language, GUIController guiController, PlayerController playerController)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.subtractBalance(200);
+        subtractBalanceFromCard(language, guiController, playerController, 3000, 7);
     }
 
-    public void carInsuranceCard(Player currentPlayer, GUIController guiController, Language language)
+    public void newTiresCard(Language language, GUIController guiController, PlayerController playerController)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.subtractBalance(1000);
+        subtractBalanceFromCard(language, guiController, playerController, 1000, 8);
     }
 
-    public void cigaretteCard(Player currentPlayer, GUIController guiController, Language language)
+    public void parkingTicketCard(Language language, GUIController guiController, PlayerController playerController)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.subtractBalance(200);
+        subtractBalanceFromCard(language, guiController, playerController, 200, 9);
     }
 
-    public void dentistCard(Player currentPlayer, GUIController guiController, Language language)
+    public void carInsuranceCard(Language language, GUIController guiController, PlayerController playerController)
     {
-        guiController.showChanceCard(language.getText(0,0));
-        currentPlayer.subtractBalance(2000);
+        subtractBalanceFromCard(language, guiController, playerController, 1000, 10);
+    }
+
+    public void cigaretteCard(Language language, GUIController guiController, PlayerController playerController)
+    {
+        subtractBalanceFromCard(language, guiController, playerController, 200, 11);
+    }
+
+    public void dentistCard(Language language, GUIController guiController, PlayerController playerController)
+    {
+        subtractBalanceFromCard(language, guiController, playerController, 2000, 12);
     }
 
 }
