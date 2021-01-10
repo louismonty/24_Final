@@ -3,11 +3,11 @@ package Game;
 import Controller.GUIController;
 import Controller.PlayerController;
 import gui_fields.GUI_Field;
-import Controller.GameBoard;
 import Controller.ChanceCardController;
 
 import java.awt.*;
 import java.awt.color.*;
+import Game.Language;
 
 /**
  * @author “Daniel”
@@ -28,9 +28,14 @@ public abstract class Field {
     }
 
     public abstract void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController
-            playerController, GUIController guiController);
+            playerController, GUIController guiController, Language language);
 
     public String getName() {
         return name;
+    }
+
+    public GUI_Field getGUIField()
+    {
+        return guiField;
     }
 }

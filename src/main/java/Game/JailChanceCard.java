@@ -3,7 +3,7 @@ package Game;
 import Controller.GUIController;
 
 /**
- * @Author Isak Risager
+ * @Author Isak
  */
 
 public class JailChanceCard extends ChanceCard
@@ -17,13 +17,13 @@ public class JailChanceCard extends ChanceCard
 
     public void getOutOfJailCard(Player currentPlayer, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
+        guiController.showChanceCard(language.getText(28,2));
         currentPlayer.setGetOutOfJailCard(currentPlayer.getGetOutOfJailCard()+1);
     }
 
     public void goToJailCard(Player currentPlayer, GUIController guiController, Language language)
     {
-        guiController.showChanceCard(language.getText(0,0));
+        guiController.showChanceCard(language.getText(28,3));
         currentPlayer.setPlayerPosition(10);
         currentPlayer.setInJail(true);
     }

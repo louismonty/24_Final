@@ -29,18 +29,22 @@ public class PlayerController {
         players = new Player[numberOfPlayers];
         for(int i = 0;i<numberOfPlayers;i++) {
             String playerName = guiController.stringInput(language.getText(0,0));
-            players[i]= new Player(playerName);
+            players[i]= new Player(playerName,i);
             guiController.addPlayer(players[i].getGUIPlayer());
         }
 
     }
 
-
+    /**
+     * @author Louis
+     */
     public Player getCurrentPlayer() {
         return players[currentPlayerCounter];
     }
 
-
+    /**
+     * @author Louis
+     */
     public void setCurrentPlayer(Player currentPlayer) {
         this.currentPlayer = currentPlayer;
     }
@@ -49,6 +53,9 @@ public class PlayerController {
         return players;
     }
 
+    /**
+     * @author Louis
+     */
     public void setPlayerArray(Player[] players) {
         this.players = players;
     }
