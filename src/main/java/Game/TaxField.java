@@ -36,6 +36,7 @@ public class TaxField extends Field {
 
         if(buttons.equals(language.getText(18,7))) {
             currentPlayer.getAccount().subtractBalance(incomeTax);
+            guiController.showMessage(language.getText(18,2));
         }
         else if(buttons.equals(language.getText(18,6))) {
             int totalAmount = currentPlayer.getAccount().getBalance();
