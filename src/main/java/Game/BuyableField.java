@@ -3,6 +3,7 @@ package Game;
 
 import Controller.*;
 import gui_fields.GUI_Field;
+import gui_fields.GUI_Ownable;
 
 
 import java.awt.*;
@@ -52,7 +53,7 @@ public abstract class BuyableField extends Field
     {
         if(!isPropertyBought)
         {
-            if (guiController.buttons(language.getText(0, 0), language.getLine(0)) == language.getText(0, 0))
+            if (guiController.buttons(language.getText(15, 3), language.getText(15,3),language.getText(15,4)) == language.getText(15, 3))
             {
                 buy(playerController.getCurrentPlayer());
             }
@@ -73,39 +74,42 @@ public abstract class BuyableField extends Field
 
     public void buy(Player player)
     {
-        owner = player.getPlayerID();
+        this.owner = player.getPlayerID();
+        this.isPropertyBought = true;
         player.subtractBalance(price);
+        GUI_Ownable buy = (GUI_Ownable) this.guiField;
+        buy.setOwnerName(player.getName());
+        buy.setBorder(player.getGUIPlayer().getCar().getPrimaryColor());
+        player.subtractBalance(this.price);
     }
 
     public void auction(Language language,GUIController guiController, Player[] players)
     {
+        Boolean[] playerInActuin = new Boolean[players.length];
         int min = 0;
         int i = 0;
+        int playerLeftInAuction = players.length ;
         boolean onGoingAuction = true;
         int amountOfPlayer = players.length;
 
-            while(onGoingAuction ==true)
+            while(onGoingAuction)
             {
-                i = i + 1 % amountOfPlayer;
-                if(players[i]==null)
+                i = ((i + 1) % amountOfPlayer);
+                if(playerInActuin[i] == null)
                 {
-                    String  playerChose = guiController.buttons(language.getText(0,0),language.getLine(1));
-                    if (playerChose == language.getText(0, 0))
-                    {
-                        if (players[i] == null)
-                        {
-                            min = guiController.integerInput(language.getText(0, 0) + players[i].getName(), min, 100000);
-                            Player lastPlayer = players[i];
-                            if(lastPlayer == players[i])
-                            {
-                                break;
-                            }
+                    if (playerLeftInAuction != 1) {
+                        String playerChose = guiController.buttons(language.getText(15, 6), language.getText(15, 7), language.getText(15, 8));
+                        if (playerChose == language.getText(15, 7)) {
+
+                            min = guiController.integerInput(players[i].getName() + " " + language.getText(15, 10) + min, min, 100000);
+                        } else {
+                            playerInActuin[i] = false;
+                            playerLeftInAuction--;
                         }
-                    }
-                    else
-                        {
-                            players[i] = null;
-                        }
+                    }else{
+                    buy(players[i]);
+                    break;
+                }
                 }
             }
     }
