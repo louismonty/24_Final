@@ -6,7 +6,7 @@ public class Menu {
     public void takeTurnMenu(Language language, GameBoard gameBoard, GUIController guiController, Player player) {
         while (true) {
             String[] Text = language.getLine(10);
-            String playerChose = guiController.buttons(Text[1],Text[2],Text[3],Text[4],Text[5],Text[6]);
+            String playerChose = guiController.buttons(player.getName()+" "+Text[1],Text[2],Text[3],Text[4],Text[5],Text[6]);
             if (playerChose == Text[2]) {
                 break;
             } else if ((playerChose == Text[3])) {
