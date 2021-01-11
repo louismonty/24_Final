@@ -24,6 +24,6 @@ public class JailField extends Field{
             playerController, GUIController guiController, Language language)
     {
         goToJail(playerController.getCurrentPlayer());
-        guiController.showMessage(language.getText(0,0));
+        guiController.showMessage(language.getText(18,2));
     }
 }
