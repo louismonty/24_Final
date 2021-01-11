@@ -1,4 +1,4 @@
-s\documentclass[12pt,oneside,a4paper,english]{article}
+\documentclass[12pt,oneside,a4paper,english]{article}
 \usepackage[T1]{fontenc}
 \usepackage[margin=2.25cm,headheight=26pt,includeheadfoot]{geometry}
 \usepackage[english]{babel}
@@ -34,6 +34,7 @@ s\documentclass[12pt,oneside,a4paper,english]{article}
 \usepackage{multirow}
 \usepackage{ragged2e}
 \usepackage{multicol}
+\usepackage{datetime}
 
 
 % --- set footer and header ---
@@ -41,7 +42,7 @@ s\documentclass[12pt,oneside,a4paper,english]{article}
 \fancyhf{}
 
 \setlength{\parindent}{2em}
-\title{CDIO - Del 3} % to reference as \title, dont use \maketitle
+\title{Matadorspil - 3 ugers projekt} % to reference as \title, dont use \maketitle
 \makeatletter\let\Title\@title\makeatother
 
 
@@ -72,10 +73,10 @@ numbersep=0.5cm
 
 \begin{document}
 \pagenumbering{roman} 
-\input{sources/0_frontpage.tex}
+\input{Report/sources/01_frontpage}
 
 \newpage
-\input{Report/sources/1__Abstract}
+\input{Report/sources/03_Abstract}
 \thispagestyle{fancy}
 
 \newpage
@@ -87,33 +88,69 @@ numbersep=0.5cm
 %\singlespacing
 \thispagestyle{fancy} % force page style
 
-
-
 \newpage
 \section{Timeregnskab}
-\input{Report/sources/0a_Timeregnskab}
+\input{Report/sources/02_Timeregnskab}
 \thispagestyle{fancy}
 \pagenumbering{arabic} 
 \fancyfoot[C]{Page \thepage\ of \pageref{endOfDoc}}
 
+\newpage
+\thispagestyle{fancy}
+\section{Kravspecifikation}
+\input{Report/sources/03a_Kravspecifikation}
+
 
 \newpage
-\section{Kravspecifikation}
-\input{Report/sources/2_Kravspecifikation}
+\section{Introduktion}
 \thispagestyle{fancy}
+\input{Report/sources/04_introduction}
+
+
+
 
 \newpage
 \section{Analyse}
-\input{Report/sources/3_Analysis}
+\input{Report/sources/05_Analyse}
 \thispagestyle{fancy}
 
 \newpage
 \section{Design}
-\input{Report/sources/4_Design}
+\input{Report/sources/06_Design}
 \thispagestyle{fancy}
 
+\newpage
+\section{Implementering}
+\thispagestyle{fancy}
 
+\newpage
+\section{Test}
+\input{Report/sources/08_Test}
+\thispagestyle{fancy}
 
+\newpage
+\section{Projektplanlægning}
+\thispagestyle{fancy}
 
+\newpage
+\section{Konklusion}
+\thispagestyle{fancy}
+
+\newpage
+\begin{flushleft}
+\section{Tegn og ordforklaring}
+\end{flushleft}
+\input{Report/sources/09_ordforklaring}
+\thispagestyle{fancy}
+
+\newpage
+\section{Brugerguide}
+\thispagestyle{fancy}
+
+\newpage
+\section{Litteraturliste}
+
+\newpage
+\section{Bilag}
+\label{endOfDoc}
 \end{document}
-
