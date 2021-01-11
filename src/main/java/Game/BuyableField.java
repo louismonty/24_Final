@@ -66,7 +66,7 @@ public abstract class BuyableField extends Field
             {
                 int fieldRent = payRent(playerController,gameBoard, language);
                 playerController.getCurrentPlayer().subtractBalance(fieldRent);
-                BuyableField fieldLandedOn = (BuyableField)gameBoard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()];
+                BuyableField fieldLandedOn = (BuyableField)gameBoard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()%40];
                 playerController.getPlayerArray()[fieldLandedOn.getOwner()].addBalance(fieldRent);
             }
 
