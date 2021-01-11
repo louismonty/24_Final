@@ -40,7 +40,7 @@ public abstract class BuyableField extends Field
     }
     public int getOwner()
     {
-        return this.owner;
+        return this.owner-1;
     }
     public int getPawnValue() {return this.pawnValue;}
     public int getPrice(){return this.price;}
