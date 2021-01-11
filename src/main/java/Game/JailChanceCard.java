@@ -1,6 +1,7 @@
 package Game;
 
 import Controller.GUIController;
+import Controller.PlayerController;
 
 /**
  * @Author Isak
@@ -15,16 +16,16 @@ public class JailChanceCard extends ChanceCard
         super(chanceCardID);
     }
 
-    public void getOutOfJailCard(Player currentPlayer, GUIController guiController, Language language)
+    public void getOutOfJailCard(Language language, GUIController guiController, PlayerController playerController)
     {
         guiController.showChanceCard(language.getText(28,2));
-        currentPlayer.setGetOutOfJailCard(currentPlayer.getGetOutOfJailCard()+1);
+        playerController.getCurrentPlayer().setGetOutOfJailCard(playerController.getCurrentPlayer().getGetOutOfJailCard()+1);
     }
 
-    public void goToJailCard(Player currentPlayer, GUIController guiController, Language language)
+    public void goToJailCard(Language language, GUIController guiController, PlayerController playerController)
     {
         guiController.showChanceCard(language.getText(28,3));
-        currentPlayer.setPlayerPosition(10);
-        currentPlayer.setInJail(true);
+        playerController.getCurrentPlayer().setPlayerPosition(10);
+        playerController.getCurrentPlayer().setInJail(true);
     }
 }
