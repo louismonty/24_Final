@@ -29,7 +29,7 @@ public class PlayerController {
         players = new Player[numberOfPlayers];
         for(int i = 0;i<numberOfPlayers;i++) {
             String playerName = guiController.stringInput(language.getText(2,3));
-            players[i]= new Player(playerName,i);
+            players[i]= new Player(playerName,i+1);
             guiController.addPlayer(players[i].getGUIPlayer());
         }
 
