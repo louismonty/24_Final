@@ -148,60 +148,49 @@ public class Menu {
 
     }
 
-    public BuyableField[] ableToBuy(BuyableField[] fields,Player player){
-        BuyableField[][] buyableField = new BuyableField[10][];
+    public BuyableField[][] ableToBuy(BuyableField[] fields,Player player){
+        BuyableField[][] buyableField = new BuyableField[11][0];
         BuyableField[] listOfFieldWithallGroups = new BuyableField[0];
         for(int i = 0;i<fields.length;i++){
-            buyableField[fields[i].getGroup()] = exspandArr(buyableField[fields[i].getGroup()],fields[i]);
+            buyableField[fields[i].getGroup()-1] = exspandArr(buyableField[fields[i].getGroup()-1],fields[i]);
         }
-        for(int i = 0;i<buyableField.length;i++){
+        for(int i = 0;i<buyableField.length-1;i++){
             boolean haAllFields = true;
             for(int j = 0;j<buyableField[i].length;j++){
                 if(haAllFields) {
-                    if (buyableField[i][j].getOwner() != player.getPlayerID()){
+                    if (buyableField[i][j].getOwner() != player.getPlayerID()-1){
                         haAllFields = false;
                     }
                 }
             }
-            if(haAllFields){
+            if(haAllFields && i != 0 && i!=1){
+                BuyableField[] tempArr = buyableField[10];
                 for(int j =0;j<buyableField[i].length;j++){
-                    listOfFieldWithallGroups = exspandArr(listOfFieldWithallGroups,buyableField[i][j]);
+                    tempArr = exspandArr(tempArr,buyableField[i][j]);
                 }
+                buyableField[10] = tempArr;
             }
         }
-        return listOfFieldWithallGroups;
+        return buyableField;
     }
-
-        public BuyableField[] pawned (GameBoard gameBoard, Player player, BuyableField[]field){
-            int count = 0;
-            for (int i = 0; i < field.length; i++) {
-                if (field[i].getIsPawned()) {
-                    count++;
-                }
+        public BuyableField[] buyableFields(GameBoard gameBoard){
+        Field[] gameBoardFields = gameBoard.getGameBoard();
+        BuyableField[] buyableFields = new BuyableField[0];
+        for(int i =0; i<gameBoardFields.length;i++){
+            if(gameBoardFields[i] instanceof BuyableField){
+                buyableFields = exspandArr(buyableFields,(BuyableField) gameBoardFields[i]);
             }
-            int j = 0;
-            BuyableField[] arr = new BuyableField[count];
-            for (int i = 0; i < arr.length; i++) {
-                if (field[i].getIsPawned()) {
-                    arr[j] = field[i];
-                    j++;
-                }
-
-            }
-            return arr;
         }
+        return buyableFields;
+        }
+
         public BuyableField[] ownedFields(GameBoard gameBoard, Player player){
             BuyableField[] arr = new BuyableField[0];
             for (int i = 0; i < gameBoard.getGameBoard().length; i++) {
                 if (gameBoard.getGameBoard()[i] instanceof BuyableField) {
                     BuyableField field = (BuyableField) gameBoard.getGameBoard()[i];
-                    if (field.getOwner() == player.getPlayerID()) {
-                        BuyableField[] tempArr = new BuyableField[arr.length + 1];
-                        for (int j = 0; j < arr.length; j++) {
-                            tempArr[j] = arr[j];
-                        }
-                        tempArr[arr.length] = field;
-                        arr = tempArr;
+                    if (field.getOwner() == player.getPlayerID()-1) {
+                        arr = exspandArr(arr,field);
                     }
                 }
             }
