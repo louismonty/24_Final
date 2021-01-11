@@ -11,8 +11,13 @@ public class Gameloop
     private Rules rules = new Rules();
     private Menu menu = new Menu();
     private Jail jail = new Jail();
+    private boolean isGameRunning;
 
-    private static boolean isGameRunning = true;
+    public Gameloop()
+    {
+        isGameRunning = true;
+    }
+
 
     public void matadorGameloop()
     {
@@ -25,6 +30,7 @@ public class Gameloop
 
         while(isGameRunning)
         {
+            rules.setExtraTurn(false);
             Player currentPlayer = playerController.getCurrentPlayer();
             if(currentPlayer.isInJail(true))
             {
