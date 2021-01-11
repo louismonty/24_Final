@@ -5,9 +5,11 @@ import Game.*;
 import java.util.Random;
 
 public class ChanceCardController {
-    ChanceCard[] chanceCardDeck = new ChanceCard[46];
+    ChanceCard[] chanceCardDeck;
+
     public ChanceCardController()
     {
+        this.chanceCardDeck = new ChanceCard[46];
         for(int i = 0; i<chanceCardDeck.length; i++)
         if(i<12)
         {
@@ -27,7 +29,7 @@ public class ChanceCardController {
             chanceCardDeck[i] = new JailChanceCard(i);
         }
     }
-    ChanceCard currentCard;
+
 
     /**
      * Move the cards in the deck 1 time and draws the first card
@@ -44,7 +46,6 @@ public class ChanceCardController {
             else
                 chanceCardDeck[i] = chanceCardDeck[i+1];
         }
-        currentCard = chanceCardDeck[0];
         return chanceCardDeck[0];
     }
 
