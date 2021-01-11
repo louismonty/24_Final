@@ -80,7 +80,6 @@ public abstract class BuyableField extends Field
         GUI_Ownable buy = (GUI_Ownable) this.guiField;
         buy.setOwnerName(player.getName());
         buy.setBorder(player.getGUIPlayer().getCar().getPrimaryColor());
-        player.subtractBalance(this.price);
     }
 
     public void auction(Language language,GUIController guiController, Player[] players)
