@@ -78,12 +78,15 @@ public class IncomeChanceCard extends ChanceCard
         {
             if(gameboard.getGameBoard()[i] instanceof BuyableField)
             {
-                totalAmount += ((BuyableField) gameboard.getGameBoard()[i]).getPrice();
-                if (gameboard.getGameBoard()[i] instanceof PropertyField)
+                if(((BuyableField) gameboard.getGameBoard()[i]).getOwner() == playerController.getCurrentPlayer().getPlayerID())
                 {
-                    if (((PropertyField) gameboard.getGameBoard()[i]).getHouses() > 0)
+                    totalAmount += ((BuyableField) gameboard.getGameBoard()[i]).getPrice();
+                    if (gameboard.getGameBoard()[i] instanceof PropertyField)
                     {
-                        totalAmount += (((PropertyField) gameboard.getGameBoard()[i]).getHouses() * ((PropertyField) gameboard.getGameBoard()[i]).getHousePrice());
+                        if (((PropertyField) gameboard.getGameBoard()[i]).getHouses() > 0)
+                        {
+                            totalAmount += (((PropertyField) gameboard.getGameBoard()[i]).getHouses() * ((PropertyField) gameboard.getGameBoard()[i]).getHousePrice());
+                        }
                     }
                 }
             }
