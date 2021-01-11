@@ -1,6 +1,10 @@
 package Game;
 
 import Controller.GUIController;
+import gui_fields.GUI_Ownable;
+import gui_fields.GUI_Street;
+
+import java.awt.*;
 
 public class Menu {
     public void takeTurnMenu(Language language, GameBoard gameBoard, GUIController guiController, Player player) {
