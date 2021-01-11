@@ -12,7 +12,7 @@ public class Menu {
             } else if ((playerChose == Text[3])) {
                 buyHouseOrHotel(language,player,guiController,gameBoard);
             } else if (playerChose == Text[4]) {
-                System.out.println("test2");
+                sellHouseOrHotel(language,player,guiController,gameBoard);
             } else if (playerChose == Text[5]) {
                 pawn(language,player,guiController,gameBoard);
             } else if (playerChose == Text[6]) {
@@ -22,14 +22,35 @@ public class Menu {
     }
 
 
+    public BuyableField[] pawnebelFields(BuyableField ownedFields[]){
+        BuyableField[]pawnebelFields = new BuyableField[0];
+        for(int i = 0; i<ownedFields.length;i++){
+            if(!ownedFields[i].isPawned){
+                pawnebelFields = exspandArr(pawnebelFields,ownedFields[i]);
+            }
+        }
+        return pawnebelFields;
+    }
+    public BuyableField[] pawnedFields(BuyableField ownedFields[]){
+        BuyableField[]pawnedFields = new BuyableField[0];
+        for(int i = 0; i<ownedFields.length;i++){
+            if(ownedFields[i].isPawned){
+                pawnedFields = exspandArr(pawnedFields,ownedFields[i]);
+            }
+        }
+        return pawnedFields;
+
+    }
 
 
     public void pawn(Language language, Player player, GUIController guiController, GameBoard gameBoard) {
-        BuyableField[] pawnebelFields = ownedFields(gameBoard, player);
+        BuyableField[] pawnebelFields = pawnebelFields(ownedFields(gameBoard, player));
         String playerChose = guiController.buttons(language.getText(1, 1), getStringArrOfName(pawnebelFields));
         for (int i = 0; i < pawnebelFields.length; i++) {
             if (pawnebelFields[i].getName().equals(playerChose) && pawnebelFields[i].getIsPawned() != true) {
                 pawnebelFields[i].setIsPawned(true);
+                GUI_Ownable guiField = (GUI_Ownable) pawnebelFields[i].getGUIField();
+                guiField.setBorder(player.getGUIPlayer().getPrimaryColor(), Color.gray);
                 player.addBalance(pawnebelFields[i].getPawnValue());
             }
         }
