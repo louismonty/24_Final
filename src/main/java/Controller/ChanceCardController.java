@@ -16,15 +16,15 @@ public class ChanceCardController {
             chanceCardDeck[i] = new PaymentChanceCard(i);
             i++;
         }
-        else if(i>=12 && i<27)
+        else if(i>=12 && i<28)
         {
             chanceCardDeck[i] = new IncomeChanceCard(i);
         }
-        else if(i>=27 && i<44)
+        else if(i>=28 && i<42)
         {
             chanceCardDeck[i] = new MoveChanceCard(i);
         }
-        else if(i>= 44)
+        else if(i>= 42)
         {
             chanceCardDeck[i] = new JailChanceCard(i);
         }
