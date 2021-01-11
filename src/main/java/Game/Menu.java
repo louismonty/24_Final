@@ -114,7 +114,37 @@ public class Menu {
     }
 
     public void buyHouseOrHotel(Language language, Player player, GUIController guiController, GameBoard gameBoard){
-        BuyableField[] pawnedFields = pawned(gameBoard, player, ownedFields(gameBoard, player));
+        BuyableField[][] buyableFieldsarr = ableToBuy(buyableFields(gameBoard),player);
+        BuyableField[] listOfOwnedFields = buyableFieldsarr[10];
+        String playerChose = guiController.buttons(language.getText(1, 1), getStringArrOfName(listOfOwnedFields));
+        for (int i = 0; i < listOfOwnedFields.length; i++) {
+            if (listOfOwnedFields[i].getName().equals(playerChose) && listOfOwnedFields[i].getIsPawned() == false){
+                Boolean evenBuild = true;
+                 PropertyField currentField =(PropertyField) listOfOwnedFields[i];
+                GUI_Street curremtGUIField = (GUI_Street) currentField.getGUIField();
+                for(int j = 0;j<buyableFieldsarr[currentField.getGroup()-1].length;j++) {
+                    PropertyField groupField = (PropertyField) buyableFieldsarr[currentField.getGroup()-1][j];
+                    if (currentField.getHouses() > groupField.getHouses()) {
+                        evenBuild = false;
+                    }
+                }
+                if(evenBuild){
+                    if (currentField.getHouses() < 4) {
+                        currentField.setHouses(currentField.getHouses() + 1);
+                        curremtGUIField.setHouses(currentField.getHouses());
+                        player.subtractBalance(currentField.getHousePrice());
+                    } else if (currentField.getHouses() == 4) {
+                        currentField.setHouses(currentField.getHouses() + 1);
+                        curremtGUIField.setHotel(true);
+                        player.subtractBalance(currentField.getHousePrice());
+                    } else {
+                        guiController.showMessage("du har købt de maksimale");
+                    }
+                }else{
+                    guiController.showMessage("du skal bygge jævnt");
+                }
+            }
+        }
 
     }
 
