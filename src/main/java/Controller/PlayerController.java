@@ -45,8 +45,9 @@ public class PlayerController {
     /**
      * @author Louis
      */
-    public void setCurrentPlayer(Player currentPlayer) {
-        this.currentPlayer = currentPlayer;
+    public void setCurrentPlayer(int currentPlayer)
+    {
+        this.currentPlayerCounter = currentPlayer%players.length;
     }
 
     public Player[] getPlayerArray() {
