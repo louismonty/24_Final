@@ -6,17 +6,17 @@ public class Menu {
     public void takeTurnMenu(Language language, GameBoard gameBoard, GUIController guiController, Player player) {
         while (true) {
             String[] Text = language.getLine(10);
-            String playerChose = guiController.buttons(Text[0],Text[1],Text[2],Text[3],Text[5],Text[6]);
-            if (playerChose == language.getText(1, 0)) {
+            String playerChose = guiController.buttons(Text[1],Text[2],Text[3],Text[4],Text[5],Text[6]);
+            if (playerChose == Text[2]) {
                 break;
-            } else if ((playerChose == language.getText(10, 2))) {
+            } else if ((playerChose == Text[3])) {
+                buyHouseOrHotel(language,player,guiController,gameBoard);
+            } else if (playerChose == Text[4]) {
                 System.out.println("test2");
-            } else if (playerChose == language.getText(10, 3)) {
-                System.out.println("test2");
-            } else if (playerChose == language.getText(1, 3)) {
-                System.out.println("test3");
-            } else if (playerChose == language.getText(1, 4)) {
-                System.out.println("test4");
+            } else if (playerChose == Text[5]) {
+                pawn(language,player,guiController,gameBoard);
+            } else if (playerChose == Text[6]) {
+                unpawn(language,player,guiController,gameBoard);
             }
         }
     }
@@ -26,13 +26,11 @@ public class Menu {
 
     public void pawn(Language language, Player player, GUIController guiController, GameBoard gameBoard) {
         BuyableField[] pawnebelFields = ownedFields(gameBoard, player);
-        String playerChose = guiController.buttons(language.getText(0, 0), getStringArrOfName(pawnebelFields));
+        String playerChose = guiController.buttons(language.getText(1, 1), getStringArrOfName(pawnebelFields));
         for (int i = 0; i < pawnebelFields.length; i++) {
             if (pawnebelFields[i].getName().equals(playerChose) && pawnebelFields[i].getIsPawned() != true) {
                 pawnebelFields[i].setIsPawned(true);
                 player.addBalance(pawnebelFields[i].getPawnValue());
-            } else {
-                guiController.showMessage(language.getText(0, 0));
             }
         }
     }
@@ -104,10 +102,10 @@ public class Menu {
                     BuyableField field = (BuyableField) gameBoard.getGameBoard()[i];
                     if (field.getOwner() == player.getPlayerID()) {
                         BuyableField[] tempArr = new BuyableField[arr.length + 1];
-                        for (int j = 0; j < tempArr.length; j++) {
-                            tempArr[i] = arr[i];
+                        for (int j = 0; j < arr.length; j++) {
+                            tempArr[j] = arr[j];
                         }
-                        tempArr[tempArr.length] = field;
+                        tempArr[arr.length] = field;
                         arr = tempArr;
                     }
                 }
