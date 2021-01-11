@@ -25,8 +25,8 @@ public class GameBoard {
         gameBoard[1] = new PropertyField(1, BLUE,"Rødovrevej", new GUI_Street(language.getText
                 (13,4), language.getText(53,2),getDescription(language,30),language.getText(53,2), new Color(61, 118, 210), BLACK),1200,600,3, 1000,30);
 
-        gameBoard[2] = new ChanceCardField(2, BLACK,"Prøv lykken", new GUI_Chance(language.getText
-                (13,2), language.getText(13,2), language.getText(13,2), black, GREEN));
+        gameBoard[2] = new ChanceCardField(2, BLACK,"Prøv lykken", new GUI_Chance("?",
+                language.getText(13,2), language.getText(13,2), black, GREEN));
 
         gameBoard[3] = new PropertyField(3, BLUE,"Hvidovrevej", new GUI_Street(language.getText
                 (13,5), language.getText(53,2),getDescription(language,31),language.getText(53,2), new Color(61, 118, 210), BLACK),1200,600,3, 1000,31);
@@ -40,8 +40,8 @@ public class GameBoard {
         gameBoard[6] = new PropertyField(6, ORANGE,"Roskildevej", new GUI_Street(language.getText
                 (13,8), language.getText(53,3), getDescription(language,32),language.getText(53,3), new Color(226, 76, 12), BLACK),2000,1000,4, 1000,32);
 
-        gameBoard[7] = new ChanceCardField(7, BLACK,"Prøv lykken", new GUI_Chance(language.getText
-                (13,2), language.getText(13,2), language.getText(13,2), black, GREEN));
+        gameBoard[7] = new ChanceCardField(7, BLACK,"Prøv lykken", new GUI_Chance("?"
+                , language.getText(13,2), language.getText(13,2), black, GREEN));
 
         gameBoard[8] = new PropertyField(8, ORANGE,"Valby Langgade", new GUI_Street(language.getText
                 (13,9), language.getText(53,3), getDescription(language,33),language.getText(53,3), new Color(226, 76, 12), BLACK),2000,1000,4,1000,33);
@@ -70,8 +70,8 @@ public class GameBoard {
         gameBoard[16] = new PropertyField(16, GRAY,"Bernstorffsvej", new GUI_Street(language.getText
                 (13,17), language.getText(53,8), getDescription(language,38),language.getText(53,8), lightGray, BLACK),3600,1800,6,2000,38);
 
-        gameBoard[17] = new ChanceCardField(17, BLACK,"Prøv lykken", new GUI_Chance(language.getText
-                (13,2), language.getText(13,2), language.getText(13,2), black, GREEN));
+        gameBoard[17] = new ChanceCardField(17, BLACK,"Prøv lykken", new GUI_Chance("?"
+                , language.getText(13,2), language.getText(13,2), black, GREEN));
 
         gameBoard[18] = new PropertyField(18, GRAY,"Hellerupvej", new GUI_Street(language.getText
                 (13,18), language.getText(53,8), getDescription(language,39),language.getText(53,8), lightGray, BLACK),3600,1800,6,2000,39);
@@ -85,8 +85,8 @@ public class GameBoard {
         gameBoard[21] = new PropertyField(21, RED,"Trianglen", new GUI_Street(language.getText
                 (13,21), language.getText(53,10), getDescription(language,41),language.getText(53,10), new Color(177, 38, 38, 255), BLACK),4400,2200,7,3000,41);
 
-        gameBoard[22] = new ChanceCardField(22, BLACK,"Prøv lykken", new GUI_Chance(language.getText
-                (13,2), language.getText(13,2), language.getText(13,2), black, GREEN));
+        gameBoard[22] = new ChanceCardField(22, BLACK,"Prøv lykken", new GUI_Chance("?"
+                , language.getText(13,2), language.getText(13,2), black, GREEN));
 
         gameBoard[23] = new PropertyField(23, RED,"Østerbrogade", new GUI_Street(language.getText
                 (13,22), language.getText(53,10), getDescription(language,42),language.getText(53,10), new Color(177, 38, 38, 255), BLACK),4400,2200,7,3000,42);
@@ -118,8 +118,8 @@ public class GameBoard {
         gameBoard[32] = new PropertyField(32, YELLOW,"Vimmelskaftet", new GUI_Street(language.getText
                 (13,31), language.getText(53,14), getDescription(language,48),language.getText(53,14), yellow, BLACK),6000,3000,9, 4000,48);
 
-        gameBoard[33] = new ChanceCardField(33, BLACK,"Prøv lykken", new GUI_Chance(language.getText
-                (13,2), language.getText(13,2), language.getText(13,2), black, GREEN));
+        gameBoard[33] = new ChanceCardField(33, BLACK,"Prøv lykken", new GUI_Chance("?"
+                , language.getText(13,2), language.getText(13,2), black, GREEN));
 
         gameBoard[34] = new PropertyField(34, YELLOW,"Nygade", new GUI_Street(language.getText
                 (13,32), language.getText(53,15),getDescription(language,49),language.getText(53,15), yellow, BLACK),6400,3200,9,4000,49);
@@ -127,8 +127,8 @@ public class GameBoard {
         gameBoard[35] = new FerryField(35, BLUE,"Scandlines", new GUI_Shipping("default",language.getText
                 (13,33), language.getText(53,9), getFerryDescription(language),language.getText(53,9), new Color(37, 71, 127), BLACK),4000,2000,1);
 
-        gameBoard[36] = new ChanceCardField(36, BLACK,"Prøv lykken", new GUI_Chance(language.getText
-                (13,2), language.getText(13,2), language.getText(13,2), black, GREEN));
+        gameBoard[36] = new ChanceCardField(36, BLACK,"Prøv lykken", new GUI_Chance("?"
+                , language.getText(13,2), language.getText(13,2), black, GREEN));
 
         gameBoard[37] = new PropertyField(37, MAGENTA,"Frederiksberggade", new GUI_Street(language.getText
                 (13,34), language.getText(53,16), getDescription(language,50),language.getText(53,16), new Color(105, 35, 175), BLACK),7000,3500,10, 4000,50);
