@@ -40,15 +40,16 @@ public class Gameloop
                 {
                     menu.takeTurnMenu(language, gameboard, guiController, currentPlayer);
                     dieController.diceRoll(guiController);
-                    gameboard.getGameBoard()[currentPlayer.getPlayerPosition()].getGUIField().setCar(currentPlayer.getGUIPlayer(),false);
-                    currentPlayer.setPlayerPosition(currentPlayer.getPlayerPosition()+dieController.diceValue());
-                    gameboard.getGameBoard()[currentPlayer.getPlayerPosition()%40].getGUIField().setCar(currentPlayer.getGUIPlayer(), true);
+
                     rules.doubleExtraTurn(dieController, playerController);
                     if(currentPlayer.getDoubleCounter()==3)
                     {
                         rules.setExtraTurn(false);
                         rules.threeDoubleGoToJail(playerController);
                     }
+                    gameboard.getGameBoard()[currentPlayer.getPlayerPosition()].getGUIField().setCar(currentPlayer.getGUIPlayer(),false);
+                    currentPlayer.setPlayerPosition(currentPlayer.getPlayerPosition()+dieController.diceValue());
+                    gameboard.getGameBoard()[currentPlayer.getPlayerPosition()%40].getGUIField().setCar(currentPlayer.getGUIPlayer(), true);
 
                 }
             while(true)
