@@ -25,6 +25,7 @@ public class Gameloop
 
         while(isGameRunning)
         {
+            rules.setExtraTurn(false);
             Player currentPlayer = playerController.getCurrentPlayer();
             if(currentPlayer.isInJail(true))
             {
