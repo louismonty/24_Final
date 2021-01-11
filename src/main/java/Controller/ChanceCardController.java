@@ -62,149 +62,146 @@ public class ChanceCardController {
         }
         random=null;
     }
-    public void executeChanceCard(GameBoard gameBoard,PlayerController playerController,GUIController guiController,Language language){
-        PaymentChanceCard card1 = (PaymentChanceCard)currentCard;
-        IncomeChanceCard card2 = (IncomeChanceCard)currentCard;
-        MoveChanceCard card3 = (MoveChanceCard)currentCard;
-        JailChanceCard card4 = (JailChanceCard)currentCard;
-        switch(currentCard.getChanceCardID()) {
+    public void executeChanceCard(Language language, GUIController guiController, GameBoard gameBoard,PlayerController playerController, ChanceCard currentChanceCard){
+
+        switch(currentChanceCard.getChanceCardID()) {
             case 0:
-                 card1.oilPricesCard(language,guiController,gameBoard,playerController);
+                ((PaymentChanceCard)currentChanceCard).oilPricesCard(language,guiController,gameBoard,playerController);
                  break;
             case 1:
-                card1.propertyTaxCard(language,guiController,gameBoard,playerController);
+                ((PaymentChanceCard)currentChanceCard).propertyTaxCard(language,guiController,gameBoard,playerController);
                 break;
             case 2:
-                card1.redLightCard(language,guiController,playerController);
+                ((PaymentChanceCard)currentChanceCard).redLightCard(language,guiController,playerController);
                 break;
             case 3:
-                card1.carWashCard(language,guiController,playerController);
+                ((PaymentChanceCard)currentChanceCard).carWashCard(language,guiController,playerController);
                 break;
             case 4:
-                card1.beerCard(language,guiController,playerController);
+                ((PaymentChanceCard)currentChanceCard).beerCard(language,guiController,playerController);
                 break;
             case 5:
-                card1.carRepairCard(language,guiController,playerController);
+                ((PaymentChanceCard)currentChanceCard).carRepairCard(language,guiController,playerController);
                 break;
             case 6:
-                card1.carRepairCard(language,guiController,playerController);
+                ((PaymentChanceCard)currentChanceCard).carRepairCard(language,guiController,playerController);
                 break;
             case 7:
-                card1.newTiresCard(language,guiController,playerController);
+                ((PaymentChanceCard)currentChanceCard).newTiresCard(language,guiController,playerController);
                 break;
             case 8:
-                card1.parkingTicketCard(language,guiController,playerController);
+                ((PaymentChanceCard)currentChanceCard).parkingTicketCard(language,guiController,playerController);
                 break;
             case 9:
-                card1.carInsuranceCard(language,guiController,playerController);
+                ((PaymentChanceCard)currentChanceCard).carInsuranceCard(language,guiController,playerController);
                 break;
             case 10:
-                card1.cigaretteCard(language,guiController,playerController);
+                ((PaymentChanceCard)currentChanceCard).cigaretteCard(language,guiController,playerController);
                 break;
             case 11:
-                card1.dentistCard(language,guiController,playerController);
+                ((PaymentChanceCard)currentChanceCard).dentistCard(language,guiController,playerController);
                 break;
             case 12:
-                card2.lotteryCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).lotteryCard(language,guiController,playerController);
                 break;
             case 13:
-                card2.lotteryCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).lotteryCard(language,guiController,playerController);
                 break;
             case 14:
-                card2.stockDividendsCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).stockDividendsCard(language,guiController,playerController);
                 break;
             case 15:
-                card2.stockDividendsCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).stockDividendsCard(language,guiController,playerController);
                 break;
             case 16:
-                card2.stockDividendsCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).stockDividendsCard(language,guiController,playerController);
                 break;
             case 17:
-                card2.taxReturnCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).taxReturnCard(language,guiController,playerController);
                 break;
             case 18:
-                card2.gamblingCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).gamblingCard(language,guiController,playerController);
                 break;
             case 19:
-                card2.salaryIncreaseCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).salaryIncreaseCard(language,guiController,playerController);
                 break;
             case 20:
-                card2.premiumBondCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).premiumBondCard(language,guiController,playerController);
                 break;
             case 21:
-                card2.premiumBondCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).premiumBondCard(language,guiController,playerController);
                 break;
             case 22:
-                card2.soldFurnitureCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).soldFurnitureCard(language,guiController,playerController);
                 break;
             case 23:
-                card2.utilityGardenCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).utilityGardenCard(language,guiController,playerController);
                 break;
             case 24:
-                card2.matadorGrantCard(language,guiController,gameBoard,playerController);
+                ((IncomeChanceCard)currentChanceCard).matadorGrantCard(language,guiController,gameBoard,playerController);
                 break;
             case 25:
-                card2.birthdayCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).birthdayCard(language,guiController,playerController);
                 break;
             case 26:
-                card2.potluckCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).potluckCard(language,guiController,playerController);
                 break;
             case 27:
-                card2.familyPartyCard(language,guiController,playerController);
+                ((IncomeChanceCard)currentChanceCard).familyPartyCard(language,guiController,playerController);
                 break;
             case 28:
-                card3.startCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).startCard(language,guiController,gameBoard,playerController);
                 break;
             case 29:
-                card3.startCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).startCard(language,guiController,gameBoard,playerController);
                 break;
             case 30:
-                card3.threeFieldsForwardCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).threeFieldsForwardCard(language,guiController,gameBoard,playerController);
                 break;
             case 31:
-                card3.threeFieldsBackwardsCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).threeFieldsBackwardsCard(language,guiController,gameBoard,playerController);
                 break;
             case 32:
-                card3.threeFieldsBackwardsCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).threeFieldsBackwardsCard(language,guiController,gameBoard,playerController);
                 break;
             case 33:
-                card3.frederiksbergAlleCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).frederiksbergAlleCard(language,guiController,gameBoard,playerController);
                 break;
             case 34:
-                card3.shipyardCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).shipyardCard(language,guiController,gameBoard,playerController);
                 break;
             case 35:
-                card3.shipyardCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).shipyardCard(language,guiController,gameBoard,playerController);
                 break;
             case 36:
-                card3.molslinjenCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).molslinjenCard(language,guiController,gameBoard,playerController);
                 break;
             case 37:
-                card3.groenningenCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).groenningenCard(language,guiController,gameBoard,playerController);
                 break;
             case 38:
-                card3.vimmelskaftetCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).vimmelskaftetCard(language,guiController,gameBoard,playerController);
                 break;
             case 39:
-                card3.ferryCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).ferryCard(language,guiController,gameBoard,playerController);
                 break;
             case 40:
-                card3.strandvejenCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).strandvejenCard(language,guiController,gameBoard,playerController);
                 break;
             case 41:
-                card3.raadhuspladsenCard(language,guiController,gameBoard,playerController);
+                ((MoveChanceCard)currentChanceCard).raadhuspladsenCard(language,guiController,gameBoard,playerController);
                 break;
             case 42:
-                card4.getOutOfJailCard(playerController.getCurrentPlayer(),guiController,language);
+                ((JailChanceCard)currentChanceCard).getOutOfJailCard(language, guiController, playerController);
                 break;
             case 43:
-                card4.getOutOfJailCard(playerController.getCurrentPlayer(),guiController,language);
+                ((JailChanceCard)currentChanceCard).getOutOfJailCard(language, guiController, playerController);
                 break;
             case 44:
-                card4.goToJailCard(playerController.getCurrentPlayer(),guiController,language);
+                ((JailChanceCard)currentChanceCard).goToJailCard(language, guiController, playerController);
                 break;
             case 45:
-                card4.getOutOfJailCard(playerController.getCurrentPlayer(),guiController,language);
+                ((JailChanceCard)currentChanceCard).getOutOfJailCard(language, guiController, playerController);
                 break;
 
 
