@@ -14,7 +14,6 @@ public class ChanceCardController {
         if(i<12)
         {
             chanceCardDeck[i] = new PaymentChanceCard(i);
-            i++;
         }
         else if(i>=12 && i<28)
         {
