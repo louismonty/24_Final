@@ -47,6 +47,7 @@ public class Gameloop
                         rules.setExtraTurn(false);
                         rules.threeDoubleGoToJail(playerController);
                     }
+                    rules.overStartRule(language, guiController, playerController);
                     gameboard.getGameBoard()[currentPlayer.getPlayerPosition()].getGUIField().setCar(currentPlayer.getGUIPlayer(),false);
                     currentPlayer.setPlayerPosition(currentPlayer.getPlayerPosition()+dieController.diceValue());
                     gameboard.getGameBoard()[currentPlayer.getPlayerPosition()%40].getGUIField().setCar(currentPlayer.getGUIPlayer(), true);
