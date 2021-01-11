@@ -34,7 +34,7 @@ public class Gameloop
             Player currentPlayer = playerController.getCurrentPlayer();
             if(currentPlayer.isInJail(true))
             {
-                jail.inJail(dieController, currentPlayer, guiController, chanceCardController, language);
+                jail.inJail(language, guiController, dieController, chanceCardController, playerController);
             }
             else
                 {
