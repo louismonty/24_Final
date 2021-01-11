@@ -20,44 +20,44 @@ public class Rules
         return extraTurn;
     }
 
-    public void overStartRule(Player currentPlayer,GUIController guiController, Language language)
+    public void overStartRule(Language language, GUIController guiController, PlayerController playerController)
     {
-        if(currentPlayer.getPlayerPosition()>=40)
+        if(playerController.getCurrentPlayer().getPlayerPosition()>=40)
         {
-            currentPlayer.getAccount().setBalance(currentPlayer.getAccount().getBalance()+4000);
-            currentPlayer.setPlayerPosition(currentPlayer.getPlayerPosition()-40);
+            playerController.getCurrentPlayer().getAccount().setBalance(playerController.getCurrentPlayer().getAccount().getBalance()+4000);
+            playerController.getCurrentPlayer().setPlayerPosition(playerController.getCurrentPlayer().getPlayerPosition()-40);
 
-            guiController.showMessage(language.getText(0,0));
+            guiController.showMessage(language.getText(12,2));
         }
     }
 
-    public void doubleExtraTurn(Player currentPlayer, DieController dieController)
+    public void doubleExtraTurn(DieController dieController, PlayerController playerController )
     {
         if(dieController.isDouble() == true)
         {
             setExtraTurn(true);
-            currentPlayer.setDoubleCounter(currentPlayer.getDoubleCounter()+1);
+            playerController.getCurrentPlayer().setDoubleCounter(playerController.getCurrentPlayer().getDoubleCounter()+1);
         }
     }
 
-    public void threeDoubleGoToJail(Player currentPlayer)
+    public void threeDoubleGoToJail(PlayerController playerController)
     {
-        if(currentPlayer.getDoubleCounter() == 3)
+        if(playerController.getCurrentPlayer().getDoubleCounter() == 3)
         {
-            currentPlayer.setPlayerPosition(10);
-            currentPlayer.setDoubleCounter(0);
-            currentPlayer.setInJail(true);
+            playerController.getCurrentPlayer().setPlayerPosition(10);
+            playerController.getCurrentPlayer().setDoubleCounter(0);
+            playerController.getCurrentPlayer().setInJail(true);
         }
     }
 
-    public void bankrupt(Player currentPlayer, PlayerController playerController, GUIController guiController)
+    public void bankrupt(GUIController guiController, PlayerController playerController)
     {
         Player[] tempPlayerArray = new Player[playerController.getPlayerArray().length-2];
-        if(currentPlayer.getAccount().getBalance() < 0)
+        if(playerController.getCurrentPlayer().getAccount().getBalance() < 0)
         {
             for(int i = 0; i>= playerController.getPlayerArray().length; i++ )
             {
-                if(playerController.getPlayerArray()[i] != currentPlayer)
+                if(playerController.getPlayerArray()[i] != playerController.getCurrentPlayer())
                 {
                     tempPlayerArray[i] = playerController.getPlayerArray()[i];
                 }
