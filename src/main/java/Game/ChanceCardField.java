@@ -14,7 +14,7 @@ public class ChanceCardField extends Field {
     }
 
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language) {
-        chanceCardController.drawChanceCard();
-        chanceCardController.executeChanceCard(gameBoard,playerController,guiController,language);
+
+        chanceCardController.executeChanceCard(language, guiController, gameBoard, playerController,chanceCardController.drawChanceCard());
     }
 }
