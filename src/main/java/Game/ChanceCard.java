@@ -11,4 +11,5 @@ public abstract class ChanceCard
     {
         this.chanceCardID = chanceCardID;
     }
+    public int getChanceCardID(){return this.chanceCardID;}
 }
