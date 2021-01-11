@@ -22,7 +22,7 @@ public class MoveChanceCard extends ChanceCard
         {
             playerController.getCurrentPlayer().addBalance(4000);
         }
-        playerController.getCurrentPlayer().setPlayerPosition(newPosition%40);
+        playerController.getCurrentPlayer().setPlayerPosition((newPosition+40)%40);
         gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].guiField.setCar(playerController.getCurrentPlayer().getGUIPlayer(), true);
         playerController.getCurrentPlayer().setHasMoved(true);
         guiController.showChanceCard(language.getText(26,textColumn));
