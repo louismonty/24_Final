@@ -84,7 +84,8 @@ public class TaxField extends Field {
      */
 
     @Override
-    public void landOnField(Language language, GUIController guiController, ChanceCardController chanceCardController, GameBoard gameBoard, PlayerController playerController) {
+    public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController
+            playerController, GUIController guiController, Language language) {
         if(playerController.getCurrentPlayer().getPlayerPosition() == incomeTaxField){
             payIncomeTax(language, guiController,  gameBoard, playerController);
         }
