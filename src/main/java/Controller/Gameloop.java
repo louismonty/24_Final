@@ -50,12 +50,12 @@ public class Gameloop
                     rules.overStartRule(language, guiController, playerController);
                     gameboard.getGameBoard()[currentPlayer.getPlayerPosition()].getGUIField().setCar(currentPlayer.getGUIPlayer(),false);
                     currentPlayer.setPlayerPosition(currentPlayer.getPlayerPosition()+dieController.diceValue());
-                    gameboard.getGameBoard()[currentPlayer.getPlayerPosition()%40].getGUIField().setCar(currentPlayer.getGUIPlayer(), true);
+                    gameboard.getGameBoard()[currentPlayer.getPlayerPosition()].getGUIField().setCar(currentPlayer.getGUIPlayer(), true);
 
                 }
             while(true)
             {
-                gameboard.getGameBoard()[currentPlayer.getPlayerPosition() % 40].landOnField(gameboard, chanceCardController, playerController, guiController, language);
+                gameboard.getGameBoard()[currentPlayer.getPlayerPosition()].landOnField(gameboard, chanceCardController, playerController, guiController, language);
                 rules.overStartRule(language, guiController, playerController);
                 if(!currentPlayer.getHasMoved())
                 {
