@@ -53,7 +53,7 @@ public abstract class BuyableField extends Field
     {
         if(!isPropertyBought)
         {
-            if (guiController.buttons(language.getText(15, 3), language.getText(15,3),language.getText(15,4)) == language.getText(15, 3))
+            if (guiController.buttons(playerController.getCurrentPlayer().getName(), language.getText(15,3),language.getText(15,4)) == language.getText(15, 3))
             {
                 buy(playerController.getCurrentPlayer());
             }
