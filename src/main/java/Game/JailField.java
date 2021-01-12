@@ -26,7 +26,7 @@ public class JailField extends Field{
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController
             playerController, GUIController guiController, Language language)
     {
-        goToJail(playerController);
+        goToJail(gameBoard, playerController);
         guiController.showMessage(language.getText(18,2));
     }
 }
