@@ -10,7 +10,7 @@ public class Menu {
     public void takeTurnMenu(Language language, GameBoard gameBoard, GUIController guiController, Player player) {
         while (true) {
             String[] Text = language.getLine(10);
-            String playerChose = guiController.buttons(player.getName()+" "+Text[1],Text[2],Text[3],Text[4],Text[5],Text[6]);
+            String playerChose = guiController.buttons(player.getName()+" "+Text[1],Text[2],Text[3],Text[4],Text[5],Text[6],"Demo");
             if (playerChose == Text[2]) {
                 break;
             } else if ((playerChose == Text[3])) {
@@ -22,9 +22,19 @@ public class Menu {
             } else if (playerChose == Text[6]) {
                 unpawn(language,player,guiController,gameBoard);
             }
+            else if (playerChose.equals("Demo")) {
+                Demo(gameBoard,player,guiController);
+            }
         }
     }
 
+
+    public void Demo(GameBoard gameBoard,Player player,GUIController guiController){
+        int i = guiController.integerInput("grund",0,39);
+        BuyableField field =(BuyableField) gameBoard.getGameBoard()[i];
+        field.owner = player.getPlayerID();
+
+    }
 
     public BuyableField[] pawnebelFields(BuyableField ownedFields[]){
         BuyableField[]pawnebelFields = new BuyableField[0];
