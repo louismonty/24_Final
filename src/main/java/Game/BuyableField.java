@@ -107,6 +107,12 @@ public abstract class BuyableField extends Field
                         }
                     }else{
                     buy(players[i]);
+                        this.owner = players[i].getPlayerID();
+                        this.isPropertyBought = true;
+                        players[i].subtractBalance(min);
+                        GUI_Ownable buy = (GUI_Ownable) this.guiField;
+                        buy.setOwnerName(players[i].getName());
+                        buy.setBorder(players[i].getGUIPlayer().getCar().getPrimaryColor());
                     break;
                 }
                 }
