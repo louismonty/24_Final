@@ -40,7 +40,7 @@ public class Gameloop
             {
                 jail.inJail(language, guiController, dieController, chanceCardController, gameboard, playerController);
             }
-            if(currentPlayer.isInJail() && !currentPlayer.getHasRolledToGetOutOfJail())
+            if(!currentPlayer.isInJail() && !currentPlayer.getHasRolledToGetOutOfJail())
                 {
                     menu.takeTurnMenu(language, gameboard, guiController, currentPlayer);
                     dieController.diceRoll(guiController);
@@ -53,7 +53,7 @@ public class Gameloop
                     if(currentPlayer.getDoubleCounter()==3)
                     {
                         rules.setExtraTurn(false);
-                        rules.threeDoubleGoToJail(playerController);
+                        rules.threeDoubleGoToJail(gameboard, playerController);
                     }
 
                     gameboard.getGameBoard()[currentPlayer.getPlayerPosition()].getGUIField().setCar(currentPlayer.getGUIPlayer(),false);
