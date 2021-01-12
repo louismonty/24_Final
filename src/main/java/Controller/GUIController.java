@@ -25,8 +25,8 @@ public class GUIController {
     public void showDice(int faceValueDice1,int faceValueDice2){
         gui.setDice(faceValueDice1,faceValueDice2);
     }
-    public void showDice(int faceValueDice1,int rotation1,int faceValueDice2,int rotation2){
-        gui.setDice(faceValueDice1,rotation1,faceValueDice2,rotation2);
+    public void showDice(int faceValueDice1,int x1, int y1,int faceValueDice2,int x2, int y2){
+        gui.setDice(faceValueDice1,x1, y1, faceValueDice2, x2, y2);
     }
     public int integerInput(String text,int min, int max){
         int input;

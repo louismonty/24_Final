@@ -13,9 +13,12 @@ public class JailField extends Field{
         super(positionID, colorID, name, guiField);
     }
 
-    public void goToJail(PlayerController playerController)
+    public void goToJail(GameBoard gameboard, PlayerController playerController)
     {
+        gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].getGUIField().setCar(playerController.getCurrentPlayer().getGUIPlayer(),false);
         playerController.getCurrentPlayer().setPlayerPosition(10);
+        gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].getGUIField().setCar(playerController.getCurrentPlayer().getGUIPlayer(), true);
+
         playerController.getCurrentPlayer().setInJail(true);
     }
 
@@ -23,7 +26,7 @@ public class JailField extends Field{
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController
             playerController, GUIController guiController, Language language)
     {
-        goToJail(playerController);
+        goToJail(gameBoard, playerController);
         guiController.showMessage(language.getText(18,2));
     }
 }
