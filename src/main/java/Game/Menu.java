@@ -42,7 +42,7 @@ public class Menu {
     public void unpawn(Language language, Player player, GUIController guiController, GameBoard gameBoard) {
         BuyableField[] pawnedFields = pawnedFields(ownedFields(gameBoard, player));
         if (pawnedFields != null) {
-            String playerChose = guiController.buttons(language.getText(1, 1), exspandStrArr(getStringArrOfName(pawnedFields),"back"));
+            String playerChose = guiController.buttons(language.getText(10, 10), exspandStrArr(getStringArrOfName(pawnedFields),language.getText(10,8)));
             for (int i = 0; i < pawnedFields.length; i++) {
                 if (pawnedFields[i].getName().equals(playerChose) && pawnedFields[i].getIsPawned() != false) {
                     pawnedFields[i].setIsPawned(false);
@@ -59,7 +59,7 @@ public class Menu {
     public void sellHouseOrHotel(Language language, Player player, GUIController guiController, GameBoard gameBoard){
         BuyableField[][] buyableFieldsarr = ableToBuy(buyableFields(gameBoard),player);
         BuyableField[] listOfOwnedFields = buyableFieldsarr[10];
-        String playerChose = guiController.buttons(language.getText(1, 1), exspandStrArr(getStringArrOfName(listOfOwnedFields),"back"));
+        String playerChose = guiController.buttons(language.getText(10, 11), exspandStrArr(getStringArrOfName(listOfOwnedFields),language.getText(10,8)));
         for (int i = 0; i < listOfOwnedFields.length; i++) {
             if (listOfOwnedFields[i].getName().equals(playerChose) && listOfOwnedFields[i].getIsPawned() == false){
                 Boolean evenBuild = true;
@@ -73,7 +73,7 @@ public class Menu {
                 }
                 if(evenBuild){
                     if(currentField.getHouses() == 0) {
-                        guiController.showMessage("du har solgt alle huse");
+                        guiController.showMessage(language.getText(10,13));
                     }else if (currentField.getHouses() < 5) {
                         currentField.setHouses(currentField.getHouses() - 1);
                         curremtGUIField.setHouses(currentField.getHouses());
@@ -85,7 +85,7 @@ public class Menu {
                     }
 
                 }else{
-                    guiController.showMessage("du skal sælge jævnt");
+                    guiController.showMessage(language.getText(10,14));
                 }
             }
         }
@@ -95,7 +95,7 @@ public class Menu {
     public void buyHouseOrHotel(Language language, Player player, GUIController guiController, GameBoard gameBoard){
         BuyableField[][] buyableFieldsarr = ableToBuy(buyableFields(gameBoard),player);
         BuyableField[] listOfOwnedFields = buyableFieldsarr[10];
-        String playerChose = guiController.buttons(language.getText(1, 1), exspandStrArr(getStringArrOfName(listOfOwnedFields),"back"));
+        String playerChose = guiController.buttons(language.getText(10, 12), exspandStrArr(getStringArrOfName(listOfOwnedFields),language.getText(10,8)));
         for (int i = 0; i < listOfOwnedFields.length; i++) {
             if (listOfOwnedFields[i].getName().equals(playerChose) && listOfOwnedFields[i].getIsPawned() == false){
                 Boolean evenBuild = true;
@@ -117,10 +117,10 @@ public class Menu {
                         curremtGUIField.setHotel(true);
                         player.subtractBalance(currentField.getHousePrice());
                     } else {
-                        guiController.showMessage("du har købt de maksimale");
+                        guiController.showMessage(language.getText(10,15));
                     }
                 }else{
-                    guiController.showMessage("du skal bygge jævnt");
+                    guiController.showMessage(language.getText(10,14));
                 }
             }
         }
