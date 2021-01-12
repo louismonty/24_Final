@@ -36,11 +36,11 @@ public class Gameloop
             {
                 rules.threeTurnsInJail(language, guiController, playerController);
             }
-            if(currentPlayer.isInJail(true))
+            if(currentPlayer.isInJail())
             {
                 jail.inJail(language, guiController, dieController, chanceCardController, playerController);
             }
-            else
+            if(currentPlayer.isInJail() && !currentPlayer.getHasRolledToGetOutOfJail())
                 {
                     menu.takeTurnMenu(language, gameboard, guiController, currentPlayer);
                     dieController.diceRoll(guiController);
