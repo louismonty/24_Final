@@ -31,22 +31,22 @@ public class MoveChanceCard extends ChanceCard
     public int findNextFerryField(PlayerController playerController)
     {
 
-
+        int ferryField = 0;
         if(playerController.getCurrentPlayer().getPlayerPosition()<5 || playerController.getCurrentPlayer().getPlayerPosition() > 35)
         {
-            return 5;
+            ferryField = 5;
         }
         else if(5<playerController.getCurrentPlayer().getPlayerPosition() && playerController.getCurrentPlayer().getPlayerPosition()<15)
         {
-            return 15;
+            ferryField = 15;
         }
         else if(15<playerController.getCurrentPlayer().getPlayerPosition() && playerController.getCurrentPlayer().getPlayerPosition()<25)
         {
-            return 25;
+            ferryField = 25;
         }
         else if(25<playerController.getCurrentPlayer().getPlayerPosition() && playerController.getCurrentPlayer().getPlayerPosition()<35)
         {
-            return 35;
+            ferryField = 35;
         }
         /*
         int ferryField = playerController.getCurrentPlayer().getPlayerPosition();
@@ -54,9 +54,9 @@ public class MoveChanceCard extends ChanceCard
         {
             ferryField = i;
         }
-        return ferryField;
-         */
 
+         */
+        return ferryField;
     }
 
     public void startCard(Language language, GUIController guiController, GameBoard gameboard, PlayerController playerController)
