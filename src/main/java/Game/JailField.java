@@ -13,9 +13,12 @@ public class JailField extends Field{
         super(positionID, colorID, name, guiField);
     }
 
-    public void goToJail(PlayerController playerController)
+    public void goToJail(GameBoard gameboard, PlayerController playerController)
     {
+        gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].getGUIField().setCar(playerController.getCurrentPlayer().getGUIPlayer(),false);
         playerController.getCurrentPlayer().setPlayerPosition(10);
+        gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].getGUIField().setCar(playerController.getCurrentPlayer().getGUIPlayer(), true);
+
         playerController.getCurrentPlayer().setInJail(true);
     }
 
