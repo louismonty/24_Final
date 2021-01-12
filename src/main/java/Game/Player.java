@@ -131,7 +131,7 @@ public class Player {
         this.getOutOfJailCard = getOutOfJailCard;
     }
 
-    public boolean isInJail(boolean b) {
+    public boolean isInJail() {
         return isInJail;
     }
 
