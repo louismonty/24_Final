@@ -106,7 +106,6 @@ public abstract class BuyableField extends Field
                             playerLeftInAuction--;
                         }
                     }else{
-                    buy(players[i]);
                         this.owner = players[i].getPlayerID();
                         this.isPropertyBought = true;
                         players[i].subtractBalance(min);
