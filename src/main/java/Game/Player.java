@@ -22,6 +22,7 @@ public class Player {
     private boolean hasMoved;
     private boolean hasMovedBackwards;
     private int turnsInJailCounter;
+    private boolean hasRolledToGetOutOfJail;
 
 
     public Player(String name,int playerID){
@@ -38,6 +39,7 @@ public class Player {
         hasMoved = false;
         hasMovedBackwards = false;
         turnsInJailCounter = 0;
+        hasRolledToGetOutOfJail = false;
     }
 
 
@@ -159,5 +161,15 @@ public class Player {
 
     public void setPlayerPosition(int playerPosition) {
         this.playerPosition = playerPosition;
+    }
+
+    public boolean getHasRolledToGetOutOfJail()
+    {
+        return hasRolledToGetOutOfJail;
+    }
+
+    public void setHasRolledToGetOutOfJail(boolean hasRolledToGetOutOfJail)
+    {
+        this.hasRolledToGetOutOfJail = hasRolledToGetOutOfJail;
     }
 }
