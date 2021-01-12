@@ -22,10 +22,10 @@ public class Rules
 
     public void overStartRule(Language language, GUIController guiController, PlayerController playerController)
     {
-        if(playerController.getCurrentPlayer().getPlayerPosition()>=39)
+        if(playerController.getCurrentPlayer().getPlayerPosition()>=40)
         {
             playerController.getCurrentPlayer().addBalance(4000);
-            playerController.getCurrentPlayer().setPlayerPosition(playerController.getCurrentPlayer().getPlayerPosition()-39);
+            playerController.getCurrentPlayer().setPlayerPosition(playerController.getCurrentPlayer().getPlayerPosition()-40);
 
             guiController.showMessage(language.getText(12,2));
         }
@@ -66,11 +66,11 @@ public class Rules
         }
     }
 
-    public boolean win(PlayerController playerController)
+    public boolean win(GUIController guiController, PlayerController playerController)
     {
         if(playerController.getPlayerArray().length == 1)
         {
-            System.out.println(playerController.getPlayerArray()[0].getName() + " er vinderen! Tillykke!");
+            guiController.showMessage(playerController.getPlayerArray()[0].getName() + " er vinderen! Tillykke!");
             return false;
         }
         else
