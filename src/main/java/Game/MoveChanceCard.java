@@ -105,7 +105,7 @@ public class MoveChanceCard extends ChanceCard
     }
     public void ferryCard(Language language, GUIController guiController, GameBoard gameboard, PlayerController playerController)
     {
-        moveToSpecificField(language, guiController, gameboard, playerController, findNextFerryField(gameboard, playerController), 10);
+        moveToSpecificField(language, guiController, gameboard, playerController, findNextFerryField(playerController), 10);
     }
     public void strandvejenCard(Language language, GUIController guiController, GameBoard gameboard, PlayerController playerController)
     {
