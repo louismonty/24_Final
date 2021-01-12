@@ -68,7 +68,7 @@ public class Gameloop
                 }
             }
             rules.bankrupt(guiController, playerController);
-            isGameRunning = rules.win(playerController);
+            isGameRunning = rules.win(guiController, playerController);
             if(!rules.getExtraTurn())
             {
                 currentPlayer.setDoubleCounter(0);
