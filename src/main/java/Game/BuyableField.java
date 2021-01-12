@@ -62,12 +62,14 @@ public abstract class BuyableField extends Field
                     auction(language, guiController, playerController.getPlayerArray());
                 }
         }
-        else
+        else {
+            int fieldRent = payRent(playerController, gameBoard, language);
+            BuyableField fieldLandedOn = (BuyableField) gameBoard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition() % 40];
+            if (!playerController.getPlayerArray()[fieldLandedOn.owner-1].isInJail() && !fieldLandedOn.getIsPawned())
             {
-                int fieldRent = payRent(playerController,gameBoard, language);
                 playerController.getCurrentPlayer().subtractBalance(fieldRent);
-                BuyableField fieldLandedOn = (BuyableField)gameBoard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()%40];
                 playerController.getPlayerArray()[fieldLandedOn.getOwner()].addBalance(fieldRent);
+            }
             }
 
     }
