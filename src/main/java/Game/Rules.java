@@ -50,6 +50,14 @@ public class Rules
         }
     }
 
+    public void threeTurnsInJail(Language language, GUIController guiController, PlayerController playerController)
+    {
+        playerController.getCurrentPlayer().setInJail(false);
+        playerController.getCurrentPlayer().setTurnsInJail(0);
+        playerController.getCurrentPlayer().subtractBalance(1000);
+        guiController.showMessage(language.getText(12,3));
+    }
+
     public void bankrupt(GUIController guiController, PlayerController playerController)
     {
         Player[] tempPlayerArray = new Player[playerController.getPlayerArray().length-2];
@@ -66,11 +74,11 @@ public class Rules
         }
     }
 
-    public boolean win(GUIController guiController, PlayerController playerController)
+    public boolean win(Language language, GUIController guiController, PlayerController playerController)
     {
         if(playerController.getPlayerArray().length == 1)
         {
-            guiController.showMessage(playerController.getPlayerArray()[0].getName() + " er vinderen! Tillykke!");
+            guiController.showMessage(playerController.getPlayerArray()[0].getName() + language.getText(12,4));
             return false;
         }
         else
