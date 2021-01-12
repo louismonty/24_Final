@@ -70,6 +70,7 @@ public class Rules
     {
         if(playerController.getPlayerArray().length == 1)
         {
+            System.out.println(playerController.getPlayerArray()[0].getName() + " er vinderen! Tillykke!");
             return false;
         }
         else
