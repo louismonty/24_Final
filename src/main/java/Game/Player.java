@@ -21,21 +21,23 @@ public class Player {
     private int numberOfMoves;
     private boolean hasMoved;
     private boolean hasMovedBackwards;
+    private int turnsInJailCounter;
 
 
     public Player(String name,int playerID){
         this.name = name;
         account = new Account();
-        this.GUIPlayer = new GUI_Player(name, 30000);
+        GUIPlayer = new GUI_Player(name, 30000);
         getOutOfJailCard = 0;
         isInJail = false;
         jailCounter = 0;
         doubleCounter = 0;
         playerPosition = 0;
         this.playerID = playerID;
-        this.numberOfMoves = 0;
+        numberOfMoves = 0;
         hasMoved = false;
         hasMovedBackwards = false;
+        turnsInJailCounter = 0;
     }
 
 
@@ -101,8 +103,14 @@ public class Player {
         return account;
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
+    public int getTurnsInJail()
+    {
+        return turnsInJailCounter;
+    }
+
+    public void setTurnsInJail(int turns)
+    {
+        this.turnsInJailCounter = turns;
     }
 
     public GUI_Player getGUIPlayer() {

@@ -32,6 +32,10 @@ public class Gameloop
         {
             rules.setExtraTurn(false);
             Player currentPlayer = playerController.getCurrentPlayer();
+            if(playerController.getCurrentPlayer().getTurnsInJail() == 3)
+            {
+                rules.threeTurnsInJail(language, guiController, playerController);
+            }
             if(currentPlayer.isInJail(true))
             {
                 jail.inJail(language, guiController, dieController, chanceCardController, playerController);
@@ -40,7 +44,10 @@ public class Gameloop
                 {
                     menu.takeTurnMenu(language, gameboard, guiController, currentPlayer);
                     dieController.diceRoll(guiController);
-
+                    if(dieController.isDouble())
+                    {
+                        playerController.getCurrentPlayer().setDoubleCounter(playerController.getCurrentPlayer().getDoubleCounter()+1);
+                    }
                     rules.doubleExtraTurn(dieController, playerController);
                     if(currentPlayer.getDoubleCounter()==3)
                     {
@@ -68,7 +75,7 @@ public class Gameloop
                 }
             }
             rules.bankrupt(guiController, playerController);
-            isGameRunning = rules.win(guiController, playerController);
+            isGameRunning = rules.win(language, guiController, playerController);
             if(!rules.getExtraTurn())
             {
                 currentPlayer.setDoubleCounter(0);

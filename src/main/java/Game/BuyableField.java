@@ -53,7 +53,7 @@ public abstract class BuyableField extends Field
     {
         if(!isPropertyBought)
         {
-            if (guiController.buttons(language.getText(15, 3), language.getText(15,3),language.getText(15,4)) == language.getText(15, 3))
+            if (guiController.buttons(playerController.getCurrentPlayer().getName(), language.getText(15,3),language.getText(15,4)) == language.getText(15, 3))
             {
                 buy(playerController.getCurrentPlayer());
             }
@@ -100,13 +100,12 @@ public abstract class BuyableField extends Field
                         String playerChose = guiController.buttons(players[i].getName()+" "+language.getText(15, 6), language.getText(15, 7), language.getText(15, 8));
                         if (playerChose == language.getText(15, 7)) {
 
-                            min = guiController.integerInput(players[i].getName() + " " + language.getText(15, 10) + min, min, 100000);
+                            min = guiController.integerInput(players[i].getName() + " " + language.getText(15, 10) + min, min+100, 100000);
                         } else {
                             playerInActuin[i] = false;
                             playerLeftInAuction--;
                         }
                     }else{
-                    buy(players[i]);
                         this.owner = players[i].getPlayerID();
                         this.isPropertyBought = true;
                         players[i].subtractBalance(min);

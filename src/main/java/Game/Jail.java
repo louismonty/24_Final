@@ -17,6 +17,7 @@ public class Jail {
     public void payBail(Language language, GUIController guiController, PlayerController playerController){
         playerController.getCurrentPlayer().subtractBalance(bail);
         playerController.getCurrentPlayer().setInJail(false);
+        playerController.getCurrentPlayer().setTurnsInJail(0);
         guiController.showMessage(language.getText(11,3)); // "You are out of jail."
     }
 
@@ -31,9 +32,14 @@ public class Jail {
 
     public void rollDiceToGetOut(Language language, GUIController guiController, DieController dieController, PlayerController playerController){
         dieController.diceRoll(guiController);
-        if(dieController.isDouble()){
+        if(dieController.isDouble())
+        {
             playerController.getCurrentPlayer().setInJail(false);
             guiController.showMessage(language.getText(11,2)); // print "You are out of jail."
+        }
+        else
+        {
+            playerController.getCurrentPlayer().setTurnsInJail(playerController.getCurrentPlayer().getTurnsInJail()+1);
         }
     }
 
@@ -47,6 +53,7 @@ public class Jail {
      */
     public void useGetOutOfJailCard(Language language, GUIController guiController, PlayerController playerController){
         playerController.getCurrentPlayer().setInJail(false);
+        playerController.getCurrentPlayer().setTurnsInJail(0);
         playerController.getCurrentPlayer().setGetOutOfJailCard(playerController.getCurrentPlayer().getGetOutOfJailCard() - 1);
         guiController.showMessage(language.getText(11,4)); //print "You are out of jail."
     }
