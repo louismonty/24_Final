@@ -66,10 +66,11 @@ public class Rules
         }
     }
 
-    public boolean win(PlayerController playerController)
+    public boolean win(GUIController guiController, PlayerController playerController)
     {
         if(playerController.getPlayerArray().length == 1)
         {
+            guiController.showMessage(playerController.getPlayerArray()[0].getName() + " er vinderen! Tillykke!");
             return false;
         }
         else
