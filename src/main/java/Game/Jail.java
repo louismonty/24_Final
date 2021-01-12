@@ -76,7 +76,6 @@ public class Jail {
     public void inJail(Language language, GUIController guiController, DieController dieController,
                        ChanceCardController chanceCardController, GameBoard gameboard, PlayerController playerController){
         if(playerController.getCurrentPlayer().getGetOutOfJailCard() > 0) {
-            guiController.showMessage(playerController.getCurrentPlayer().getName());
             String buttons = guiController.buttons(language.getText(11, 5), language.getText(11, 6),
                     language.getText(11, 7), language.getText(11, 8)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice", "4: use Jail Card".
             if (buttons.equals(language.getText(11, 6))) {
@@ -90,7 +89,6 @@ public class Jail {
             }
         }
         else if (playerController.getCurrentPlayer().getGetOutOfJailCard() == 0){
-            guiController.showMessage(playerController.getCurrentPlayer().getName());
             String buttons = guiController.buttons(language.getText(11, 5), language.getText(11, 6),
                     language.getText(11, 7)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice"
             if (buttons.equals(language.getText(11, 6))) {
