@@ -40,7 +40,7 @@ public class Gameloop
             {
                 jail.inJail(language, guiController, dieController, chanceCardController, gameboard, playerController);
             }
-            if(currentPlayer.isInJail() && !currentPlayer.getHasRolledToGetOutOfJail())
+            if(!currentPlayer.isInJail() && !currentPlayer.getHasRolledToGetOutOfJail())
                 {
                     menu.takeTurnMenu(language, gameboard, guiController, currentPlayer);
                     dieController.diceRoll(guiController);
