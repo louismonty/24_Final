@@ -2,7 +2,10 @@ package Controller;
 
 import Game.Language;
 import Game.Player;
+import gui_fields.GUI_Car;
 import gui_fields.GUI_Player;
+
+import java.awt.*;
 
 /**
  * @author “Daniel Sutton”
@@ -24,6 +27,13 @@ public class PlayerController {
      * @param language
      * @param guiController
      */
+    Color[] colorOfCar = {new Color(0, 0, 0),
+            new Color(0,0,0),
+            new Color(0,0,0),
+            new Color(0,0,0),
+            new Color(0,0,0),
+            new Color(0,0,0),
+    };
     public void createPlayer(Language language, GUIController guiController){
         int numberOfPlayers = guiController.integerInput(language.getText(2,2), 2, 6);
         players = new Player[numberOfPlayers];
@@ -31,6 +41,7 @@ public class PlayerController {
             String playerName = guiController.stringInput(language.getText(2,3));
             players[i]= new Player(playerName,i+1);
             guiController.addPlayer(players[i].getGUIPlayer());
+            players[i].getGUIPlayer().getCar().setPrimaryColor(colorOfCar[i]);
         }
 
     }
