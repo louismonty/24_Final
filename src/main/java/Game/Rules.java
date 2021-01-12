@@ -40,11 +40,13 @@ public class Rules
         }
     }
 
-    public void threeDoubleGoToJail(PlayerController playerController)
+    public void threeDoubleGoToJail(GameBoard gameboard, PlayerController playerController)
     {
         if(playerController.getCurrentPlayer().getDoubleCounter() == 3)
         {
+            gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].getGUIField().setCar(playerController.getCurrentPlayer().getGUIPlayer(),false);
             playerController.getCurrentPlayer().setPlayerPosition(10);
+            gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].getGUIField().setCar(playerController.getCurrentPlayer().getGUIPlayer(), true);
             playerController.getCurrentPlayer().setDoubleCounter(0);
             playerController.getCurrentPlayer().setInJail(true);
         }
