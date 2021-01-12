@@ -53,7 +53,7 @@ public class Gameloop
                     if(currentPlayer.getDoubleCounter()==3)
                     {
                         rules.setExtraTurn(false);
-                        rules.threeDoubleGoToJail(playerController);
+                        rules.threeDoubleGoToJail(gameboard, playerController);
                     }
 
                     gameboard.getGameBoard()[currentPlayer.getPlayerPosition()].getGUIField().setCar(currentPlayer.getGUIPlayer(),false);
