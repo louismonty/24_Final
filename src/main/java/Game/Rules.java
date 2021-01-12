@@ -24,7 +24,7 @@ public class Rules
     {
         if(playerController.getCurrentPlayer().getPlayerPosition()>=40)
         {
-            playerController.getCurrentPlayer().getAccount().setBalance(playerController.getCurrentPlayer().getAccount().getBalance()+4000);
+            playerController.getCurrentPlayer().addBalance(4000);
             playerController.getCurrentPlayer().setPlayerPosition(playerController.getCurrentPlayer().getPlayerPosition()-40);
 
             guiController.showMessage(language.getText(12,2));
@@ -66,10 +66,11 @@ public class Rules
         }
     }
 
-    public boolean win(PlayerController playerController)
+    public boolean win(GUIController guiController, PlayerController playerController)
     {
         if(playerController.getPlayerArray().length == 1)
         {
+            guiController.showMessage(playerController.getPlayerArray()[0].getName() + " er vinderen! Tillykke!");
             return false;
         }
         else

@@ -20,11 +20,12 @@ public class PropertyField extends BuyableField
         super(positionID, colorID, name, guiField, price, pawnValue, group);
         houses = 0;
         this.housePrice = housePrice;
+        this.csvLine = csvLine;
     }
 
     public int payRent(PlayerController playerController, GameBoard gameboard, Language language)
     {
-        int rent = Integer.parseInt(language.getText(csvLine,houses+1));
+        int rent = Integer.parseInt(language.getText(csvLine,houses+2));
         return rent;
     }
 

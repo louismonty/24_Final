@@ -18,7 +18,11 @@ public class MoveChanceCard extends ChanceCard
     public void moveToSpecificField(Language language, GUIController guiController, GameBoard gameboard, PlayerController playerController, int newPosition, int textColumn)
     {
         gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].guiField.setCar(playerController.getCurrentPlayer().getGUIPlayer(),false);
-        playerController.getCurrentPlayer().setPlayerPosition(newPosition);
+        if(playerController.getCurrentPlayer().getPlayerPosition()>newPosition)
+        {
+            playerController.getCurrentPlayer().addBalance(4000);
+        }
+        playerController.getCurrentPlayer().setPlayerPosition((newPosition+40)%40);
         gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].guiField.setCar(playerController.getCurrentPlayer().getGUIPlayer(), true);
         playerController.getCurrentPlayer().setHasMoved(true);
         guiController.showChanceCard(language.getText(26,textColumn));

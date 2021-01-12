@@ -18,7 +18,7 @@ public class DieController {
     public void diceRoll(GUIController guiController) {
         die1.roll();
         die2.roll();
-        guiController.showDice(die1.getFaceValue(), 5,die2.getFaceValue(), 5);
+        guiController.showDice(die1.getFaceValue(), 4, 3,die2.getFaceValue(), 6, 3);
     }
 
     public int diceValue() {

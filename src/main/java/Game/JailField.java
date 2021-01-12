@@ -13,17 +13,17 @@ public class JailField extends Field{
         super(positionID, colorID, name, guiField);
     }
 
-    public void goToJail(Player currentPlayer)
+    public void goToJail(PlayerController playerController)
     {
-        currentPlayer.setPlayerPosition(30);
-        currentPlayer.isInJail(true);
+        playerController.getCurrentPlayer().setPlayerPosition(10);
+        playerController.getCurrentPlayer().setInJail(true);
     }
 
     @Override
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController
             playerController, GUIController guiController, Language language)
     {
-        goToJail(playerController.getCurrentPlayer());
-        guiController.showMessage(language.getText(0,0));
+        goToJail(playerController);
+        guiController.showMessage(language.getText(18,2));
     }
 }

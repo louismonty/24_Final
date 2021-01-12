@@ -49,7 +49,7 @@ public class GameBoard {
         gameBoard[9] = new PropertyField(9, ORANGE,"Allégade", new GUI_Street(language.getText
                 (13,10), language.getText(53,4), getDescription(language,34),language.getText(53,4), new Color(226, 76, 12), BLACK),2400,1200,4,1000,34);
 
-        gameBoard[10] = new JailField(10, BLACK,"Fængsel", new GUI_Jail("default",language.getText
+        gameBoard[10] = new CustomField(10, BLACK,"Fængsel", new GUI_Jail("default",language.getText
                 (13,11), language.getText(13,11), language.getText(13,11), black, WHITE));
 
         gameBoard[11] = new PropertyField(11, YELLOW,"Frederiksberg Allé", new GUI_Street(language.getText
