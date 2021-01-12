@@ -75,5 +75,19 @@ public class PlayerController {
         this.players = players;
     }
 
+    /**
+     * @author Isak
+     */
+    public String getListOfPlayersAsString()
+    {
+        String list = "\n";
+        for(int i = 0; i < getPlayerArray().length; i++)
+        {
+            String s = String.valueOf(i+1);
+            list += s + ": " + getPlayerArray()[i].getName() + "\n";
+        }
+        return list;
+    }
+
 
 }
