@@ -97,7 +97,7 @@ public abstract class BuyableField extends Field
                 if(playerInActuin[i] == null)
                 {
                     if (playerLeftInAuction != 1) {
-                        String playerChose = guiController.buttons(language.getText(15, 6), language.getText(15, 7), language.getText(15, 8));
+                        String playerChose = guiController.buttons(players[i].getName()+" "+language.getText(15, 6), language.getText(15, 7), language.getText(15, 8));
                         if (playerChose == language.getText(15, 7)) {
 
                             min = guiController.integerInput(players[i].getName() + " " + language.getText(15, 10) + min, min, 100000);
@@ -107,6 +107,12 @@ public abstract class BuyableField extends Field
                         }
                     }else{
                     buy(players[i]);
+                        this.owner = players[i].getPlayerID();
+                        this.isPropertyBought = true;
+                        players[i].subtractBalance(min);
+                        GUI_Ownable buy = (GUI_Ownable) this.guiField;
+                        buy.setOwnerName(players[i].getName());
+                        buy.setBorder(players[i].getGUIPlayer().getCar().getPrimaryColor());
                     break;
                 }
                 }
