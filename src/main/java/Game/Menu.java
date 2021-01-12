@@ -28,7 +28,7 @@ public class Menu {
 
     public void pawn(Language language, Player player, GUIController guiController, GameBoard gameBoard) {
         BuyableField[] pawnableFields = pawnableFields(ownedFields(gameBoard, player));
-        String playerChose = guiController.buttons(language.getText(1, 1), exspandStrArr(getStringArrOfName(pawnableFields),"back"));
+        String playerChose = guiController.buttons(language.getText(10, 9), exspandStrArr(getStringArrOfName(pawnableFields),language.getText(10,8)));
         for (int i = 0; i < pawnableFields.length; i++) {
             if (pawnableFields[i].getName().equals(playerChose) && pawnableFields[i].getIsPawned() != true) {
                 pawnableFields[i].setIsPawned(true);
@@ -77,7 +77,7 @@ public class Menu {
                     }else if (currentField.getHouses() < 5) {
                         currentField.setHouses(currentField.getHouses() - 1);
                         curremtGUIField.setHouses(currentField.getHouses());
-                        player.subtractBalance(currentField.getHousePrice());
+                        player.addBalance(currentField.getHousePrice());
                     } else if (currentField.getHouses() == 5) {
                         currentField.setHouses(currentField.getHouses() - 1);
                         curremtGUIField.setHotel(false);
