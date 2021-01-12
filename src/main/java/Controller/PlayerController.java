@@ -16,7 +16,10 @@ public class PlayerController {
     private int currentPlayerCounter = 0;
 
     public void nextPlayer(){
-        currentPlayerCounter = (currentPlayerCounter + 1) % players.length;
+        if(players.length > 1)
+        {
+            currentPlayerCounter = (currentPlayerCounter + 1) % players.length;
+        }
     }
 
     /**
