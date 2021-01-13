@@ -66,7 +66,7 @@ public class Rules
         if(playerController.getCurrentPlayer().getAccount().getBalance() < 0)
         {
             int t = 0;
-            for(int i = 0; i<playerController.getPlayerArray().length-1; i++ )
+            for(int i = 0; i<playerController.getPlayerArray().length; i++ )
             {
                 if(playerController.getPlayerArray()[i] != playerController.getCurrentPlayer())
                 {
