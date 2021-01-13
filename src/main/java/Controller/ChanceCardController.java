@@ -198,10 +198,10 @@ public class ChanceCardController {
                 ((JailChanceCard)currentChanceCard).getOutOfJailCard(language, guiController, playerController);
                 break;
             case 44:
-                ((JailChanceCard)currentChanceCard).goToJailCard(language, guiController, playerController);
+                ((JailChanceCard)currentChanceCard).goToJailCard(language, guiController, gameBoard, playerController);
                 break;
             case 45:
-                ((JailChanceCard)currentChanceCard).getOutOfJailCard(language, guiController, playerController);
+                ((JailChanceCard)currentChanceCard).goToJailCard(language, guiController, gameBoard, playerController);
                 break;
 
 

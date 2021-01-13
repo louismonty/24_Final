@@ -40,11 +40,13 @@ public class Rules
         }
     }
 
-    public void threeDoubleGoToJail(PlayerController playerController)
+    public void threeDoubleGoToJail(GameBoard gameboard, PlayerController playerController)
     {
         if(playerController.getCurrentPlayer().getDoubleCounter() == 3)
         {
+            gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].getGUIField().setCar(playerController.getCurrentPlayer().getGUIPlayer(),false);
             playerController.getCurrentPlayer().setPlayerPosition(10);
+            gameboard.getGameBoard()[playerController.getCurrentPlayer().getPlayerPosition()].getGUIField().setCar(playerController.getCurrentPlayer().getGUIPlayer(), true);
             playerController.getCurrentPlayer().setDoubleCounter(0);
             playerController.getCurrentPlayer().setInJail(true);
         }
@@ -60,7 +62,7 @@ public class Rules
 
     public void bankrupt(GUIController guiController, PlayerController playerController)
     {
-        Player[] tempPlayerArray = new Player[playerController.getPlayerArray().length-2];
+        Player[] tempPlayerArray = new Player[playerController.getPlayerArray().length-1];
         if(playerController.getCurrentPlayer().getAccount().getBalance() < 0)
         {
             for(int i = 0; i>= playerController.getPlayerArray().length; i++ )

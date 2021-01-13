@@ -28,13 +28,34 @@ public class MoveChanceCard extends ChanceCard
         guiController.showChanceCard(language.getText(26,textColumn));
     }
 
-    public int findNextFerryField(GameBoard gameboard, PlayerController playerController)
+    public int findNextFerryField(PlayerController playerController)
     {
+
+        int ferryField = 0;
+        if(playerController.getCurrentPlayer().getPlayerPosition()<5 || playerController.getCurrentPlayer().getPlayerPosition() > 35)
+        {
+            ferryField = 5;
+        }
+        else if(5<playerController.getCurrentPlayer().getPlayerPosition() && playerController.getCurrentPlayer().getPlayerPosition()<15)
+        {
+            ferryField = 15;
+        }
+        else if(15<playerController.getCurrentPlayer().getPlayerPosition() && playerController.getCurrentPlayer().getPlayerPosition()<25)
+        {
+            ferryField = 25;
+        }
+        else if(25<playerController.getCurrentPlayer().getPlayerPosition() && playerController.getCurrentPlayer().getPlayerPosition()<35)
+        {
+            ferryField = 35;
+        }
+        /*
         int ferryField = playerController.getCurrentPlayer().getPlayerPosition();
         for(int i = playerController.getCurrentPlayer().getPlayerPosition();gameboard.getGameBoard()[i] instanceof  FerryField;i = (i +1) % 40)
         {
             ferryField = i;
         }
+
+         */
         return ferryField;
     }
 
@@ -61,7 +82,7 @@ public class MoveChanceCard extends ChanceCard
 
     public void shipyardCard(Language language, GUIController guiController, GameBoard gameboard, PlayerController playerController)
     {
-        int ferryField = findNextFerryField(gameboard, playerController);
+        int ferryField = findNextFerryField(playerController);
         moveToSpecificField(language, guiController, gameboard, playerController, ferryField, 6);
 
         FerryField field = (FerryField)gameboard.getGameBoard()[ferryField];
@@ -84,7 +105,7 @@ public class MoveChanceCard extends ChanceCard
     }
     public void ferryCard(Language language, GUIController guiController, GameBoard gameboard, PlayerController playerController)
     {
-        moveToSpecificField(language, guiController, gameboard, playerController, findNextFerryField(gameboard, playerController), 10);
+        moveToSpecificField(language, guiController, gameboard, playerController, findNextFerryField(playerController), 10);
     }
     public void strandvejenCard(Language language, GUIController guiController, GameBoard gameboard, PlayerController playerController)
     {
