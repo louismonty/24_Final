@@ -75,7 +75,7 @@ public class Gameloop
                     currentPlayer.setHasMoved(false);
                 }
             }
-            rules.bankrupt(guiController, playerController);
+            rules.bankrupt(language, guiController, playerController);
             isGameRunning = rules.win(language, guiController, playerController);
             currentPlayer.setHasRolledToGetOutOfJail(false);
             if(!rules.getExtraTurn())
