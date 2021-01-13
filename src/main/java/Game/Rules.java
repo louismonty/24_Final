@@ -65,11 +65,13 @@ public class Rules
         Player[] tempPlayerArray = new Player[playerController.getPlayerArray().length-1];
         if(playerController.getCurrentPlayer().getAccount().getBalance() < 0)
         {
-            for(int i = 0; i<= playerController.getPlayerArray().length-1; i++ )
+            int t = 0;
+            for(int i = 0; i<playerController.getPlayerArray().length-1; i++ )
             {
                 if(playerController.getPlayerArray()[i] != playerController.getCurrentPlayer())
                 {
-                    tempPlayerArray[i] = playerController.getPlayerArray()[i];
+                    tempPlayerArray[t] = playerController.getPlayerArray()[i];
+                    t++;
                 }
             }
             playerController.setPlayerArray(tempPlayerArray);
