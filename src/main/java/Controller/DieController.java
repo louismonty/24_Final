@@ -25,6 +25,13 @@ public class DieController {
         return die1.getFaceValue() + die2.getFaceValue();
     }
 
+    public Die getDie1(){
+        return die1;
+    }
+    public Die getDie2(){
+        return die2;
+    }
+
     /**
      * @return boolean
      * isDouble() method returns true if the two dices roll the same faceValue.
