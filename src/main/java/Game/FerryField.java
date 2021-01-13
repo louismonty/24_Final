@@ -17,7 +17,7 @@ public class FerryField extends BuyableField {
         int ferryFields[] = {5,15,25,35};
         for(int i=0; i<4;i++){
             BuyableField ferryField = (BuyableField) gameBoard.getGameBoard()[ferryFields[i]];
-            if(ferryField.getOwner() == this.owner){
+            if(ferryField.getOwner() == this.getOwner()){
                 multiplier += 1;
             }
 
