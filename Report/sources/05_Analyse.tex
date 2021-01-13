@@ -1,14 +1,18 @@
 \begin{flushleft}
+\doublespacing
+I analysedelen har vi identificeret use-cases (se afsnit 4.1-4.3), opstillet domænet for Matador (se afsnit 4.4) og illustreret et systemsekvensdiagram over Matadorspillets overordnede sekvenser (se afsnit 4.5).
 \subsection{Use-case diagram}
-Vi startede med at lavet et use-case diagram, da dette er en central del af analysefase. Et use-case diagram viser det forskellige ting Player interagere med Matador spillet. Det diagram vi har udarbejdet kan man se at en Player kan "Play Matador", og til denne use-case er der nogle sub use-cases som er Start Game, Buy House or Hotel, Sell House or Hotel, Pawn Property, Buyback Pawned Property, Buy property or auction and Roll Dice. 
-\begin{figure}[htp]
+Use-case diagrammet viser en oversigt over vores samlede use-cases (se Figure \ref{use-case diagram}). Det ses her, at en Player kan Play Matador og Initialize Game. De resterende use-cases har et include relation til Initialize Game, da de alle bliver eksekveret efter Initialize Game er eksekveret.
+\begin{figure}[H]
     \centering
     \includegraphics[width=12cm]{Report/figures/Use Case Diagram.png}
     \caption{Use-case diagram}
+    \label{use-case diagram}
 \end{figure}
 
-\subsection{Central use-case: Roll dice}
-Her under er en fully dressed beskrivelse af vores centrale use.case, Roll Dice. \\
+\subsection{Central use-case}
+Under analysefasen har vi bestemt UC01: Roll dice til at være mest central for Matadorspillet. Derfor har vi udarbejdet en use-case beskrivelse i fully dressed format (se Figure \ref{fully-dressed}. \\
+
 \begin{figure}[htp]
     \centering
 \begin{tabular}{ |c|c|c|c|c|c|  }
@@ -17,7 +21,7 @@ Her under er en fully dressed beskrivelse af vores centrale use.case, Roll Dice.
 \hline
 Use-case section & Comment \\
 \hline
-Use-case Name & Roll dice\\
+Use-case Name & UC01: Roll dice\\
 \hline
 Scope & Matador Game\\
 \hline
@@ -59,63 +63,40 @@ Misc. & N/A.\\
 
     \end{tabular}\\
     \caption{Fully dressed use-case af roll dice use-case.}
+    \label{fully-dressed}
 \end{figure}
 \doublespacing
 
 \subsection{Sub use-cases}
-Her er vores liste over use-cases.\\
-\begin{figure}[htp]
-    \centering
-\begin{tabular}{ |c|c|c|c|c|c|  }
-\hline
-\multicolumn{2}{|c|}{Brief use-case} \\
-\hline
-Use-case & A short use case description \\
-\hline
-Start Game & Spillet starter med at man skal vælge \\
-&hvor mange spiller der skal være med.\\
-&Herefter indtaster hver spiller deres navn og den\\
-&første spiller som indtaster deres navn starter.\\
-\hline
-Buy House or Hotel & I starten af spillerens tur får spilleren mulighed\\
-&for at køber huse eller hoteller.\\
-\hline
-Sell House or Hotel & I starten af spillerens tur får spilleren mulighed\\
-&for at sælge huse eller hoteller.\\
-\hline
-Pawn Property & Spilleren har mulighed for at pantsætte \\
-&sine grunde i starten af turen.\\
-\hline
-Buyback Pawned Property & Spilleren har mulighed for at tilbage købe\\
-&pantsætte grunde i starten af turen.\\
-\hline
-Buy Property or Auction & Hvis man lander på en grund for man \\
-&mulighed for at købe den, men hvis man ikke\\
-&gider eller kan købe grunden bilver den\\
-&sat til salg på aution hvor alle kan deltage\\
-\hline
-
-
-    \end{tabular} \\
-    \caption{Brief use-cases}
-\end{figure}
-\doublespacing
-
+\textbf{UC02: Play Matador} \\
+Her vælger en bruger at åbne programmet, hvorefter en GUI vises på skærmen.  \\
+\textbf{UC03: Initialize Game} \\
+Når initialize Game eksekveres af brugeren, skal der vælges sprog (UC05), antal spillere, spilleres navne og hvem der starter. Herefter påbegyndes det aktuelle Matadorspil.\\
+\textbf{UC04: Buy/sell house/hotel} \\
+Når det er en spillers tur kan spilleren vælge at købe og sælge huse hoteller på grunde, som er ejede. Herefter opdateres GUIen og tilføjer eller fjerner huse/hoteller fra grænsefladen.\\
+\textbf{UC05: Choose language} \\
+Når et spil initialiseres vises der en menu, hvor brugeren kan vælge sprog for spillet.\\
+\textbf{UC06: Auction property} \\
+En spiller kan vælge at sætte en grund på auktion. Herved får alle spillere mulighed for at byde i auktionen.\\
+\textbf{UC07: Exchange pawned property} \\
+En spiller kan vælge at pantsætte eller købe pantsatte bygninger. Når en spiller har at købe eller pantsætte opdateres GUIen med spillerens nuværende balance og bygninger.
 
 \subsection{Domæne model}
-Det centrale objekt i domæne modelen er MatadorGame. Det indholder mellem 2 til 6 Player, 46 ChanceCard, 2 Dice og en Field. Til hver Player som bliver opretter bliver der også oprettet en Account, som bliver påvirket af Field. Field har også JailField, ChanceField, CustomField, PropertyField, StartField, TaxField, SodaField and FerryField.
-\begin{figure}[htp]
+For bedre at forstå domænet, der arbejdes i, har vi udarbejdet en domæne model (se Figure \ref{Domænemodel}). I domænemodellen ses en oversigt af de forskellige virkelige objekter, som eksisterer i Matador domænet.
+\begin{figure}[H]
     \centering
     \includegraphics[width=16cm]{Report/figures/Domæne model.png}
     \caption{Domæne model}
+    \label{Domænemodel}
 \end{figure}
 
 \subsection{Systemsekvensdiagram}
-Her til at afrund vores analysedel hvor vi har udarbejdet et systemsekvensdiagram over Matador spillet. Systemsekvensdiagram viser Player og interaktion med Matador spillet. 
+Her til at afrunde vores analysedel har vi udarbejdet et systemsekvensdiagram over Matador spillet (se figure \ref{Systemsekvensdiagram}). Diagrammet viser, hvordan en bruger (Player) skal interagere med spillet (Matador). Først starter brugeren spillet, hvorefter spillet viser en menu. Herefter skal brugeren indtaste antallet af spillere, hvorefter brugeren indtaster navne for hver spiller. Herefter kører matadorspillet i loop, hvor der skiftes tur (Take turn) og spillet opdaterer (Game updates) indtil der er fundet en vinder. Til sidst vises, hvem der har vundet og spillet ender.
 \begin{figure}[htp]
     \centering
     \includegraphics[width=13cm]{Report/figures/System Sekvens Diagram.png}
     \caption{Systemsekvensdiagram}
+    \label{Systemsekvensdiagram}
 \end{figure}
 
 \end{flushleft}

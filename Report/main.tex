@@ -35,6 +35,7 @@
 \usepackage{ragged2e}
 \usepackage{multicol}
 \usepackage{datetime}
+\usepackage{tabularx}
 
 
 % --- set footer and header ---
@@ -96,18 +97,19 @@ numbersep=0.5cm
 \fancyfoot[C]{Page \thepage\ of \pageref{endOfDoc}}
 
 \newpage
-\thispagestyle{fancy}
-\section{Kravspecifikation}
-\input{Report/sources/03a_Kravspecifikation}
-
-
-\newpage
 \section{Introduktion}
 \thispagestyle{fancy}
 \input{Report/sources/04_introduction}
 
+\newpage
+\section{Projektplanlægning}
+\input{Report/sources/09_Projektplanlægning}
+\thispagestyle{fancy}
 
-
+\newpage
+\thispagestyle{fancy}
+\section{Kravspecifikation}
+\input{Report/sources/03a_Kravspecifikation}
 
 \newpage
 \section{Analyse}
@@ -128,23 +130,23 @@ numbersep=0.5cm
 \input{Report/sources/08_Test}
 \thispagestyle{fancy}
 
-\newpage
-\section{Projektplanlægning}
-\thispagestyle{fancy}
+
 
 \newpage
 \section{Konklusion}
+\input{Report/sources/10_Konklusion}
 \thispagestyle{fancy}
 
 \newpage
 \begin{flushleft}
 \section{Tegn og ordforklaring}
 \end{flushleft}
-\input{Report/sources/09_ordforklaring}
+\input{Report/sources/11_ordforklaring}
 \thispagestyle{fancy}
 
 \newpage
 \section{Brugerguide}
+\input{Report/sources/12_Brugerguide}
 \thispagestyle{fancy}
 
 \newpage
@@ -152,5 +154,6 @@ numbersep=0.5cm
 
 \newpage
 \section{Bilag}
+\input{Report/sources/13_Bilag}
 \label{endOfDoc}
 \end{document}
