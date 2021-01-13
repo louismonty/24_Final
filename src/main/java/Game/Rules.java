@@ -62,7 +62,7 @@ public class Rules
 
     public void bankrupt(GUIController guiController, PlayerController playerController)
     {
-        Player[] tempPlayerArray = new Player[playerController.getPlayerArray().length-2];
+        Player[] tempPlayerArray = new Player[playerController.getPlayerArray().length-1];
         if(playerController.getCurrentPlayer().getAccount().getBalance() < 0)
         {
             for(int i = 0; i>= playerController.getPlayerArray().length; i++ )
