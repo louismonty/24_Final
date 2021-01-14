@@ -40,6 +40,7 @@ class RulesTest {
         playerController.getCurrentPlayer().setDoubleCounter(3);
         rules.threeDoubleGoToJail(gameBoard,playerController);
         assertEquals(true,playerController.getCurrentPlayer().isInJail());
+        assertEquals(10, playerController.getCurrentPlayer().getPlayerPosition());
     }
 
 }
