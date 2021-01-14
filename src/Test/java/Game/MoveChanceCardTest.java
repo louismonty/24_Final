@@ -14,6 +14,7 @@ class MoveChanceCardTest {
     GUIController guiController = new GUIController();
     GameBoard gameBoard;
     MoveChanceCard card;
+    Rules rules = new Rules();
 
     @BeforeEach
     void setUp(){
@@ -47,7 +48,9 @@ class MoveChanceCardTest {
     void startCard() {
         playerController.getCurrentPlayer().setPlayerPosition(1);
         card.startCard(language,guiController,gameBoard,playerController);
+        rules.overStartRule(language, guiController, playerController);
         assertEquals(0,playerController.getCurrentPlayer().getPlayerPosition());
+        assertEquals(34000, playerController.getCurrentPlayer().getAccount().getBalance());
     }
 
     @Test
