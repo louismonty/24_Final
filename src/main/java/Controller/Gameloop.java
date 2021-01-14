@@ -38,17 +38,13 @@ public class Gameloop
             }
             if(currentPlayer.isInJail())
             {
-                jail.inJail(language, guiController, dieController, chanceCardController, gameboard, playerController);
+                jail.inJail(language, guiController, dieController, gameboard, playerController);
             }
             if(!currentPlayer.isInJail() && !currentPlayer.getHasRolledToGetOutOfJail())
                 {
                     menu.takeTurnMenu(language, gameboard, guiController, currentPlayer);
                     dieController.diceRoll(guiController);
                     currentPlayer.setNumberOfMoves(dieController.diceValue());
-                    if(dieController.isDouble())
-                    {
-                        playerController.getCurrentPlayer().setDoubleCounter(playerController.getCurrentPlayer().getDoubleCounter()+1);
-                    }
                     rules.doubleExtraTurn(dieController, playerController);
                     if(currentPlayer.getDoubleCounter()==3)
                     {
