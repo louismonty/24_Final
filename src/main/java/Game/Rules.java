@@ -60,11 +60,13 @@ public class Rules
         guiController.showMessage(language.getText(12,3));
     }
 
-    public void bankrupt(GUIController guiController, PlayerController playerController)
+    public void bankrupt(Language language, GUIController guiController, PlayerController playerController)
     {
+
         Player[] tempPlayerArray = new Player[playerController.getPlayerArray().length-1];
         if(playerController.getCurrentPlayer().getAccount().getBalance() < 0)
         {
+            guiController.showMessage(playerController.getCurrentPlayer().getName() + language.getText(12,5));
             int t = 0;
             for(int i = 0; i<playerController.getPlayerArray().length; i++ )
             {
