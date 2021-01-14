@@ -49,16 +49,11 @@ public class PlayerController {
 
     }
 
-    /**
-     * @author Louis
-     */
+
     public Player getCurrentPlayer() {
         return players[currentPlayerCounter];
     }
 
-    /**
-     * @author Louis
-     */
     public void setCurrentPlayer(int currentPlayer)
     {
         this.currentPlayerCounter = currentPlayer%players.length;
@@ -68,9 +63,7 @@ public class PlayerController {
         return players;
     }
 
-    /**
-     * @author Louis
-     */
+
     public void setPlayerArray(Player[] players) {
         this.players = players;
     }
