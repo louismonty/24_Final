@@ -38,7 +38,7 @@ public class Gameloop
             }
             if(currentPlayer.isInJail())
             {
-                jail.inJail(language, guiController, dieController, chanceCardController, gameboard, playerController);
+                jail.inJail(language, guiController, dieController, gameboard, playerController);
             }
             if(!currentPlayer.isInJail() && !currentPlayer.getHasRolledToGetOutOfJail())
                 {
