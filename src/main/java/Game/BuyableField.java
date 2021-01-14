@@ -74,24 +74,24 @@ public abstract class BuyableField extends Field
 
     }
 
-    public void buy(Player player)
+    public void buy(PlayerController playerController)
     {
-        this.owner = player.getPlayerID();
+        this.owner = playerController.getCurrentPlayer().getPlayerID();
         this.isPropertyBought = true;
-        player.subtractBalance(price);
+        playerController.getCurrentPlayer().subtractBalance(price);
         GUI_Ownable buy = (GUI_Ownable) this.guiField;
-        buy.setOwnerName(player.getName());
-        buy.setBorder(player.getGUIPlayer().getCar().getPrimaryColor());
+        buy.setOwnerName(playerController.getCurrentPlayer().getName());
+        buy.setBorder(playerController.getCurrentPlayer().getGUIPlayer().getCar().getPrimaryColor());
     }
 
-    public void auction(Language language,GUIController guiController, Player[] players)
+    public void auction(Language language,GUIController guiController, PlayerController playerController)
     {
-        Boolean[] playerInActuin = new Boolean[players.length];
+        Boolean[] playerInActuin = new Boolean[playerController.getPlayerArray().length];
         int min = 0;
         int i = 0;
-        int playerLeftInAuction = players.length ;
+        int playerLeftInAuction = playerController.getPlayerArray().length ;
         boolean onGoingAuction = true;
-        int amountOfPlayer = players.length;
+        int amountOfPlayer = playerController.getPlayerArray().length;
 
             while(onGoingAuction)
             {
@@ -99,21 +99,21 @@ public abstract class BuyableField extends Field
                 if(playerInActuin[i] == null)
                 {
                     if (playerLeftInAuction != 1) {
-                        String playerChose = guiController.buttons(players[i].getName()+" "+language.getText(15, 6), language.getText(15, 7), language.getText(15, 8));
+                        String playerChose = guiController.buttons(playerController.getPlayerArray()[i].getName()+" "+language.getText(15, 6), language.getText(15, 7), language.getText(15, 8));
                         if (playerChose == language.getText(15, 7)) {
 
-                            min = guiController.integerInput(players[i].getName() + " " + language.getText(15, 10) +" " + min, min+100, 100000);
+                            min = guiController.integerInput(playerController.getPlayerArray()[i].getName() + " " + language.getText(15, 10) +" " + min, min+100, 100000);
                         } else {
                             playerInActuin[i] = false;
                             playerLeftInAuction--;
                         }
                     }else{
-                        this.owner = players[i].getPlayerID();
+                        this.owner = playerController.getPlayerArray()[i].getPlayerID();
                         this.isPropertyBought = true;
-                        players[i].subtractBalance(min);
+                        playerController.getPlayerArray()[i].subtractBalance(min);
                         GUI_Ownable buy = (GUI_Ownable) this.guiField;
-                        buy.setOwnerName(players[i].getName());
-                        buy.setBorder(players[i].getGUIPlayer().getCar().getPrimaryColor());
+                        buy.setOwnerName(playerController.getPlayerArray()[i].getName());
+                        buy.setBorder(playerController.getPlayerArray()[i].getGUIPlayer().getCar().getPrimaryColor());
                     break;
                 }
                 }
