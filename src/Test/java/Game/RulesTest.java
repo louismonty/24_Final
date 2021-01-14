@@ -21,7 +21,7 @@ class RulesTest {
     void setUp(){
         language.loadFile();
         gameBoard = new GameBoard(language);
-        guiController.createGUIBoard(gameBoard.getGuiGamebord());
+        guiController.createGUIBoard(gameBoard.getGUIGameboard());
         playerController.setPlayerArray(new Player[]{new Player("test1",1),new Player("test2",2)});
         playerController.setCurrentPlayer(0);
     }

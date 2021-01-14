@@ -23,7 +23,7 @@ class SodaFieldTest {
     void setUp(){
             language.loadFile();
             gameBoard = new GameBoard(language);
-            guiController.createGUIBoard(gameBoard.getGuiGamebord());
+            guiController.createGUIBoard(gameBoard.getGUIGameboard());
             field = (SodaField) gameBoard.getGameBoard()[12];
         field2 = (SodaField) gameBoard.getGameBoard()[28];
         playerController.setPlayerArray(new Player[]{new Player("test1",1)});
