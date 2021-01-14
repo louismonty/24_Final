@@ -144,7 +144,7 @@ public class GameBoard {
     public Field[] getGameBoard() {
         return gameBoard;
     }
-    public GUI_Field[] getGuiGamebord(){
+    public GUI_Field[] getGUIGameboard(){
         GUI_Field[] Fields = new GUI_Field[40];
         for(int i = 0;i<getGameBoard().length;i++){
             Fields[i] = getGameBoard()[i].guiField;

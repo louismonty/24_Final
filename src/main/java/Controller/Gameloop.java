@@ -23,7 +23,7 @@ public class Gameloop
     {
         language.loadFile();
         GameBoard gameboard = new GameBoard(language);
-        guiController.createGUIBoard(gameboard.getGuiGamebord());
+        guiController.createGUIBoard(gameboard.getGUIGameboard());
         playerController.createPlayer(language, guiController);
         chanceCardController.shuffleChanceCardDeck();
         playerController.setCurrentPlayer(guiController.integerInput(language.getText(5,2) + playerController.getListOfPlayersAsString(),1,playerController.getPlayerArray().length)-1);
