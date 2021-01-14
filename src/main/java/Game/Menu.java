@@ -89,8 +89,9 @@ public class Menu {
                         curremtGUIField.setHouses(currentField.getHouses());
                         player.addBalance(currentField.getHousePrice());
                     } else if (currentField.getHouses() == 5) {
-                        currentField.setHouses(currentField.getHouses() - 1);
                         curremtGUIField.setHotel(false);
+                        currentField.setHouses(currentField.getHouses() - 1);
+                        curremtGUIField.setHouses(currentField.getHouses());
                         player.addBalance(currentField.getHousePrice());
                     }
 
