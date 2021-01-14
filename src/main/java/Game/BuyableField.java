@@ -55,11 +55,11 @@ public abstract class BuyableField extends Field
         {
             if (guiController.buttons(playerController.getCurrentPlayer().getName(), language.getText(15,3),language.getText(15,4)) == language.getText(15, 3))
             {
-                buy(playerController.getCurrentPlayer());
+                buy(playerController);
             }
             else
                 {
-                    auction(language, guiController, playerController.getPlayerArray());
+                    auction(language, guiController, playerController);
                 }
         }
         else {
