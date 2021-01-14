@@ -45,6 +45,10 @@ public class Gameloop
             if(currentPlayer.isInJail())
             {
                 jail.inJail(language, guiController, dieController, gameboard, playerController);
+                if(currentPlayer.getHasRolledToGetOutOfJail())
+                {
+                    rules.setExtraTurn(true);
+                }
             }
             if(!currentPlayer.isInJail() && !currentPlayer.getHasRolledToGetOutOfJail())
                 {
