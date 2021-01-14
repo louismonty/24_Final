@@ -68,13 +68,13 @@ public class Jail {
      * @param dieController
      * @param playerController
      * @param guiController
-     * @param chanceCardController
+     * @param gameboard
      * @param language
      * @return void
      * Introduces GUIButtons for player to choose a method to get out of jail.
      */
     public void inJail(Language language, GUIController guiController, DieController dieController,
-                       ChanceCardController chanceCardController, GameBoard gameboard, PlayerController playerController){
+                        GameBoard gameboard, PlayerController playerController){
         if(playerController.getCurrentPlayer().getGetOutOfJailCard() > 0) {
             String buttons = guiController.buttons(playerController.getCurrentPlayer().getName()+" "+language.getText(11, 5), language.getText(11, 6),
                     language.getText(11, 7), language.getText(11, 8)); // "1: Choose option", "2: Pay Bail", "3: Roll Dice", "4: use Jail Card".
