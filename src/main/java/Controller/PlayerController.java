@@ -16,7 +16,7 @@ public class PlayerController {
 
     private Player[] players;
     private int currentPlayerCounter = 0;
-    Color[] colorOfCar = {new Color(255, 0, 227, 255),
+    private Color[] colorOfCar = {new Color(255, 0, 227, 255),
             new Color(0, 255, 210),
             new Color(43, 255, 0),
             new Color(255, 183, 0),
