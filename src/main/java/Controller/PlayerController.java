@@ -17,6 +17,13 @@ public class PlayerController {
     private Player[] players;
     private Player currentPlayer;
     private int currentPlayerCounter = 0;
+    Color[] colorOfCar = {new Color(255, 0, 227, 255),
+            new Color(0, 255, 210),
+            new Color(43, 255, 0),
+            new Color(255, 183, 0),
+            new Color(15, 0, 255),
+            new Color(0, 0, 0, 255),
+    };
 
     public void nextPlayer(){
         if(players.length > 1)
@@ -30,13 +37,6 @@ public class PlayerController {
      * @param language
      * @param guiController
      */
-    Color[] colorOfCar = {new Color(255, 0, 227, 255),
-            new Color(0, 255, 210),
-            new Color(43, 255, 0),
-            new Color(255, 183, 0),
-            new Color(15, 0, 255),
-            new Color(0, 0, 0, 255),
-    };
     public void createPlayer(Language language, GUIController guiController){
         int numberOfPlayers = guiController.integerInput(language.getText(2,2), 2, 6);
         players = new Player[numberOfPlayers];
