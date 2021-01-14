@@ -42,7 +42,7 @@ public class Gameloop
             }
             if(!currentPlayer.isInJail() && !currentPlayer.getHasRolledToGetOutOfJail())
                 {
-                    menu.takeTurnMenu(language, gameboard, guiController, currentPlayer);
+                    menu.takeTurnMenu(language, gameboard, guiController,playerController);
                     dieController.diceRoll(guiController);
                     currentPlayer.setNumberOfMoves(dieController.diceValue());
                     rules.doubleExtraTurn(dieController, playerController);
