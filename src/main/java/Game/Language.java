@@ -5,8 +5,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Language {
-        int linesInCSV = 58;
-        String[][] ImportedText = new String[linesInCSV][];
+        private int linesInCSV = 58;
+        private String[][] ImportedText = new String[linesInCSV][];
         public void loadFile(){
             try {
                 File CSVFile = new File("src\\main\\GameTextInput.csv");
