@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Language {
         private int linesInCSV = 58;
-        private String[][] ImportedText = new String[linesInCSV][];
+        private String[][] importedText = new String[linesInCSV][];
         public void loadFile(){
             try {
                 File CSVFile = new File("src\\main\\GameTextInput.csv");
@@ -15,7 +15,7 @@ public class Language {
                 int i = 0;
                 while(Reader.hasNextLine()) {
                     line = Reader.nextLine();
-                    ImportedText[i] = line.split(",");
+                    importedText[i] = line.split(",");
                     i++;
                 }
                 Reader.close();
@@ -25,9 +25,9 @@ public class Language {
             }
         }
         public String getText(int line, int column){
-            return ImportedText[line-1][column-1];
+            return importedText[line-1][column-1];
         }
         public String[] getLine(int column){
-            return ImportedText[column-1];
+            return importedText[column-1];
         }
     }
