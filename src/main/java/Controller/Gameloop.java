@@ -45,10 +45,6 @@ public class Gameloop
                     menu.takeTurnMenu(language, gameboard, guiController, currentPlayer);
                     dieController.diceRoll(guiController);
                     currentPlayer.setNumberOfMoves(dieController.diceValue());
-                    if(dieController.isDouble())
-                    {
-                        playerController.getCurrentPlayer().setDoubleCounter(playerController.getCurrentPlayer().getDoubleCounter()+1);
-                    }
                     rules.doubleExtraTurn(dieController, playerController);
                     if(currentPlayer.getDoubleCounter()==3)
                     {

@@ -15,7 +15,7 @@ import java.awt.*;
 public class PlayerController {
 
     private Player[] players;
-    private Player currentPlayer;
+   // private Player currentPlayer;
     private int currentPlayerCounter = 0;
 
     public void nextPlayer(){
