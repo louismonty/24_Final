@@ -15,7 +15,6 @@ import java.awt.*;
 public class PlayerController {
 
     private Player[] players;
-    private Player currentPlayer;
     private int currentPlayerCounter = 0;
     Color[] colorOfCar = {new Color(255, 0, 227, 255),
             new Color(0, 255, 210),
