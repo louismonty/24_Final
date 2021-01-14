@@ -14,7 +14,6 @@ public class Player {
     private GUI_Player GUIPlayer;
     private int getOutOfJailCard;
     private boolean isInJail;
-    private int jailCounter;
     private int doubleCounter;
     private int playerPosition;
     private int playerID;
@@ -31,7 +30,6 @@ public class Player {
         GUIPlayer = new GUI_Player(name, 30000);
         getOutOfJailCard = 0;
         isInJail = false;
-        jailCounter = 0;
         doubleCounter = 0;
         playerPosition = 0;
         this.playerID = playerID;
@@ -137,14 +135,6 @@ public class Player {
 
     public void setInJail(boolean inJail) {
         isInJail = inJail;
-    }
-
-    public int getJailCounter() {
-        return jailCounter;
-    }
-
-    public void setJailCounter(int jailCounter) {
-        this.jailCounter = jailCounter;
     }
 
     public int getDoubleCounter() {
