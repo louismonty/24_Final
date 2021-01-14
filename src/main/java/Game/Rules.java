@@ -4,7 +4,7 @@ import Controller.*;
 import gui_fields.GUI_Player;
 
 /**
- * @author Isak Risager
+ * @author Isak
  */
 public class Rules
 {
@@ -60,6 +60,13 @@ public class Rules
         guiController.showMessage(language.getText(12,3));
     }
 
+    /**
+     *
+     * @param language
+     * @param guiController
+     * @param playerController
+     * If the current player has below 0 on their account, they will be removed from the array of players.
+     */
     public void bankrupt(Language language, GUIController guiController, PlayerController playerController)
     {
 

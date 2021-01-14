@@ -7,6 +7,9 @@ import java.util.Random;
 public class ChanceCardController {
     ChanceCard[] chanceCardDeck;
 
+    /**
+     * @author Isak
+     */
     public ChanceCardController()
     {
         this.chanceCardDeck = new ChanceCard[46];
@@ -62,6 +65,17 @@ public class ChanceCardController {
         }
         random=null;
     }
+
+    /**
+     *
+     * @param language
+     * @param guiController
+     * @param gameBoard
+     * @param playerController
+     * @param currentChanceCard
+     * Execute a chancecard based on which id the method gets
+     */
+
     public void executeChanceCard(Language language, GUIController guiController, GameBoard gameBoard,PlayerController playerController, ChanceCard currentChanceCard){
 
         switch(currentChanceCard.getChanceCardID()) {

@@ -12,10 +12,6 @@ public class Die {
     private int faceValue;
     public Die(){}
 
-    /**
-     * @return void
-     * The method, roll(), generates a random number from 1 to 6 for the variable, faceValue.
-     */
     public void roll(){
         this.faceValue = randomNumber.nextInt(6)+1;
     }

@@ -8,7 +8,7 @@ import gui_fields.GUI_Player;
 import java.awt.*;
 
 /**
- * @author “Daniel Sutton”
+ * @author Daniel
  *
  */
 
@@ -21,8 +21,7 @@ public class PlayerController {
             new Color(43, 255, 0),
             new Color(255, 183, 0),
             new Color(15, 0, 255),
-            new Color(0, 0, 0, 255),
-    };
+            new Color(0, 0, 0, 255),};
 
     public void nextPlayer(){
         if(players.length > 1)
@@ -45,7 +44,6 @@ public class PlayerController {
             guiController.addPlayer(players[i].getGUIPlayer());
             players[i].getGUIPlayer().getCar().setPrimaryColor(colorOfCar[i]);
         }
-
     }
 
 

@@ -7,7 +7,7 @@ import gui_fields.GUI_Player;
 import java.awt.*;
 
 /**
- * @Author Isak Risager
+ * @author Isak
  */
 public class PropertyField extends BuyableField
 {

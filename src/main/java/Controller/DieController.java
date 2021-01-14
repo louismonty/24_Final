@@ -9,8 +9,6 @@ import Game.Language;
  */
 
 public class DieController {
-    public DieController() {
-    }
 
     private Die die1 = new Die();
     private Die die2 = new Die();
@@ -32,10 +30,6 @@ public class DieController {
         return die2;
     }
 
-    /**
-     * @return boolean
-     * isDouble() method returns true if the two dices roll the same faceValue.
-     */
     public boolean isDouble() {
         return die1.getFaceValue() == die2.getFaceValue();
     }

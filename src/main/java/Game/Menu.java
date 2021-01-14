@@ -7,6 +7,9 @@ import gui_fields.GUI_Street;
 
 import java.awt.*;
 
+/**
+ * @author Louis
+ */
 public class Menu {
     public void takeTurnMenu(Language language, GameBoard gameBoard, GUIController guiController, PlayerController playerController) {
         while (true) {
@@ -86,13 +89,11 @@ public class Menu {
                         currentGUIField.setHouses(currentField.getHouses());
                         playerController.getCurrentPlayer().addBalance(currentField.getHousePrice());
                     }
-
                 }else{
                     guiController.showMessage(language.getText(10,14));
                 }
             }
         }
-
     }
 
     public void buyHouseOrHotel(Language language, PlayerController playerController, GUIController guiController, GameBoard gameBoard){
@@ -127,7 +128,6 @@ public class Menu {
                 }
             }
         }
-
     }
 
     /**
@@ -158,7 +158,6 @@ public class Menu {
             }
         }
         return pawnedFields;
-
     }
 
     /**
@@ -212,7 +211,7 @@ public class Menu {
     /**
      * finds the fields that are owned by the player
      * @param gameBoard
-     * @param player
+     * @param playerController
      * @return an array of BuyableField that the player owned
      */
     public BuyableField[] ownedFields(GameBoard gameBoard, PlayerController playerController){
@@ -271,7 +270,6 @@ public class Menu {
             }
             return names;
         }
-
 
     }
 

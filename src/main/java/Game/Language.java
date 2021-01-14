@@ -4,6 +4,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+/**
+ * @author Louis
+ */
 public class Language {
         private int linesInCSV = 58;
         private String[][] importedText = new String[linesInCSV][];

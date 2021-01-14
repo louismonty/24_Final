@@ -4,7 +4,7 @@ import Controller.GUIController;
 import Controller.PlayerController;
 
 /**
- * @Author Isak
+ * @author Isak
  */
 
 public class JailChanceCard extends ChanceCard

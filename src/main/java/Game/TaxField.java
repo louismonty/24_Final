@@ -61,12 +61,6 @@ public class TaxField extends Field {
         }
     }
 
-    /**
-     * @param playerController
-     * @param guiController
-     * @return void
-     * Unexpected tax gets subtracted from the current player's account.
-     */
     public void payUnexpectedTax(Language language, GUIController guiController, PlayerController playerController){
         playerController.getCurrentPlayer().subtractBalance(unexpectedTax);
         guiController.showMessage(language.getText(19,4)); //"Tax has been deducted."

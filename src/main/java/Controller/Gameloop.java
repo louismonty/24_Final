@@ -1,6 +1,9 @@
 package Controller;
 import Game.*;
 
+/**
+ * @author Isak
+ */
 public class Gameloop
 {
     private DieController dieController = new DieController();
@@ -18,7 +21,10 @@ public class Gameloop
         isGameRunning = true;
     }
 
-
+    /**
+     *  Loads the csv file, initializes the GUI, shuffles the chancecard deck and creates the players.
+     *  Then it runs the game as a loop until the winner has been found.
+     */
     public void matadorGameloop()
     {
         language.loadFile();
@@ -51,12 +57,10 @@ public class Gameloop
                         rules.setExtraTurn(false);
                         rules.threeDoubleGoToJail(gameboard, playerController);
                     }
-
                     gameboard.getGameBoard()[currentPlayer.getPlayerPosition()].getGUIField().setCar(currentPlayer.getGUIPlayer(),false);
                     currentPlayer.setPlayerPosition(currentPlayer.getPlayerPosition()+dieController.diceValue());
                     rules.overStartRule(language, guiController, playerController);
                     gameboard.getGameBoard()[currentPlayer.getPlayerPosition()].getGUIField().setCar(currentPlayer.getGUIPlayer(), true);
-
                 }
             while(true)
             {

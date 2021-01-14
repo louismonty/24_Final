@@ -5,6 +5,9 @@ import gui_fields.GUI_Field;
 
 import java.awt.*;
 
+/**
+ * @author Louis
+ */
 public class FerryField extends BuyableField {
 
     public FerryField(int positionID, Color colorID, String name, GUI_Field guiField, int price, int pawnValue, int group) {
@@ -20,7 +23,6 @@ public class FerryField extends BuyableField {
             if(ferryField.getOwner() == this.getOwner()){
                 multiplier += 1;
             }
-
         }
         return multiplier;
 

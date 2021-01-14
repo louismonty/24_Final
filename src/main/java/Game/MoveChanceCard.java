@@ -4,7 +4,7 @@ import Controller.GUIController;
 import Controller.PlayerController;
 
 /**
- * @Author Louis & Isak
+ * @author Louis & Isak
  */
 public class MoveChanceCard extends ChanceCard
 {
@@ -30,7 +30,6 @@ public class MoveChanceCard extends ChanceCard
 
     public int findNextFerryField(PlayerController playerController)
     {
-
         int ferryField = 0;
         if(playerController.getCurrentPlayer().getPlayerPosition()<5 || playerController.getCurrentPlayer().getPlayerPosition() > 35)
         {
@@ -48,14 +47,6 @@ public class MoveChanceCard extends ChanceCard
         {
             ferryField = 35;
         }
-        /*
-        int ferryField = playerController.getCurrentPlayer().getPlayerPosition();
-        for(int i = playerController.getCurrentPlayer().getPlayerPosition();gameboard.getGameBoard()[i] instanceof  FerryField;i = (i +1) % 40)
-        {
-            ferryField = i;
-        }
-
-         */
         return ferryField;
     }
 

@@ -32,7 +32,7 @@ public class SodaField extends BuyableField
     }
 
     /**
-     * @Author Victor
+     * @author Victor
      * @param playerController
      * @param gameBoard
      * @return rent for the field based on dice values

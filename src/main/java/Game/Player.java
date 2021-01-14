@@ -3,7 +3,7 @@ package Game;
 import gui_fields.GUI_Player;
 
 /**
- * @author “Daniel”
+ * @author Daniel
  *
  */
 
@@ -77,11 +77,6 @@ public class Player {
         this.hasMoved = hasMoved;
     }
 
-    public boolean getHasMovedBackwards()
-    {
-        return hasMovedBackwards;
-    }
-
     public void setHasMovedBackwards(boolean hasMovedBackwards)
     {
         this.hasMovedBackwards = hasMovedBackwards;
@@ -115,10 +110,6 @@ public class Player {
 
     public GUI_Player getGUIPlayer() {
         return GUIPlayer;
-    }
-
-    public void setGUIPlayer(GUI_Player GUIPlayer) {
-        this.GUIPlayer = GUIPlayer;
     }
 
     public int getGetOutOfJailCard() {

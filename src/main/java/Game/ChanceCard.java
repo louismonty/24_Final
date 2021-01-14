@@ -1,7 +1,7 @@
 package Game;
 
 /**
- * @Author Isak Risager
+ * @author Isak
  */
 public abstract class ChanceCard
 {

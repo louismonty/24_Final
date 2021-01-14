@@ -16,18 +16,7 @@ public class CustomField extends Field {
         super(positionID, colorID, name, guiField);
     }
 
-
-
-    /**
-     *
-     * @param gameBoard
-     * @param chanceCardController
-     * @param playerController
-     * @param guiController
-     * When landOnField is executed, the player's position is updated and nothing else happens.
-     */
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language) {
-
     }
 
     public String getName(){

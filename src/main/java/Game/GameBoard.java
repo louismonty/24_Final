@@ -10,7 +10,7 @@ import static java.awt.Color.*;
 
 
 /**
- * @author “Daniel”
+ * @author Daniel
  *
  */
 

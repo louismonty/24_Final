@@ -10,7 +10,7 @@ import java.awt.color.*;
 import Game.Language;
 
 /**
- * @author “Daniel”
+ * @author Daniel
  *
  */
 

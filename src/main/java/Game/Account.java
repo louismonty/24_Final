@@ -1,5 +1,8 @@
 package Game;
 
+/**
+ * @author Victor
+ */
 public class Account {
 
         private int balance;

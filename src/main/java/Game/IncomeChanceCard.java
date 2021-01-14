@@ -4,7 +4,7 @@ import Controller.GUIController;
 import Controller.PlayerController;
 
 /**
- * @author Isak Risager
+ * @author Isak
  */
 public class IncomeChanceCard extends ChanceCard
 {
@@ -95,7 +95,6 @@ public class IncomeChanceCard extends ChanceCard
         {
             playerController.getCurrentPlayer().addBalance(40000);
         }
-
     }
 
     public void birthdayCard(Language language, GUIController guiController, PlayerController playerController)

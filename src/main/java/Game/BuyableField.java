@@ -9,7 +9,7 @@ import gui_fields.GUI_Ownable;
 import java.awt.*;
 
 /**
- * @author “Louis”
+ * @author Louis
  *
  */
 
@@ -47,7 +47,16 @@ public abstract class BuyableField extends Field
     public boolean getIsPawned(){return this.isPawned;}
     public void setIsPawned(boolean set) {this.isPawned =set;}
 
-
+    /**
+     *
+     * @param gameBoard
+     * @param chanceCardController
+     * @param playerController
+     * @param guiController
+     * @param language
+     * Checks if property is bought. If not, then it gives you the option between buying or auctioning it.
+     * If it is, then it checks if the player is the owner. If not he pays rent to the owner. If he is, nothing happens.
+     */
     @Override
     public void landOnField(GameBoard gameBoard, ChanceCardController chanceCardController, PlayerController playerController, GUIController guiController, Language language)
     {
@@ -71,7 +80,6 @@ public abstract class BuyableField extends Field
                 playerController.getPlayerArray()[fieldLandedOn.getOwner()].addBalance(fieldRent);
             }
             }
-
     }
 
     public void buy(PlayerController playerController)
@@ -84,9 +92,18 @@ public abstract class BuyableField extends Field
         buy.setBorder(playerController.getCurrentPlayer().getGUIPlayer().getCar().getPrimaryColor());
     }
 
+    /**
+     *
+     * @param language
+     * @param guiController
+     * @param playerController
+     * Creates an auction, where all players are put into a new temporary array of booleans.
+     * If they player decides to decide not to participate they're set to false.
+     * The auction keeps going until there's only one player left, which wins the auction and becomes owner of the field.
+     */
     public void auction(Language language,GUIController guiController, PlayerController playerController)
     {
-        Boolean[] playerInActuin = new Boolean[playerController.getPlayerArray().length];
+        Boolean[] playerInAuction = new Boolean[playerController.getPlayerArray().length];
         int min = 0;
         int i = 0;
         int playerLeftInAuction = playerController.getPlayerArray().length ;
@@ -96,7 +113,7 @@ public abstract class BuyableField extends Field
             while(onGoingAuction)
             {
                 i = ((i + 1) % amountOfPlayer);
-                if(playerInActuin[i] == null)
+                if(playerInAuction[i] == null)
                 {
                     if (playerLeftInAuction != 1) {
                         String playerChose = guiController.buttons(playerController.getPlayerArray()[i].getName()+" "+language.getText(15, 6), language.getText(15, 7), language.getText(15, 8));
@@ -104,7 +121,7 @@ public abstract class BuyableField extends Field
 
                             min = guiController.integerInput(playerController.getPlayerArray()[i].getName() + " " + language.getText(15, 10) +" " + min, min+100, 100000);
                         } else {
-                            playerInActuin[i] = false;
+                            playerInAuction[i] = false;
                             playerLeftInAuction--;
                         }
                     }else{
