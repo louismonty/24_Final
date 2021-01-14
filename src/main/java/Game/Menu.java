@@ -58,7 +58,7 @@ public class Menu {
                     pawnedFields[i].setIsPawned(false);
                     GUI_Ownable guiField = (GUI_Ownable) pawnedFields[i].getGUIField();
                     guiField.setBorder(player.getGUIPlayer().getPrimaryColor());
-                    player.subtractBalance(pawnedFields[i].getPawnValue());
+                    player.subtractBalance(((int)((pawnedFields[i].getPawnValue()/10)+((pawnedFields[i].getPawnValue()/10)*0.1))*10));
                 } else {
                     guiController.showMessage(language.getText(1, 1));
                 }
