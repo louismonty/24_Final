@@ -138,6 +138,11 @@ public class Menu {
 
     }
 
+    /**
+     * finds the fields that can be pawned
+     * @param ownedFields
+     * @return
+     */
     public BuyableField[] pawnableFields(BuyableField ownedFields[]){
         BuyableField[]pawnableFields = new BuyableField[0];
         for(int i = 0; i<ownedFields.length;i++){
@@ -147,6 +152,12 @@ public class Menu {
         }
         return pawnableFields;
     }
+
+    /**
+     * finds the fields that is pawned
+     * @param ownedFields
+     * @return
+     */
     public BuyableField[] pawnedFields(BuyableField ownedFields[]){
         BuyableField[]pawnedFields = new BuyableField[0];
         for(int i = 0; i<ownedFields.length;i++){
@@ -158,6 +169,12 @@ public class Menu {
 
     }
 
+    /**
+     * finds the fields where houses can be bought
+      * @param fields
+     * @param player
+     * @return an 2d array that has all the fields sorted into groups and on the 11 row there is the fields where houses can be bought
+     */
     public BuyableField[][] ableToBuy(BuyableField[] fields,Player player){
         BuyableField[][] buyableField = new BuyableField[11][0];
         BuyableField[] listOfFieldWithallGroups = new BuyableField[0];
@@ -183,6 +200,12 @@ public class Menu {
         }
         return buyableField;
     }
+
+    /**
+     * finds the fields that can be bought
+     * @param gameBoard
+     * @return the the fields that can be bought in an BuyableField array
+     */
         public BuyableField[] buyableFields(GameBoard gameBoard){
         Field[] gameBoardFields = gameBoard.getGameBoard();
         BuyableField[] buyableFields = new BuyableField[0];
@@ -194,7 +217,14 @@ public class Menu {
         return buyableFields;
         }
 
-        public BuyableField[] ownedFields(GameBoard gameBoard, Player player){
+
+    /**
+     * finds the fields that are owned by the player
+     * @param gameBoard
+     * @param player
+     * @return an array of BuyableField that the player owned
+     */
+    public BuyableField[] ownedFields(GameBoard gameBoard, Player player){
             BuyableField[] arr = new BuyableField[0];
             for (int i = 0; i < gameBoard.getGameBoard().length; i++) {
                 if (gameBoard.getGameBoard()[i] instanceof BuyableField) {
@@ -207,7 +237,14 @@ public class Menu {
             return arr;
         }
 
-        public BuyableField[] exspandArr(BuyableField[] fields, BuyableField field){
+
+    /**
+     * expands an array of fields
+     * @param fields the fields array the need to be expanded
+     * @param field the field that need to be added to the array
+     * @return an array with the new field at the end of the array
+     */
+    public BuyableField[] exspandArr(BuyableField[] fields, BuyableField field){
         BuyableField[] tempArr = new BuyableField[fields.length+1];
         for(int i = 0;i<fields.length;i++){
             tempArr[i] = fields[i];
@@ -215,16 +252,28 @@ public class Menu {
         tempArr[fields.length] = field;
         return  tempArr;
         }
-    public String[] exspandStrArr(String[] fields, String field){
-        String[] tempArr = new String[fields.length+1];
-        for(int i = 0;i<fields.length;i++){
-            tempArr[i] = fields[i];
-        }
-        tempArr[fields.length] = field;
-        return  tempArr;
+
+    /**
+     * expands an array of strings
+     * @param strings the array of strings
+     * @param string the string that you want to add
+     * @return an array with the new string at the end of the array
+     */
+    public String[] exspandStrArr(String[] strings, String string){
+            String[] tempArr = new String[strings.length+1];
+            for(int i = 0;i<strings.length;i++){
+                tempArr[i] = strings[i];
+            }
+            tempArr[strings.length] = string;
+            return  tempArr;
     }
 
-        public String[] getStringArrOfName (Field[]fields){
+    /**
+     * creates a string array of names of Fields
+     * @param fields that you need the names of
+     * @return an string array of names
+     */
+    public String[] getStringArrOfName (Field[]fields){
             String[] names = new String[fields.length];
             for (int i = 0; i < fields.length; i++) {
                 names[i] = fields[i].getName();
