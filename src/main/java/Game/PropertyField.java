@@ -25,7 +25,33 @@ public class PropertyField extends BuyableField
 
     public int payRent(PlayerController playerController, GameBoard gameboard, Language language)
     {
-        int rent = Integer.parseInt(language.getText(csvLine,houses+2));
+        boolean groupOwned = false;
+        for (int i = 0; i<gameboard.getGameBoard().length; i++)
+        {
+            if(gameboard.getGameBoard()[i] instanceof PropertyField)
+            {
+                if (((BuyableField) gameboard.getGameBoard()[i]).getGroup() == this.group)
+                {
+                    if (((BuyableField) gameboard.getGameBoard()[i]).owner == this.owner)
+                    {
+                        groupOwned = true;
+                    }
+                    else
+                        {
+                            groupOwned = false;
+                        }
+                }
+            }
+        }
+        int rent;
+        if(groupOwned && this.houses == 0)
+        {
+            rent = Integer.parseInt(language.getText(csvLine, 2)) * 2;
+        }
+        else
+            {
+                rent = Integer.parseInt(language.getText(csvLine, houses + 2));
+            }
         return rent;
     }
 
