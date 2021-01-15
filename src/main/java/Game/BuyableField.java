@@ -125,13 +125,16 @@ public abstract class BuyableField extends Field
                             playerLeftInAuction--;
                         }
                     }else{
-                        this.owner = playerController.getPlayerArray()[i].getPlayerID();
-                        this.isPropertyBought = true;
-                        playerController.getPlayerArray()[i].subtractBalance(min);
-                        GUI_Ownable buy = (GUI_Ownable) this.guiField;
-                        buy.setOwnerName(playerController.getPlayerArray()[i].getName());
-                        buy.setBorder(playerController.getPlayerArray()[i].getGUIPlayer().getCar().getPrimaryColor());
-                    break;
+                        if(min != 0) {
+                            this.owner = playerController.getPlayerArray()[i].getPlayerID();
+                            this.isPropertyBought = true;
+                            playerController.getPlayerArray()[i].subtractBalance(min);
+                            GUI_Ownable buy = (GUI_Ownable) this.guiField;
+                            buy.setOwnerName(playerController.getPlayerArray()[i].getName());
+                            buy.setBorder(playerController.getPlayerArray()[i].getGUIPlayer().getCar().getPrimaryColor());
+                        }
+                        break;
+
                 }
                 }
             }
