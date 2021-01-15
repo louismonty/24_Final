@@ -8,6 +8,11 @@
     <artifactId>24_Final</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <properties>
+        <maven.compiler.source>6</maven.compiler.source>
+        <maven.compiler.target>6</maven.compiler.target>
+    </properties>
+
     <repositories>
         <repository>
             <id>Matador_GUI-repository</id>
@@ -31,5 +36,38 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <!-- Full name of class containing main function to run -->
+                            <mainClass>Game.Matador</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+
+                    <!-- Optional: Stops 'jar-with-dependencies' to be appended the .jar's name -->
+                    <appendAssemblyId>false</appendAssemblyId>
+
+                    <!-- Optional: Sets a custom name for the jar file -->
+                    <!-- <finalName>MyCustomFileName</finalName> -->
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
