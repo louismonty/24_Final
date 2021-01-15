@@ -8,27 +8,12 @@ import Controller.*;
 public class Jail {
     private int bail = 1000;
 
-    /**
-     * @param playerController
-     * @return void
-     * When executed, the currentPlayer gets bail subtracted from their account.
-     */
-
     public void payBail(Language language, GUIController guiController, PlayerController playerController){
         playerController.getCurrentPlayer().subtractBalance(bail);
         playerController.getCurrentPlayer().setInJail(false);
         playerController.getCurrentPlayer().setTurnsInJail(0);
         guiController.showMessage(language.getText(11,3)); // "You are out of jail."
     }
-
-    /**
-     * @param dieController
-     * @param playerController
-     * @param language
-     * @return void
-     * If player chooses to rollDiceToGetOut in GUI, he/she rolls the dice and sets isInJail status as false
-     * for the currentPlayer object.
-     */
 
     public void rollDiceToGetOut(Language language, GUIController guiController, DieController dieController, GameBoard gameboard, PlayerController playerController){
         dieController.diceRoll(guiController);
@@ -48,14 +33,6 @@ public class Jail {
         }
     }
 
-    /**
-     *
-     * @param playerController
-     * @param language
-     * @return void
-     * If a player chooses to useGetOutOfJailCard in GUI, the currentPlayer object's isInJail variable is
-     * set to false. Meanwhile, they lose a getOutOfJailCard.
-     */
     public void useGetOutOfJailCard(Language language, GUIController guiController, PlayerController playerController){
         playerController.getCurrentPlayer().setInJail(false);
         playerController.getCurrentPlayer().setTurnsInJail(0);
