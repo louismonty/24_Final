@@ -39,6 +39,7 @@ public class PropertyField extends BuyableField
                     else
                         {
                             groupOwned = false;
+                            break;
                         }
                 }
             }
