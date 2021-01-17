@@ -1,8 +1,8 @@
 \begin{flushleft}
 \doublespacing
-I analysedelen har vi identificeret use-cases (se afsnit 4.1-4.3), opstillet domænet for Matador (se afsnit 4.4) og illustreret et systemsekvensdiagram over Matadorspillets overordnede sekvenser (se afsnit 4.5).
+I analysedelen har vi identificeret use-cases (se afsnit 5.1-5.3), opstillet domænet for Matador (se afsnit 5.4) og illustreret et systemsekvensdiagram over Matadorspillets overordnede sekvenser (se afsnit 5.5).
 \subsection{Use-case diagram}
-Use-case diagrammet viser en oversigt over vores samlede use-cases (se Figure \ref{use-case diagram}). Det ses her, at en Player kan Play Matador og Initialize Game. De resterende use-cases har et include relation til Initialize Game, da de alle bliver eksekveret efter Initialize Game er eksekveret.
+Use-case diagrammet viser en oversigt over vores samlede use-cases (se Figure \ref{use-case diagram}). Det ses her, at en Player kan Play Matador og Initialize Game. De resterende use-cases har et include relation til Play Matador, da disse er en del af use-casen at spille Matador, hvorimod Create Player er en del af Initialize Game.
 \begin{figure}[H]
     \centering
     \includegraphics[width=12cm]{Report/figures/Use Case Diagram.png}
@@ -67,19 +67,19 @@ Misc. & N/A.\\
 \end{figure}
 \doublespacing
 
-\subsection{Sub use-cases}
+\subsection{Brief use-case beskrivelser}
 \textbf{UC02: Play Matador} \\
-Her vælger en bruger at åbne programmet, hvorefter en GUI vises på skærmen.  \\
+Her spilles spillet, hvor hver spiller tager deres tur indtil en vinder findes.  \\
 \textbf{UC03: Initialize Game} \\
-Når initialize Game eksekveres af brugeren, skal der vælges sprog (UC05), antal spillere, spilleres navne og hvem der starter. Herefter påbegyndes det aktuelle Matadorspil.\\
+Når initialize Game eksekveres af brugeren, skal der vælges antal spillere, spilleres navne og hvem der starter. Herefter påbegyndes det aktuelle Matadorspil.\\
 \textbf{UC04: Buy/sell house/hotel} \\
 Når det er en spillers tur kan spilleren vælge at købe og sælge huse hoteller på grunde, som er ejede. Herefter opdateres GUIen og tilføjer eller fjerner huse/hoteller fra grænsefladen.\\
-\textbf{UC05: Choose language} \\
-Når et spil initialiseres vises der en menu, hvor brugeren kan vælge sprog for spillet.\\
+\textbf{UC05: Create Players} \\
+Når et spil initialiseres vises der en menu, hvor brugeren kan vælge antal spillere, navngive spillerne og vælge hvem der starter.\\
 \textbf{UC06: Auction property} \\
 En spiller kan vælge at sætte en grund på auktion. Herved får alle spillere mulighed for at byde i auktionen.\\
-\textbf{UC07: Exchange pawned property} \\
-En spiller kan vælge at pantsætte eller købe pantsatte bygninger. Når en spiller har at købe eller pantsætte opdateres GUIen med spillerens nuværende balance og bygninger.
+\textbf{UC07: Pawn/Unpawn property} \\
+En spiller kan vælge at pantsætte eller tilbagekøbe pantsatte grunde. Når en spiller har tilbagekøbt eller pantsat opdateres GUIen med spillerens nuværende konto og grunde, hvortil de pantsatte grunde får en stiplet linje.
 
 \subsection{Domæne model}
 For bedre at forstå domænet, der arbejdes i, har vi udarbejdet en domæne model (se Figure \ref{Domænemodel}). I domænemodellen ses en oversigt af de forskellige virkelige objekter, som eksisterer i Matador domænet.
@@ -91,7 +91,7 @@ For bedre at forstå domænet, der arbejdes i, har vi udarbejdet en domæne mode
 \end{figure}
 
 \subsection{Systemsekvensdiagram}
-Her til at afrunde vores analysedel har vi udarbejdet et systemsekvensdiagram over Matador spillet (se figure \ref{Systemsekvensdiagram}). Diagrammet viser, hvordan en bruger (Player) skal interagere med spillet (Matador). Først starter brugeren spillet, hvorefter spillet viser en menu. Herefter skal brugeren indtaste antallet af spillere, hvorefter brugeren indtaster navne for hver spiller. Herefter kører matadorspillet i loop, hvor der skiftes tur (Take turn) og spillet opdaterer (Game updates) indtil der er fundet en vinder. Til sidst vises, hvem der har vundet og spillet ender.
+Her til at afrunde vores analysedel har vi udarbejdet et systemsekvensdiagram over Matador spillet (se figure \ref{Systemsekvensdiagram}). Diagrammet viser, hvordan en bruger (Player) skal interagere med spillet (Matador). Først starter brugeren spillet, hvorefter spillet viser en menu. Herefter skal brugeren indtaste antallet af spillere, hvorefter brugeren indtaster navne for hver spiller, og vælger hvilken spiller der skal starte. Herefter kører matadorspillet i et loop, hvor spillerne skiftes til at tage deres tur (Take turn) og spillet opdaterer (Game updates) indtil der er fundet en vinder. Til sidst vises, hvem der har vundet og spillet ender.
 \begin{figure}[htp]
     \centering
     \includegraphics[width=13cm]{Report/figures/System Sekvens Diagram.png}
