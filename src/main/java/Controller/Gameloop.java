@@ -54,6 +54,8 @@ public class Gameloop
                 {
                     menu.takeTurnMenu(language, gameboard, guiController,playerController);
                     dieController.diceRoll(guiController);
+                    dieController.getDie1().setFaceValue(guiController.integerInput("indtast det felt du ønsker at lande på",0,39));
+                    dieController.getDie2().setFaceValue(0);
                     currentPlayer.setNumberOfMoves(dieController.diceValue());
                     rules.doubleExtraTurn(dieController, playerController);
                     if(currentPlayer.getDoubleCounter()==3)

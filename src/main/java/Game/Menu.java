@@ -14,7 +14,7 @@ public class Menu {
     public void takeTurnMenu(Language language, GameBoard gameBoard, GUIController guiController, PlayerController playerController) {
         while (true) {
             String[] Text = language.getLine(10);
-            String playerChose = guiController.buttons(playerController.getCurrentPlayer().getName()+" "+Text[1],Text[2],Text[3],Text[4],Text[5],Text[6]);
+            String playerChose = guiController.buttons(playerController.getCurrentPlayer().getName()+" "+Text[1],Text[2],Text[3],Text[4],Text[5],Text[6],"demo");
             if (playerChose == Text[2]) {
                 break;
             } else if ((playerChose == Text[3])) {
@@ -26,10 +26,21 @@ public class Menu {
             } else if (playerChose == Text[6]) {
                 unpawn(language,playerController,guiController,gameBoard);
             }
+            else if(playerChose.equals("demo")){
+                Demo(gameBoard,playerController,guiController);
+            }
         }
     }
 
+    public void Demo(GameBoard gameBoard,PlayerController playerController,GUIController guiController){
+        int i = guiController.integerInput("grund",0,39);
+        BuyableField field =(BuyableField) gameBoard.getGameBoard()[i];
+        field.isPropertyBought = true;
+        field.owner = playerController.getCurrentPlayer().getPlayerID();
+        GUI_Street guiField =(GUI_Street) field.getGUIField();
+        guiField.setBorder(playerController.getCurrentPlayer().getGUIPlayer().getPrimaryColor());
 
+    }
 
     public void pawn(Language language, PlayerController playerController, GUIController guiController, GameBoard gameBoard) {
         BuyableField[] pawnableFields = pawnableFields(ownedFields(gameBoard, playerController));
