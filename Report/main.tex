@@ -97,7 +97,7 @@ numbersep=0.5cm
 \fancyfoot[C]{Page \thepage\ of \pageref{endOfDoc}}
 
 \newpage
-\section{Introduktion}
+\section{Indledning}
 \thispagestyle{fancy}
 \input{Report/sources/04_introduction}
 
@@ -123,6 +123,7 @@ numbersep=0.5cm
 
 \newpage
 \section{Implementering}
+\input{Report/sources/07_Implementering}{}
 \thispagestyle{fancy}
 
 \newpage
@@ -130,11 +131,11 @@ numbersep=0.5cm
 \input{Report/sources/08_Test}
 \thispagestyle{fancy}
 
-
-
 \newpage
-\section{Konklusion}
+\begin{flushleft}
+\section{Konklusion og bemærkninger}
 \input{Report/sources/10_Konklusion}
+\end{flushleft}
 \thispagestyle{fancy}
 
 \newpage
@@ -145,15 +146,9 @@ numbersep=0.5cm
 \thispagestyle{fancy}
 
 \newpage
-\section{Brugerguide}
-\input{Report/sources/12_Brugerguide}
-\thispagestyle{fancy}
-
-\newpage
-\section{Litteraturliste}
-
-\newpage
+\begin{flushleft}
 \section{Bilag}
 \input{Report/sources/13_Bilag}
+\end{flushleft}
 \label{endOfDoc}
 \end{document}

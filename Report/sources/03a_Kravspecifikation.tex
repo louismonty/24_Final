@@ -1,72 +1,81 @@
 \begin{flushleft}
+\doublespacing
+Vi har udbygget en prioriteret kravliste efter regelsættet der blev udleveret (se Figure \ref{MatadorRules1}-\ref{MatadorRules4} i bilag). Til det første møde med kunden (M1), blev der lavet en skitsering af kravlisten. Under dette møde med kunden blev kravlisten gennemgået, og sat i en prioriteret rækkefølge (se Figure \ref{Requirement list}). \\
+\addlinespace[0.5cm]
+Vi har nogle få punkter, der er valgt ikke at være med i spillet, grundet den begrænsede mængde tid til rådighed, og at de ikke var vigtige for funktionen eller glæden ved at spille spillet. Disse punkter inkluderer: (1) To måder at spille spillet på, en hurtig og normal måde, (2) at spillerne kan handle indbyrdes med skøder og løsladelseskort, (3) at en spiller bliver bank og auktionerer ejendomme fra spillere der er gået fallit og (4) at der er begrænsede antal huse og hoteller tilgængelige. Alle de fravalgte features vil senere kunne implementeres, hvis kunden ønsker det.  
+
 \end{flushleft}
 \begin{figure}[H]
     \centering
 \begin{tabular}{ | c | c | } 
 \hline
-RS01 & Spillerne begynder på feltet START. \\ 
+RS01 & En spiller kan købe grunde. \\ 
 \hline
-RS02 & Der skal være en spilleplade på 40 felter. \\ 
+RS02 & Spillerne begynder på feltet START. \\ 
 \hline
-RS03 & Matadorspillet kan spilles af 2-6 spillere. \\ 
+RS03 &  Der skal være en spilleplade på 40 felter.\\ 
 \hline
-RS04 & Der skal være to terninger som begge har seks sider. \\ 
+RS04 &  Matadorspillet kan spilles af 2-6 spillere.\\ 
 \hline
-RS05 & Hvis man slår to ens på terningerne rykker man og får lov til at kaste igen. \\
+RS05 & Der skal være to terninger som begge har seks sider. \\
 \hline
-RS06 & Hvis man kaster to ens tre gange i træk ryger man i fængsel. \\ 
+RS06 &  Hvis man slår to ens på terningerne rykker man og får lov til at kaste igen.\\ 
 \hline
-RS07 & Hver spiller starter med 30.000. \\ 
+RS07 & For at komme ud af fængslet kan en spiller vælge mellem tre valgmuligheder:\\
+& betal kaution, slå to ens eller brug løsladelseskort. \\ 
 \hline
-RS08 & Hvis en spiller skal betale mere end spillerens samlede ejendommes\\ & værdi går spilleren fallit og ryger ud af spillet. \\ 
+RS08 &Hver spiller starter med 30.000. \\ 
 \hline
 RS09 & Den spiller, der er sidst tilbage på spillepladen vinder. \\ 
 \hline
-RS10 & Hvis man lander på "Prøv lykken" feltet skal man trække et chancekort\\
-& som skal bruges i samme tur. \\ 
+RS10 & Hvis man lander på "Prøv lykken" feltet skal man trække et chancekort.\\
 \hline
-RS11 & En spiller rykker det antal øjne som terningerne viser på spillepladen.\\ 
+RS11 & Hvis en spiller skal betale mere end hvad spilleren har på kontoen,\\ & går spilleren fallit og ryger ud af spillet.\\
 \hline
-RS12 & Vælger en spiller ikke at købe den grund, der landes på, \\
+RS12 & En spiller rykker det antal øjne som terningerne viser på spillepladen. \\ 
+\hline
+RS13 & Vælger en spiller ikke at købe den grund, der landes på, \\
 & sættes grunden på auktion.\\ 
 \hline
-RS13 & Hvis en spiller er i fængsel, kan spiller ikke kræve husleje\\
-& på de grunde, der er ejet af spilleren.\\
+RS14 & Hvis en spiller er i fængsel, kan spilleren ikke kræve husleje\\
+& på de grunde, der er ejet af spilleren. \\
 \hline
-RS14 & For at komme ud af fængslet kan en spiller vælge mellem tre valgmuligheder:\\
-& betal kaution, slå to ens eller brug løsladelseskort. \\ 
+RS15 & Når man trækker et chancekort skal indholdet udføres med det samme. \\ 
 \hline
-RS15 & Kommer man ud af fængslet slår man  i samme tur med terningerne og rykker. \\ 
+RS16 &  Spillerne vælger indbyrdes, hvem der starter. \\%29
 \hline
-RS16 & Kommer man ud af fængslet ved at slå to ens, rykker man og får en ekstra tur. \\ 
+RS17 &  Hvis man ryger i fængsel modtager man ikke 4000 for at passere START.\\ 
 \hline
-RS17 & Spillerne vælger indbyrdes, hvem der starter. \\ 
+RS18 & Det skal være muligt at ændre sprog i spillet.  \\ 
 \hline
-RS18 & Hvis man ryger i fængsel modtager man ikke 4000 for at passere START. \\
+RS19 & Hvis man kaster to ens tre gange i træk ryger man i fængsel. \\
 \hline
-RS19 & Det skal være muligt at ændre sprog i spillet. \\ 
+RS20 & Man kan købe huse/hotel, hvis man ejer alle grunde i tilsvarende farve. \\
 \hline
-RS20 & Man kan købe huse/hotel, hvis man ejer alle grunde i tilsvarende farve. \\ 
+RS21 &  Huslejen stiger, hvis der er bygget huse/hotel i forvejen.\\ 
 \hline
-RS21 & Huslejen stiger, hvis der er bygget huse/hotel i forvejen. \\ 
+RS22 &  Der må ikke være mere end et hus forskel mellem grunde af samme farve. \\ 
 \hline
-RS22 & Der må ikke være mere end et hus forskel mellem grunde af samme farve. \\ 
+RS23 & For at opføre et hotel skal der være fire huse på grunden i forvejen.\\ 
 \hline
-RS23 & For at opføre et hotel skal der være fire huse på grunden i forvejen. \\ 
+RS24 & Der kan maksimum være et hotel per grund. \\ 
 \hline
-RS24 & Der kan maksimum være et hotel per grund.\\ 
+RS25 &Er man fængslet i tre omgange skal man i fjerde omgang betale 1000, \\
+& hvorefter man bliver løsladt. \\
 \hline
-RS25 & Når et hotel opføres gives husene tilbage til banken. \\ 
+RS26 &  Kommer man ud af fængslet slår man  i samme tur med terningerne og rykker. \\ 
 \hline
-RS26 & Er man fængslet i tre omgange skal man i fjerde omgang betale 1000, \\
-& hvorefter man bliver løsladt.\\
+RS27 & Spillere kan pantsætte ubebyggede grunde for den pris, der står på skødet. \\
 \hline
-RS27 & Spillere kan pantsætte ubebyggede grunde for den priser, der står på skødet.\\
+RS28 & Kommer man ud af fængslet ved at slå to ens, rykker man og får en ekstra tur.\\
 \hline
-RS28 & Der kræves ikke husleje på en pantsat grund.\\
+RS29 & Der kræves ikke husleje på en pantsat grund.\\
 \hline
-RS29 & Lejen fordobles på en grund, hvis spilleren ejer alle grunde i samme farve.\\
+RS30 & Lejen fordobles på en grund, hvis spilleren ejer alle grunde i samme farve.\\
+\hline
+RS31 & Når et hotel opføres gives husene tilbage til banken. \\%
 \hline
 \end{tabular}
 \caption{Tabel over prioriterede krav}
+\label{Requirement list}
 \end{figure}
